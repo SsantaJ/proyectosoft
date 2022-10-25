@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:proyectosoft/vistas/SignIn.dart';
-import 'package:proyectosoft/vistas/SignUp.dart';
+import 'package:proyectosoft/vistas/signIn.dart';
+import 'package:proyectosoft/vistas/signUp.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +17,9 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           primarySwatch: Colors.green,
         ),
-        home: Scaffold(
+        home: const Scaffold(
           backgroundColor: Color(0xFFBFD6D9),
-          body: SignIn(),
+          body: const SignUP(),
         ));
   }
 }

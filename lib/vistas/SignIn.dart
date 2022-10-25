@@ -1,4 +1,6 @@
-import 'dart:html';
+
+// ignore_for_file: file_names
+import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
 
@@ -11,50 +13,46 @@ class SignIn extends StatelessWidget {
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
         body: Container(
-      child: Container(
-        width: screenwidth,
-        height: screenheight,
-        decoration: BoxDecoration(
-          color: Color.fromARGB(255, 75, 109, 184),
-          borderRadius: BorderRadius.circular(25),
-        ),
-        child: Column(children: [
-          SizedBox(
-            height: (screenheight * 0.08),
+          width: screenwidth,
+          height: screenheight,
+          decoration: const BoxDecoration(
+            color: Color.fromARGB(255, 75, 109, 184),
           ),
-          Container(
-            decoration: BoxDecoration(),
-            child: txt("Ingresar", Colors.white, 20, "Poppins"),
-            alignment: Alignment(-0.7, -0.1), //no sirve el height
-          ),
-          SizedBox(
-            height: (screenheight * 0.06),
-          ),
-          campo("Usuario", false, Colors.white, screenwidth * 0.9,
-              screenheight * 0.05),
-          SizedBox(
-            height: (screenheight * 0.02),
-          ),
-          campo("Contraseña", true, Colors.white, screenwidth * 0.9,
-              screenheight * 0.05),
-          SizedBox(
-            height: (screenheight * 0.04),
-          ),
-          boton(() {}, Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
-              Colors.white, screenwidth * 0.9, screenheight * 0.05),
-          Container(
-            width: screenwidth,
-            height: screenheight * 0.608,
-            alignment: Alignment.bottomLeft,
-            child: Image.asset(
-              fit: BoxFit.cover,
-              "assets/imgs/platofondo.png",
-              height: screenheight * 0.45,
-              scale: 0.1,
+          child: Column(children: [
+            SizedBox(
+              height: (screenheight * 0.08),
             ),
-          ),
-        ]),
-      ),
-    ));
+            Container(
+              decoration: const BoxDecoration(),
+              child: txt("Ingresar", Colors.white, 20, "Poppins"),
+              alignment: const Alignment(-0.85, -0.1), //no sirve el height
+            ),
+            SizedBox(
+              height: (screenheight * 0.06),
+            ),
+            CustomTextField(obs: false, text: "Usuario", x: screenwidth * 0.9, y: screenheight * 0.05, color: Colors.white),
+            SizedBox(
+              height: (screenheight * 0.02),
+            ),
+            CustomTextField(obs: true, text: "Contraseña", x: screenwidth * 0.9, y: screenheight * 0.05, color: Colors.white),
+            SizedBox(
+              height: (screenheight * 0.04),
+            ),
+            boton(() {}, const Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
+                Colors.white, screenwidth * 0.9, screenheight * 0.05),
+            Flexible(
+              child: Container() ,
+            ),
+            Align(
+              alignment: const Alignment(-1,1),
+              child: Image.asset(
+                fit: BoxFit.cover,
+                "assets/imgs/platofondo.png",
+                height: screenheight * 0.35,
+                scale: 0.1,
+              ),
+            ),
+          ]),
+        ));
   }
 }
