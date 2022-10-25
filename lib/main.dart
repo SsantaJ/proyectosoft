@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
+import 'package:proyectosoft/vistas/SignUp.dart';
 
 void main() {
   runApp(const MyApp());

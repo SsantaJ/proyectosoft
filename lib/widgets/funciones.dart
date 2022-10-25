@@ -35,9 +35,10 @@ GestureDetector boton(VoidCallback funcion, Color color, String text,
   );
 }
 
-Container campo(String text, bool obs, Color color, double tam) {
+Container campo(String text, bool obs, Color color, double x, double y) {
   return Container(
-    width: tam,
+    width: x,
+    height: y,
     child: Container(
       child: TextField(
         obscureText: obs,
