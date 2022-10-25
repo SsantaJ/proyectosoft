@@ -25,12 +25,15 @@ class SignIn extends StatelessWidget {
           Spacer(flex: 1),
           Container(
             decoration: BoxDecoration(),
-            child: txt("Ingresar", Colors.white, 12, "Poppins"),
+            child: txt("Ingresar", Colors.white, 20, "Poppins"),
             alignment: Alignment(-0.7, -0.1), //no sirve el height
           ),
+          Spacer(flex: 1),
+          boton(() {}, Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
+              Colors.white, screenwidth * 0.9, screenheight * 0.05),
           Container(
             width: screenwidth,
-            height: screenheight * 0.875,
+            height: screenheight * 0.5,
             alignment: Alignment.bottomLeft,
             child: Image.asset(
               fit: BoxFit.cover,
@@ -38,7 +41,7 @@ class SignIn extends StatelessWidget {
               height: screenheight * 0.45,
               scale: 0.1,
             ),
-          )
+          ),
         ]),
       ),
     ));
