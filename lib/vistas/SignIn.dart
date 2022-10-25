@@ -18,6 +18,17 @@ class SignIn extends StatelessWidget {
           color: Color.fromARGB(255, 75, 109, 184),
           borderRadius: BorderRadius.circular(25),
         ),
+        child: Container(
+          width: 1,
+          height: 1,
+          alignment: Alignment.bottomLeft,
+          child: Image.asset(
+            "assets/platofondo.png",
+            //width: screenwidth * 0.55,
+            height: screenheight * 0.45,
+            scale: 0.1,
+          ),
+        ),
       ),
     ));
   }
