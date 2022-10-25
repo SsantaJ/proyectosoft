@@ -29,6 +29,12 @@ class SignIn extends StatelessWidget {
             alignment: Alignment(-0.7, -0.1), //no sirve el height
           ),
           Spacer(flex: 1),
+          campo("Usuario", false, Colors.white, screenwidth * 0.9),
+          SizedBox(
+            height: (screenheight * 0.02),
+          ),
+          campo("Contraseña", true, Colors.white, screenwidth * 0.9),
+          Spacer(flex: 1),
           boton(() {}, Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
               Colors.white, screenwidth * 0.9, screenheight * 0.05),
           Container(
