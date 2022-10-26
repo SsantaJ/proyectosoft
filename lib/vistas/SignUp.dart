@@ -68,7 +68,7 @@ class SignUP extends StatelessWidget {
           SizedBox(
             height: (screenheight * 0.03),
           ),
-          boton(() {}, Color.fromARGB(255, 235, 165, 3), "Registrarse",
+          boton(() {}, Color.fromARGB(255, 255, 118, 19), "Registrarse",
               Colors.white, screenwidth * 0.9, screenheight * 0.075),
           Flexible(
             child: Container(),

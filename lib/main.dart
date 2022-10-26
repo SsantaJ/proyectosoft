@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/vistas/signIn.dart';
 import 'package:proyectosoft/vistas/signUp.dart';
+import 'package:proyectosoft/vistas/welcomePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const Scaffold(
           backgroundColor: Color(0xFFBFD6D9),
-          body: const SignUP(),
+          body: const WelcomePage(),
         ));
   }
 }
