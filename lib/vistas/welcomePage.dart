@@ -1,3 +1,5 @@
+import 'package:proyectosoft/vistas/SignIn.dart';
+import 'package:proyectosoft/vistas/SignUp.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
@@ -29,13 +31,31 @@ class WelcomePage extends StatelessWidget {
           /* SizedBox(
             height: (screenheight * 0.1),
           ), */
-          boton(() {}, Color.fromARGB(255, 235, 165, 3), "Inicia Sesión",
-              Colors.white, screenwidth * 0.9, screenheight * 0.075),
+          boton(() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return SignIn();
+                },
+              ),
+            );
+          }, Color.fromARGB(255, 235, 165, 3), "Inicia Sesión", Colors.white,
+              screenwidth * 0.9, screenheight * 0.075),
           SizedBox(
             height: (screenheight * 0.05),
           ),
-          boton(() {}, Color.fromARGB(255, 255, 118, 19), "Registrate",
-              Colors.white, screenwidth * 0.9, screenheight * 0.075),
+          boton(() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return SignUP();
+                },
+              ),
+            );
+          }, Color.fromARGB(255, 255, 118, 19), "Registrate", Colors.white,
+              screenwidth * 0.9, screenheight * 0.075),
           Spacer(
             flex: 1,
           ),

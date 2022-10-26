@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
@@ -23,8 +24,17 @@ class SignIn extends StatelessWidget {
         ),
         Align(
           alignment: const Alignment(-0.88, 0),
-          child: boton(() {}, Color.fromARGB(0, 255, 255, 255), "<",
-              Colors.white, screenwidth * 0.11, screenheight * 0.055),
+          child: boton(() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return WelcomePage();
+                },
+              ),
+            );
+          }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
+              screenwidth * 0.11, screenheight * 0.055),
         ),
         SizedBox(
           height: (screenheight * 0.02),
