@@ -7,12 +7,12 @@ class CustomTextField extends StatefulWidget {
     required this.text,
     required this.x,
     required this.y,
-    required this.color, 
+    required this.color,
   }) : super(key: key);
 
   final bool obs; //puede ser nulla
   final String text;
-  final Color? color; 
+  final Color? color;
   final double x, y;
 
   @override
@@ -22,24 +22,22 @@ class CustomTextField extends StatefulWidget {
 class _CustomTextFieldState extends State<CustomTextField> {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:20),
+    return SizedBox(
+      width: widget.x,
+      height: widget.y,
+      //padding: const EdgeInsets.symmetric(horizontal: 20),
       child: DecoratedBox(
         decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(10)
-        ),
+            color: Colors.white, borderRadius: BorderRadius.circular(30)),
         child: TextField(
           obscureText: widget.obs,
-          
-          
           decoration: InputDecoration(
             enabledBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular((10))),
+              borderRadius: BorderRadius.all(Radius.circular((30))),
               borderSide: BorderSide(color: Colors.black, width: 0.1),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.all(Radius.circular((10))),
+              borderRadius: BorderRadius.all(Radius.circular((30))),
               borderSide:
                   BorderSide(color: Color.fromARGB(255, 235, 165, 3), width: 2),
             ),
@@ -48,7 +46,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
             labelStyle: TextStyle(
               color: Color.fromARGB(92, 61, 61, 61),
             ),
-            
           ),
         ),
       ),

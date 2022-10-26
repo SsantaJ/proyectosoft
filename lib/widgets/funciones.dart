@@ -4,8 +4,9 @@ Text txt(String text, Color colr, double tam, String estilo) {
   return Text(text,
       style: TextStyle(
           fontSize: tam,
-          fontWeight: FontWeight.w500,
+          //fontWeight: FontWeight.w500,
           color: colr,
+          fontWeight: FontWeight.bold,
           fontFamily: estilo),
       textAlign: TextAlign.right);
 }
@@ -28,6 +29,7 @@ GestureDetector boton(VoidCallback funcion, Color color, String text,
           child: Text(
         text,
         style: TextStyle(
+          fontWeight: FontWeight.w900,
           color: colorl,
         ),
       )),
