@@ -1,4 +1,5 @@
 // ignore_for_file: file_names
+import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
@@ -30,12 +31,12 @@ class SignIn extends StatelessWidget {
               context,
               MaterialPageRoute(
                 builder: (context) {
-                  return WelcomePage();
+                  return const WelcomePage();
                 },
               ),
             );
           }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-              screenwidth * 0.11, screenheight * 0.055, 30),
+              screenwidth * 0.11, screenheight * 0.055, 30, 50),
         ),
         SizedBox(
           height: (screenheight * 0.02),
@@ -67,9 +68,11 @@ class SignIn extends StatelessWidget {
           height: (screenheight * 0.04),
         ),
         boton(() {
-          Navigator.push(context, MaterialPageRoute(builder: (context){ return Order();}));
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return Home();
+          }));
         }, const Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
-            Colors.white, screenwidth * 0.9, screenheight * 0.075, 20),
+            Colors.white, screenwidth * 0.9, screenheight * 0.075, 20, 50),
         Flexible(
           child: Container(),
         ),

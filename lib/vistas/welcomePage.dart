@@ -56,7 +56,7 @@ class WelcomePage extends StatelessWidget {
               ),
             );
           }, Color.fromARGB(255, 235, 165, 3), "Inicia Sesión", Colors.white,
-              screenwidth * 0.9, screenheight * 0.075, 25),
+              screenwidth * 0.9, screenheight * 0.075, 25, 50),
           SizedBox(
             height: (screenheight * 0.05),
           ),
@@ -70,7 +70,7 @@ class WelcomePage extends StatelessWidget {
               ),
             );
           }, Color.fromARGB(255, 255, 118, 19), "Registrate", Colors.white,
-              screenwidth * 0.9, screenheight * 0.075, 25),
+              screenwidth * 0.9, screenheight * 0.075, 25, 50),
           Spacer(
             flex: 1,
           ),

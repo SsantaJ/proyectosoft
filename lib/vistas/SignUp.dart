@@ -1,3 +1,4 @@
+import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
@@ -29,7 +30,7 @@ class SignUP extends StatelessWidget {
                 ),
               );
             }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-                screenwidth * 0.11, screenheight * 0.055, 30),
+                screenwidth * 0.11, screenheight * 0.055, 30, 50),
           ),
           SizedBox(
             height: (screenheight * 0.015),
@@ -78,8 +79,17 @@ class SignUP extends StatelessWidget {
           SizedBox(
             height: (screenheight * 0.03),
           ),
-          boton(() {}, Color.fromARGB(255, 255, 118, 19), "Registrarse",
-              Colors.white, screenwidth * 0.9, screenheight * 0.075, 20),
+          boton(() {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) {
+                  return const Order();
+                },
+              ),
+            );
+          }, Color.fromARGB(255, 255, 118, 19), "Registrarse", Colors.white,
+              screenwidth * 0.9, screenheight * 0.075, 20, 50),
           Flexible(
             child: Container(),
           ),

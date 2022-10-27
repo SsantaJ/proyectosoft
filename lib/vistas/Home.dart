@@ -3,10 +3,11 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
+import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 
-class Order extends StatelessWidget {
-  const Order({Key? key}) : super(key: key);
+class Home extends StatelessWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,31 +26,30 @@ class Order extends StatelessWidget {
               SizedBox(
                 height: (screenheight * 0.06),
               ),
-              Row(children: [
-                SizedBox(
-                  width: screenwidth * 0.08,
-                ),
-                boton(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SignIn();
-                      },
-                    ),
-                  );
-                }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-                    screenwidth * 0.11, screenheight * 0.055, 30, 50),
-                SizedBox(
-                  width: screenwidth * 0.1,
-                ),
-                txt("Carrito de comida", Colors.white, 20, "Poppins")
-              ]),
+
+              SizedBox(
+                width: screenwidth * 0.08,
+              ),
+              SizedBox(
+                width: screenwidth * 0.1,
+              ),
+              CustomTextField(
+                  obs: false,
+                  text: "Busca tu plato",
+                  x: screenwidth * 0.9,
+                  y: screenheight * 0.07,
+                  color: Colors.white),
+              SizedBox(
+                height: (screenheight * 0.02),
+              ),
               SizedBox(
                 height: screenheight * 0.04,
               ),
+
+              boton(() {}, Colors.white, "aaa", Colors.amber,
+                  screenheight * 0.1, screenwidth * 0.2, 10, 10)
               //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
-              cart_card(screenheight: screenheight, screenwidth: screenwidth),
+              /* cart_card(screenheight: screenheight, screenwidth: screenwidth),
               SizedBox(
                 height: screenheight * 0.04,
               ),
@@ -60,10 +60,10 @@ class Order extends StatelessWidget {
               cart_card(screenheight: screenheight, screenwidth: screenwidth),
               Flexible(child: Container()),
               boton(() {}, Color(0xFFEBA503), "Enviar", Colors.white,
-                  screenwidth * 0.8, screenheight * 0.06, 20, 50),
+                  screenwidth * 0.8, screenheight * 0.06, 20),
               SizedBox(
                 height: screenheight * 0.04,
-              ),
+              ), */
             ],
           )),
     ));

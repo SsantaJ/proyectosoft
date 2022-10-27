@@ -12,7 +12,7 @@ Text txt(String text, Color colr, double tam, String estilo) {
 }
 
 GestureDetector boton(VoidCallback funcion, Color color, String text,
-    Color colorl, double x, double y, double tamtxt) {
+    Color colorl, double x, double y, double tamtxt, double Border) {
   return GestureDetector(
     onTap: funcion,
     child: Container(
@@ -20,7 +20,7 @@ GestureDetector boton(VoidCallback funcion, Color color, String text,
       height: y,
       decoration: BoxDecoration(
         color: color,
-        borderRadius: BorderRadius.circular(50),
+        borderRadius: BorderRadius.circular(Border),
         /* border: Border.all(
             color: colorl,
             width: 0.3,
