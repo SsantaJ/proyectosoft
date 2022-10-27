@@ -46,8 +46,42 @@ class Home extends StatelessWidget {
                 height: screenheight * 0.04,
               ),
 
-              boton(() {}, Colors.white, "aaa", Colors.amber,
-                  screenheight * 0.1, screenwidth * 0.2, 10, 10)
+              Row(
+                children: [
+                  Flexible(
+                    child: Container(),
+                  ),
+                  SizedBox(
+                    height: screenheight * 0.1,
+                    width: screenwidth * 0.2,
+                    child: boton(() {}, Colors.white, "aaa", Colors.amber,
+                        screenheight * 0.1, screenwidth * 0.2, 10, 10),
+                  ),
+                  Flexible(
+                    child: Container(),
+                  ),
+                  SizedBox(
+                    height: screenheight * 0.1,
+                    width: screenwidth * 0.2,
+                    child: boton(() {}, Color(0xffEBA503), "aaa", Colors.white,
+                        screenheight * 0.1, screenwidth * 0.2, 10, 10),
+                  ),
+                  Flexible(
+                    child: Container(),
+                  ),
+                  SizedBox(
+                    height: screenheight * 0.1,
+                    width: screenwidth * 0.2,
+                    child: boton(() {}, Colors.white, "aaa", Colors.amber,
+                        screenheight * 0.1, screenwidth * 0.2, 10, 10),
+                  ),
+                  Flexible(
+                    child: Container(),
+                  ),
+                ],
+              ),
+              txt("text", colr, tam, estilo))
+
               //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
               /* cart_card(screenheight: screenheight, screenwidth: screenwidth),
               SizedBox(
