@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
+import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 
@@ -80,7 +81,7 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
-              txt("text", colr, tam, estilo))
+              const CustomText(text: "text",color: Colors.white, fontSize: 20,fontFamily: "Poppins",),
 
               //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
               /* cart_card(screenheight: screenheight, screenwidth: screenwidth),
