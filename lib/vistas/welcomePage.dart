@@ -74,7 +74,7 @@ class WelcomePage extends StatelessWidget {
           Spacer(
             flex: 1,
           ),
-          /* SizedBox(
+          /* SizedBox(git 
             height: (screenheight * 0.01),
           ), */
           Align(
