@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 
 class Order extends StatelessWidget {
@@ -35,37 +36,24 @@ class Order extends StatelessWidget {
                 txt("Carrito de comida", Colors.white, 20, "Poppins")
               ]),
               SizedBox(
-                height: screenheight * 0.1,
+                height: screenheight * 0.04,
               ),
-              Container(
-                height: screenheight*0.11,
-                width: screenwidth*0.8,
-                alignment: Alignment.center,
-                child: Row(
-                children: [
-                  SizedBox(
-                    width: screenwidth * 0.20,
-                    child: Image.asset(
-                      "assets/imgs/placeholder-carrito.png",
-                    ),
-                  ),
-                  SizedBox(
-                      width: screenwidth*0.06,
-                    ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      txt("Comida muy rica", Colors.white, 14, "Poppins"),
-                      Flexible(child: Container()),
-                      txt("\$99.99", Colors.green, 12, "Poppins"),
-                      Flexible(child: Container())
-                    ],
-                  )
-                ],
+              //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
+              cart_card(screenheight: screenheight, screenwidth: screenwidth),
+              SizedBox(
+                height: screenheight * 0.04,
               ),
+              cart_card(screenheight: screenheight, screenwidth: screenwidth),
+              SizedBox(
+                height: screenheight * 0.04,
               ),
-              
+              cart_card(screenheight: screenheight, screenwidth: screenwidth),
+              Flexible(child: Container()),
+              boton(() {}, Color(0xFFEBA503), "Enviar", Colors.white,
+              screenwidth * 0.8, screenheight * 0.06, 20),
+              SizedBox(
+                height: screenheight * 0.04,
+              ),
             ],
           )),
     ));

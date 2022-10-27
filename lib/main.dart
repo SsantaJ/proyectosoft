@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         ),
         home: const Scaffold(
           backgroundColor: Color(0xFFBFD6D9),
-          body: const Order(),
+          body: const WelcomePage(),
         ));
   }
 }
