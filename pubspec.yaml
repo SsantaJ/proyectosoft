@@ -26,6 +26,7 @@ flutter:
 
   assets:
     - assets/imgs/platofondo.png
+    - assets/imgs/placeholder-carrito.png
 
   fonts:
     - family: Poppins

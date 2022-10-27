@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 import 'package:proyectosoft/vistas/welcomePage.dart';
-import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
@@ -66,16 +65,7 @@ class SignIn extends StatelessWidget {
         SizedBox(
           height: (screenheight * 0.04),
         ),
-        boton(() {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return Order();
-                },
-              ),
-            );
-          }, const Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
+        boton(() {}, const Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
             Colors.white, screenwidth * 0.9, screenheight * 0.075, 20),
         Flexible(
           child: Container(),
