@@ -34,7 +34,7 @@ class SignIn extends StatelessWidget {
               ),
             );
           }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-              screenwidth * 0.11, screenheight * 0.055),
+              screenwidth * 0.11, screenheight * 0.055, 30),
         ),
         SizedBox(
           height: (screenheight * 0.02),
@@ -66,7 +66,7 @@ class SignIn extends StatelessWidget {
           height: (screenheight * 0.04),
         ),
         boton(() {}, const Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
-            Colors.white, screenwidth * 0.9, screenheight * 0.075),
+            Colors.white, screenwidth * 0.9, screenheight * 0.075, 20),
         Flexible(
           child: Container(),
         ),

@@ -17,15 +17,30 @@ class WelcomePage extends StatelessWidget {
       backgroundColor: Color.fromARGB(255, 75, 109, 184),
       body: Column(
         children: [
-          Spacer(
+          const Spacer(
             flex: 1,
           ),
           /* SizedBox(
             height: (screenheight * 0.1),
           ), */
-          txt("mm", Colors.white, 50, "Poppins"),
-          txt("food", Colors.white, 60, "Poppins"),
-          Spacer(
+          Stack(
+            alignment: Alignment(0, 0),
+            children: [
+              txt("mm", Colors.white, 65, "Poppins"),
+              Container(
+                height: screenheight * 0.28,
+                //padding: EdgeInsets.symmetric(vertical: 50, horizontal: 50),
+
+                //decoration: BoxDecoration(color: Colors.green),
+                child: txt("food", Colors.white, 65, "Poppins"),
+
+                alignment: Alignment(0, 1),
+              ),
+            ],
+          ),
+          //txt("mm", Colors.white, 50, "Poppins"),
+          //txt("food", Colors.white, 60, "Poppins"),
+          const Spacer(
             flex: 1,
           ),
           /* SizedBox(
@@ -41,7 +56,7 @@ class WelcomePage extends StatelessWidget {
               ),
             );
           }, Color.fromARGB(255, 235, 165, 3), "Inicia Sesión", Colors.white,
-              screenwidth * 0.9, screenheight * 0.075),
+              screenwidth * 0.9, screenheight * 0.075, 25),
           SizedBox(
             height: (screenheight * 0.05),
           ),
@@ -55,7 +70,7 @@ class WelcomePage extends StatelessWidget {
               ),
             );
           }, Color.fromARGB(255, 255, 118, 19), "Registrate", Colors.white,
-              screenwidth * 0.9, screenheight * 0.075),
+              screenwidth * 0.9, screenheight * 0.075, 25),
           Spacer(
             flex: 1,
           ),
