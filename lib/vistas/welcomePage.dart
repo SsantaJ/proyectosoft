@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/vistas/SignUp.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
@@ -7,12 +9,22 @@ import 'package:flutter/material.dart';
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
+Future empezar() async{
+  await Firebase.initializeApp();
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance; //Instancia
+  final CollectionReference _mainCollection = _firestore.collection('menu');//Colección in
+  return await _firestore;
+}
+
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
+    empezar();
     Text prueba1 = txt("mm", Colors.white, 50, "Poppins");
     Text prueba2 = txt("food", Colors.white, 50, "Poppins");
+    
+    
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 75, 109, 184),
       body: Column(
