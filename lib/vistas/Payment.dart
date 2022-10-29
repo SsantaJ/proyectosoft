@@ -11,12 +11,13 @@ class Payment extends StatefulWidget {
   State<Payment> createState() => _PaymentState();
 }
 
+bool? isChecked = false;
+
 class _PaymentState extends State<Payment> {
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
-    bool? isChecked = true;
     return Scaffold(
         body: Center(
             child: Container(
@@ -51,24 +52,40 @@ class _PaymentState extends State<Payment> {
                       txt("Selecciona tú método de pago", Colors.white, 17,
                           "Poppins")
                     ]),
-                    SizedBox(
-                      height: screenheight*0.04
-                    ),
-                    SizedBox(
-                     width: screenwidth * 0.8,
-                     height: screenheight * 0.07,
-                     child:  CheckboxListTile(
-                     title: txt("Efectivo", Colors.white, 15, "Roboto"),
-                     controlAffinity: ListTileControlAffinity.trailing,
-                     value: isChecked,
-                     activeColor: Colors.green,
-                     checkColor: Colors.black,
-                     onChanged: (bool? value){
-                      setState(() {
-                        isChecked = value;
-                      });
-                    })
-                    )
+                    SizedBox(height: screenheight * 0.04),
+                    Transform.scale(
+                        scale: 1,
+                        child: Align(
+                            alignment: Alignment.bottomLeft,
+                            child: CheckboxListTile(
+                                title:
+                                Align(alignment: Alignment.centerLeft,
+                                child:txt("Efectivo", Colors.white, 16, "Roboto")),
+                                controlAffinity:
+                                    ListTileControlAffinity.platform,
+                                value: isChecked,
+                                contentPadding:
+                                    EdgeInsets.only(right: 40, left: 40),
+                                secondary: SizedBox(
+                                  width: 40,
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius: BorderRadius.circular(5)),
+                                    child: Image.asset(
+                                      "assets/imgs/wallet.png",
+                                      scale: 0.8,
+                                    ),
+                                  ),
+                                ),
+                                checkboxShape: CircleBorder(),
+                                activeColor: Color(0xFFEBA503),
+                                checkColor: Colors.white,
+                                onChanged: (bool? value) {
+                                  setState(() {
+                                    isChecked = value;
+                                  });
+                                })))
                   ],
                 ))));
   }
