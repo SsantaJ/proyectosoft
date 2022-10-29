@@ -30,6 +30,7 @@ flutter:
     - assets/imgs/platofondo.png
     - assets/imgs/placeholder-carrito.png
     - assets/imgs/trash-can.png
+    - assets/imgs/wallet.png
 
   fonts:
     - family: Poppins

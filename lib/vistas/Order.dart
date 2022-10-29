@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:proyectosoft/vistas/Payment.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
@@ -59,7 +60,16 @@ class Order extends StatelessWidget {
               ),
               cart_card(screenheight: screenheight, screenwidth: screenwidth),
               Flexible(child: Container()),
-              boton(() {}, Color(0xFFEBA503), "Enviar", Colors.white,
+              boton(() {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return Payment();
+                      },
+                    ),
+                  );
+                }, Color(0xFFEBA503), "Enviar", Colors.white,
                   screenwidth * 0.8, screenheight * 0.06, 20, 50),
               SizedBox(
                 height: screenheight * 0.04,
