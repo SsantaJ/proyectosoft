@@ -16,6 +16,7 @@ class _PaymentState extends State<Payment> {
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
+    bool? isChecked = true;
     return Scaffold(
         body: Center(
             child: Container(
@@ -53,39 +54,22 @@ class _PaymentState extends State<Payment> {
                     SizedBox(
                       height: screenheight*0.04
                     ),
-                    opcion("assets/imgs/wallet.png","Efectivo", screenheight, screenwidth)
+                    SizedBox(
+                     width: screenwidth * 0.8,
+                     height: screenheight * 0.07,
+                     child:  CheckboxListTile(
+                     title: txt("Efectivo", Colors.white, 15, "Roboto"),
+                     controlAffinity: ListTileControlAffinity.trailing,
+                     value: isChecked,
+                     activeColor: Colors.green,
+                     checkColor: Colors.black,
+                     onChanged: (bool? value){
+                      setState(() {
+                        isChecked = value;
+                      });
+                    })
+                    )
                   ],
                 ))));
   }
-}
-
-SizedBox opcion(
-    String imagen, String tipo, double screenheight, double screenwidth) {
-  if (tipo == "Efectivo") {
-    return SizedBox(
-        width: screenwidth * 0.8,
-        height: screenheight * 0.07,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: 30,
-              height: 30,
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  color: Color(0xFFECF0F1),
-                  borderRadius: BorderRadius.circular(5)
-                ),
-                child: Image.asset(imagen),
-              ),
-            )
-          ],
-        ));
-  } else if (tipo == "Tarjeta") {
-    return SizedBox(
-      width: screenwidth * 0.89,
-      height: screenheight * 0.07,
-    );
-  }
-  else(throw const FormatException());
 }
