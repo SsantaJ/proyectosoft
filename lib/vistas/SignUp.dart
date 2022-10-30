@@ -1,7 +1,6 @@
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
-import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
@@ -40,17 +39,6 @@ class SignUP extends StatelessWidget {
                 y: screenheight * 0.055,
                 border: 50,
                 tamtxt: 30),
-            /* boton(() {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return WelcomePage();
-                  },
-                ),
-              );
-            }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-                screenwidth * 0.11, screenheight * 0.055, 30, 50), */
           ),
           SizedBox(
             height: (screenheight * 0.015),
@@ -122,17 +110,6 @@ class SignUP extends StatelessWidget {
               y: screenheight * 0.075,
               border: 50,
               tamtxt: 20),
-          /* boton(() {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return const Order();
-                },
-              ),
-            );
-          }, Color.fromARGB(255, 255, 118, 19), "Registrarse", Colors.white,
-              screenwidth * 0.9, screenheight * 0.075, 20, 50), */
           Flexible(
             child: Container(),
           ),

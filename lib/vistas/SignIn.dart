@@ -3,7 +3,6 @@ import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
-import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
@@ -46,17 +45,6 @@ class SignIn extends StatelessWidget {
               y: screenheight * 0.055,
               border: 50,
               tamtxt: 30),
-          /* boton(() {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return const WelcomePage();
-                },
-              ),
-            );
-          }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-              screenwidth * 0.11, screenheight * 0.055, 30, 50), */
         ),
         SizedBox(
           height: (screenheight * 0.02),
@@ -95,7 +83,7 @@ class SignIn extends StatelessWidget {
         Custombotontxt(
             funcion: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return Home();
+                return HomePage();
               }));
             },
             color: const Color.fromARGB(255, 235, 165, 3),
@@ -105,12 +93,6 @@ class SignIn extends StatelessWidget {
             y: screenheight * 0.075,
             border: 50,
             tamtxt: 20),
-        /* boton(() {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return Home();
-          }));
-        }, const Color.fromARGB(255, 235, 165, 3), "Iniciar Sesion",
-            Colors.white, screenwidth * 0.9, screenheight * 0.075, 20, 50), */
         Flexible(
           child: Container(),
         ),

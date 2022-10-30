@@ -1,12 +1,66 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:proyectosoft/vistas/Order.dart';
+import 'package:proyectosoft/vistas/Payment.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  double screenwidth = 0.0;
+  double screenheight = 0.0;
+  final estados = [Home(), Payment(), Order()];
+  int index = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    screenheight = MediaQuery.of(context).size.height;
+    screenwidth = MediaQuery.of(context).size.width;
+    return Scaffold(
+        body: estados[index],
+        bottomNavigationBar: NavigationBarTheme(
+          data: NavigationBarThemeData(indicatorColor: Color(0xFFEBA503)),
+          child: NavigationBar(
+            destinations: [
+              NavigationDestination(
+                icon: Icon(Icons.home_outlined),
+                label: "Inicio",
+                selectedIcon: Icon(Icons.home),
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.person_outline),
+                label: "Perfil",
+                selectedIcon: Icon(Icons.person),
+              ),
+              NavigationDestination(
+                icon: Icon(Icons.shopping_cart_outlined),
+                label: "Carrito",
+                selectedIcon: Icon(Icons.shopping_cart),
+              )
+            ],
+            selectedIndex: index,
+            onDestinationSelected: (index) => setState(() {
+              this.index = index;
+            }),
+            backgroundColor: Color.fromARGB(255, 86, 120, 193),
+            height: screenheight * 0.07,
+            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+            animationDuration: Duration(seconds: 1),
+          ),
+        ));
+  }
+}
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);

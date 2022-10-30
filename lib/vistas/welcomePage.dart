@@ -2,7 +2,6 @@ import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/vistas/SignUp.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
-import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
@@ -20,9 +19,6 @@ class WelcomePage extends StatelessWidget {
           const Spacer(
             flex: 1,
           ),
-          /* SizedBox(
-            height: (screenheight * 0.1),
-          ), */
           Stack(
             alignment: Alignment(0, 0),
             children: [
@@ -34,9 +30,6 @@ class WelcomePage extends StatelessWidget {
               ),
               Container(
                 height: screenheight * 0.28,
-                //padding: EdgeInsets.symmetric(vertical: 50, horizontal: 50),
-
-                //decoration: BoxDecoration(color: Colors.green),
                 child: const CustomText(
                   text: "food",
                   color: Colors.white,
@@ -47,14 +40,9 @@ class WelcomePage extends StatelessWidget {
               ),
             ],
           ),
-          //txt("mm", Colors.white, 50, "Poppins"),
-          //txt("food", Colors.white, 60, "Poppins"),
           const Spacer(
             flex: 1,
           ),
-          /* SizedBox(
-            height: (screenheight * 0.1),
-          ), */
           Custombotontxt(
               funcion: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
@@ -68,17 +56,6 @@ class WelcomePage extends StatelessWidget {
               y: screenheight * 0.075,
               border: 50,
               tamtxt: 25),
-          /* boton(() {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return SignIn();
-                },
-              ),
-            );
-          }, Color.fromARGB(255, 235, 165, 3), "Inicia Sesión", Colors.white,
-              screenwidth * 0.9, screenheight * 0.075, 25, 50), */
           SizedBox(
             height: (screenheight * 0.05),
           ),
@@ -95,23 +72,9 @@ class WelcomePage extends StatelessWidget {
               y: screenheight * 0.075,
               border: 50,
               tamtxt: 25),
-          /* boton(() {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) {
-                  return SignUP();
-                },
-              ),
-            );
-          }, Color.fromARGB(255, 255, 118, 19), "Registrate", Colors.white,
-              screenwidth * 0.9, screenheight * 0.075, 25, 50), */
           Spacer(
             flex: 1,
           ),
-          /* SizedBox(git 
-            height: (screenheight * 0.01),
-          ), */
           Align(
             alignment: Alignment(-1, 1),
             child: Image.asset(
