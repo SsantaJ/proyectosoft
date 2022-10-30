@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/Payment.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
+import 'package:proyectosoft/vistas/profile.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
@@ -20,7 +21,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double screenwidth = 0.0;
   double screenheight = 0.0;
-  final estados = [Home(), Payment(), Order()];
+  final estados = [Home(), profile(), Order()];
   int index = 0;
 
   @override
