@@ -6,6 +6,7 @@ import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
+import 'package:proyectosoft/vistas/welcomePage.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -34,12 +35,27 @@ class Home extends StatelessWidget {
               SizedBox(
                 width: screenwidth * 0.1,
               ),
-              CustomTextField(
-                  obs: false,
-                  text: "Busca tu plato",
-                  x: screenwidth * 0.9,
-                  y: screenheight * 0.07,
-                  color: Colors.white),
+              Row(
+                children: [
+                  boton(() {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const WelcomePage();
+                        },
+                      ),
+                    );
+                  }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
+                      screenwidth * 0.11, screenheight * 0.055, 30, 50),
+                  CustomTextField(
+                      obs: false,
+                      text: "Busca tu plato",
+                      x: screenwidth * 0.8,
+                      y: screenheight * 0.07,
+                      color: Colors.white),
+                ],
+              ),
               SizedBox(
                 height: (screenheight * 0.02),
               ),
@@ -81,7 +97,12 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
-              const CustomText(text: "text",color: Colors.white, fontSize: 20,fontFamily: "Poppins",),
+              const CustomText(
+                text: "text",
+                color: Colors.white,
+                fontSize: 20,
+                fontFamily: "Poppins",
+              ),
 
               //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
               /* cart_card(screenheight: screenheight, screenwidth: screenwidth),

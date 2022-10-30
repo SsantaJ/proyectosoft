@@ -5,6 +5,7 @@ import 'package:proyectosoft/vistas/Payment.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
+import 'package:proyectosoft/widgets/custom_text.dart';
 
 class Order extends StatelessWidget {
   const Order({Key? key}) : super(key: key);
@@ -44,7 +45,12 @@ class Order extends StatelessWidget {
                 SizedBox(
                   width: screenwidth * 0.1,
                 ),
-                txt("Carrito de comida", Colors.white, 20, "Poppins")
+                const CustomText(
+                  text: "Carrito de comida",
+                  color: Colors.white,
+                  fontSize: 20,
+                  fontFamily: "Poppins",
+                ),
               ]),
               SizedBox(
                 height: screenheight * 0.04,
@@ -61,16 +67,16 @@ class Order extends StatelessWidget {
               cart_card(screenheight: screenheight, screenwidth: screenwidth),
               Flexible(child: Container()),
               boton(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return Payment();
-                      },
-                    ),
-                  );
-                }, Color(0xFFEBA503), "Enviar", Colors.white,
-                  screenwidth * 0.8, screenheight * 0.06, 20, 50),
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) {
+                      return Payment();
+                    },
+                  ),
+                );
+              }, Color(0xFFEBA503), "Enviar", Colors.white, screenwidth * 0.8,
+                  screenheight * 0.06, 20, 50),
               SizedBox(
                 height: screenheight * 0.04,
               ),

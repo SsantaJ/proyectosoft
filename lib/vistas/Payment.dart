@@ -3,6 +3,7 @@ import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
+import 'package:proyectosoft/widgets/custom_text.dart';
 
 class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
@@ -49,8 +50,12 @@ class _PaymentState extends State<Payment> {
                       SizedBox(
                         width: screenwidth * 0.01,
                       ),
-                      txt("Selecciona tú método de pago", Colors.white, 17,
-                          "Poppins")
+                      const CustomText(
+                        text: "Selecciona tú método de pago",
+                        color: Colors.white,
+                        fontSize: 17,
+                        fontFamily: "Poppins",
+                      ),
                     ]),
                     SizedBox(height: screenheight * 0.04),
                     Transform.scale(
@@ -58,9 +63,15 @@ class _PaymentState extends State<Payment> {
                         child: Align(
                             alignment: Alignment.bottomLeft,
                             child: CheckboxListTile(
-                                title:
-                                Align(alignment: Alignment.centerLeft,
-                                child:txt("Efectivo", Colors.white, 16, "Roboto")),
+                                title: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: const CustomText(
+                                    text: "Efectivo",
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: "Roboto",
+                                  ),
+                                ),
                                 controlAffinity:
                                     ListTileControlAffinity.platform,
                                 value: isChecked,

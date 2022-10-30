@@ -5,6 +5,7 @@ import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/widgets/custom_text.dart';
 
 class SignIn extends StatelessWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -43,7 +44,12 @@ class SignIn extends StatelessWidget {
         ),
         Container(
           decoration: const BoxDecoration(),
-          child: txt("Ingresar", Colors.white, 20, "Poppins"),
+          child: const CustomText(
+            text: "Ingresar",
+            color: Colors.white,
+            fontSize: 20,
+            fontFamily: "Poppins",
+          ),
           alignment: const Alignment(-0.85, -0.1), //no sirve el height
         ),
         SizedBox(

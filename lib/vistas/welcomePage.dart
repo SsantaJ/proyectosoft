@@ -3,19 +3,15 @@ import 'package:proyectosoft/vistas/SignUp.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/widgets/custom_text.dart';
 
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
-
-
-
 
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
-    Text prueba1 = txt("mm", Colors.white, 50, "Poppins");
-    Text prueba2 = txt("food", Colors.white, 50, "Poppins");
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 75, 109, 184),
       body: Column(
@@ -29,14 +25,23 @@ class WelcomePage extends StatelessWidget {
           Stack(
             alignment: Alignment(0, 0),
             children: [
-              txt("mm", Colors.white, 65, "Poppins"),
+              const CustomText(
+                text: "mm",
+                color: Colors.white,
+                fontSize: 65,
+                fontFamily: "Poppins",
+              ),
               Container(
                 height: screenheight * 0.28,
                 //padding: EdgeInsets.symmetric(vertical: 50, horizontal: 50),
 
                 //decoration: BoxDecoration(color: Colors.green),
-                child: txt("food", Colors.white, 65, "Poppins"),
-
+                child: const CustomText(
+                  text: "food",
+                  color: Colors.white,
+                  fontSize: 65,
+                  fontFamily: "Poppins",
+                ),
                 alignment: Alignment(0, 1),
               ),
             ],
