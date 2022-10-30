@@ -5,8 +5,8 @@ import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
-import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
+import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
@@ -37,17 +37,24 @@ class Home extends StatelessWidget {
               ),
               Row(
                 children: [
-                  boton(() {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const WelcomePage();
-                        },
-                      ),
-                    );
-                  }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-                      screenwidth * 0.11, screenheight * 0.055, 30, 50),
+                  Custombotontxt(
+                      funcion: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const WelcomePage();
+                            },
+                          ),
+                        );
+                      },
+                      color: Color.fromARGB(0, 255, 255, 255),
+                      text: "<",
+                      color2: Colors.white,
+                      x: screenwidth * 0.11,
+                      y: screenheight * 0.055,
+                      border: 50,
+                      tamtxt: 30),
                   CustomTextField(
                       obs: false,
                       text: "Busca tu plato",
@@ -71,8 +78,17 @@ class Home extends StatelessWidget {
                   SizedBox(
                     height: screenheight * 0.1,
                     width: screenwidth * 0.2,
-                    child: boton(() {}, Colors.white, "aaa", Colors.amber,
-                        screenheight * 0.1, screenwidth * 0.2, 10, 10),
+                    child: Custombotontxt(
+                        funcion: () {},
+                        color: Colors.white,
+                        text: "aaa",
+                        color2: Colors.amber,
+                        x: screenwidth * 0.1,
+                        y: screenheight * 0.2,
+                        border: 10,
+                        tamtxt: 10),
+                    /* boton(() {}, Colors.white, "aaa", Colors.amber,
+                        screenheight * 0.1, screenwidth * 0.2, 10, 10),*/
                   ),
                   Flexible(
                     child: Container(),
@@ -80,8 +96,15 @@ class Home extends StatelessWidget {
                   SizedBox(
                     height: screenheight * 0.1,
                     width: screenwidth * 0.2,
-                    child: boton(() {}, Color(0xffEBA503), "aaa", Colors.white,
-                        screenheight * 0.1, screenwidth * 0.2, 10, 10),
+                    child: Custombotontxt(
+                        funcion: () {},
+                        color: Colors.amber,
+                        text: "a",
+                        color2: Colors.white,
+                        x: screenwidth * 0.1,
+                        y: screenheight * 0.2,
+                        border: 10,
+                        tamtxt: 10),
                   ),
                   Flexible(
                     child: Container(),
@@ -89,8 +112,15 @@ class Home extends StatelessWidget {
                   SizedBox(
                     height: screenheight * 0.1,
                     width: screenwidth * 0.2,
-                    child: boton(() {}, Colors.white, "aaa", Colors.amber,
-                        screenheight * 0.1, screenwidth * 0.2, 10, 10),
+                    child: Custombotontxt(
+                        funcion: () {},
+                        color: Colors.white,
+                        text: "aaa",
+                        color2: Colors.amber,
+                        x: screenwidth * 0.1,
+                        y: screenheight * 0.2,
+                        border: 10,
+                        tamtxt: 10),
                   ),
                   Flexible(
                     child: Container(),

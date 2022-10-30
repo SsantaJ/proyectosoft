@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/Order.dart';
-import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
+import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
 class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
@@ -36,17 +36,24 @@ class _PaymentState extends State<Payment> {
                       SizedBox(
                         width: screenwidth * 0.08,
                       ),
-                      boton(() {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return Order();
-                            },
-                          ),
-                        );
-                      }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-                          screenwidth * 0.11, screenheight * 0.055, 30, 50),
+                      Custombotontxt(
+                          funcion: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return Order();
+                                },
+                              ),
+                            );
+                          },
+                          color: Color.fromARGB(0, 255, 255, 255),
+                          text: "<",
+                          color2: Colors.white,
+                          x: screenwidth * 0.11,
+                          y: screenheight * 0.055,
+                          border: 50,
+                          tamtxt: 30),
                       SizedBox(
                         width: screenwidth * 0.01,
                       ),

@@ -4,8 +4,8 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/Payment.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
-import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
+import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
 class Order extends StatelessWidget {
   const Order({Key? key}) : super(key: key);
@@ -31,17 +31,24 @@ class Order extends StatelessWidget {
                 SizedBox(
                   width: screenwidth * 0.08,
                 ),
-                boton(() {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return SignIn();
-                      },
-                    ),
-                  );
-                }, Color.fromARGB(0, 255, 255, 255), "<", Colors.white,
-                    screenwidth * 0.11, screenheight * 0.055, 30, 50),
+                Custombotontxt(
+                    funcion: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return SignIn();
+                          },
+                        ),
+                      );
+                    },
+                    color: Color.fromARGB(0, 255, 255, 255),
+                    text: "<",
+                    color2: Colors.white,
+                    x: screenwidth * 0.11,
+                    y: screenheight * 0.055,
+                    border: 50,
+                    tamtxt: 30),
                 SizedBox(
                   width: screenwidth * 0.1,
                 ),
@@ -66,17 +73,24 @@ class Order extends StatelessWidget {
               ),
               cart_card(screenheight: screenheight, screenwidth: screenwidth),
               Flexible(child: Container()),
-              boton(() {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return Payment();
-                    },
-                  ),
-                );
-              }, Color(0xFFEBA503), "Enviar", Colors.white, screenwidth * 0.8,
-                  screenheight * 0.06, 20, 50),
+              Custombotontxt(
+                  funcion: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return Payment();
+                        },
+                      ),
+                    );
+                  },
+                  color: Color(0xFFEBA503),
+                  text: "Enviar",
+                  color2: Colors.white,
+                  x: screenwidth * 0.8,
+                  y: screenheight * 0.06,
+                  border: 50,
+                  tamtxt: 20),
               SizedBox(
                 height: screenheight * 0.04,
               ),

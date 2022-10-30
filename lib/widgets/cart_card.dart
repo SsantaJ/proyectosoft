@@ -1,7 +1,6 @@
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
-import 'package:proyectosoft/widgets/funciones.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
 class cart_card extends StatefulWidget {
