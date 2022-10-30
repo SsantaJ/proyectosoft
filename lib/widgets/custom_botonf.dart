@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
 
-/*(VoidCallback funcion, Color color, String text,
-    Color colorl, double x, double y, double tamtxt, double Border)*/
-
-class Custombotontxt extends StatefulWidget {
-  const Custombotontxt({
+class Custombotonf extends StatefulWidget {
+  const Custombotonf({
     Key? key,
     required this.funcion,
     required this.color,
-    required this.text,
+    required this.img,
     required this.color2,
     required this.x,
     required this.y,
     required this.border,
-    required this.tamtxt,
+    required this.tamimg,
   }) : super(key: key);
   final VoidCallback funcion;
-  final String text;
+  final String img;
   final Color color;
   final Color color2;
-  final double x, y, border, tamtxt;
+  final double x, y, border, tamimg;
 
   @override
-  State<Custombotontxt> createState() => _Custombotontxtstate();
+  State<Custombotonf> createState() => _Custombotonfstate();
 }
 
-class _Custombotontxtstate extends State<Custombotontxt> {
+class _Custombotonfstate extends State<Custombotonf> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -34,14 +31,13 @@ class _Custombotontxtstate extends State<Custombotontxt> {
         width: widget.x,
         height: widget.y,
         decoration: BoxDecoration(
+          image:
+              DecorationImage(image: AssetImage(widget.img), fit: BoxFit.cover),
           color: widget.color,
           borderRadius: BorderRadius.circular(widget.border),
-          /* border: Border.all(
-            color: colorl,
-            width: 0.3,
-          ) */
         ),
-        child: Center(
+        /* child: Center(
+          
             child: Text(
           widget.text,
           style: TextStyle(
@@ -49,7 +45,7 @@ class _Custombotontxtstate extends State<Custombotontxt> {
             fontWeight: FontWeight.w900,
             color: widget.color2,
           ),
-        )),
+        )), */
       ),
     );
   }

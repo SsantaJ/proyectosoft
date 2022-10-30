@@ -10,6 +10,7 @@ import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
+import 'package:proyectosoft/widgets/custom_botonf.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -29,37 +30,38 @@ class _HomePageState extends State<HomePage> {
     screenheight = MediaQuery.of(context).size.height;
     screenwidth = MediaQuery.of(context).size.width;
     return Scaffold(
-        body: estados[index],
-        bottomNavigationBar: NavigationBarTheme(
-          data: NavigationBarThemeData(indicatorColor: Color(0xFFEBA503)),
-          child: NavigationBar(
-            destinations: [
-              NavigationDestination(
-                icon: Icon(Icons.home_outlined),
-                label: "Inicio",
-                selectedIcon: Icon(Icons.home),
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.person_outline),
-                label: "Perfil",
-                selectedIcon: Icon(Icons.person),
-              ),
-              NavigationDestination(
-                icon: Icon(Icons.shopping_cart_outlined),
-                label: "Carrito",
-                selectedIcon: Icon(Icons.shopping_cart),
-              )
-            ],
-            selectedIndex: index,
-            onDestinationSelected: (index) => setState(() {
-              this.index = index;
-            }),
-            backgroundColor: Color.fromARGB(255, 86, 120, 193),
-            height: screenheight * 0.07,
-            labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-            animationDuration: Duration(seconds: 1),
-          ),
-        ));
+      body: estados[index],
+      bottomNavigationBar: NavigationBarTheme(
+        data: NavigationBarThemeData(indicatorColor: Color(0xFFEBA503)),
+        child: NavigationBar(
+          destinations: [
+            NavigationDestination(
+              icon: Icon(Icons.home_outlined),
+              label: "Inicio",
+              selectedIcon: Icon(Icons.home),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.person_outline),
+              label: "Perfil",
+              selectedIcon: Icon(Icons.person),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.shopping_cart_outlined),
+              label: "Carrito",
+              selectedIcon: Icon(Icons.shopping_cart),
+            )
+          ],
+          selectedIndex: index,
+          onDestinationSelected: (index) => setState(() {
+            this.index = index;
+          }),
+          backgroundColor: Color.fromARGB(255, 86, 120, 193),
+          height: screenheight * 0.07,
+          labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
+          animationDuration: Duration(seconds: 2),
+        ),
+      ),
+    );
   }
 }
 
@@ -188,6 +190,18 @@ class Home extends StatelessWidget {
                 fontSize: 20,
                 fontFamily: "Poppins",
               ),
+              SizedBox(
+                height: (screenheight * 0.05),
+              ),
+              Custombotonf(
+                  funcion: () {},
+                  color: Colors.green,
+                  img: "assets/imgs/burger.png",
+                  color2: Colors.pink,
+                  x: screenheight * 0.1,
+                  y: screenwidth * 0.2,
+                  border: 3,
+                  tamimg: 2),
 
               //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
               /* cart_card(screenheight: screenheight, screenwidth: screenwidth),
