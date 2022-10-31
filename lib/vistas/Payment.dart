@@ -65,45 +65,46 @@ class _PaymentState extends State<Payment> {
                       ),
                     ]),
                     SizedBox(height: screenheight * 0.04),
-                    Transform.scale(
-                        scale: 1,
-                        child: Align(
-                            alignment: Alignment.bottomLeft,
-                            child: CheckboxListTile(
-                                title: Align(
-                                  alignment: Alignment.centerLeft,
-                                  child: const CustomText(
-                                    text: "Efectivo",
-                                    color: Colors.white,
-                                    fontSize: 16,
-                                    fontFamily: "Roboto",
-                                  ),
-                                ),
-                                controlAffinity:
-                                    ListTileControlAffinity.platform,
-                                value: isChecked,
-                                contentPadding:
-                                    EdgeInsets.only(right: 40, left: 40),
-                                secondary: SizedBox(
-                                  width: 40,
-                                  child: DecoratedBox(
-                                    decoration: BoxDecoration(
-                                        color: Colors.white,
-                                        borderRadius: BorderRadius.circular(5)),
-                                    child: Image.asset(
-                                      "assets/imgs/wallet.png",
-                                      scale: 0.8,
-                                    ),
-                                  ),
-                                ),
-                                checkboxShape: CircleBorder(),
-                                activeColor: Color(0xFFEBA503),
-                                checkColor: Colors.white,
-                                onChanged: (bool? value) {
-                                  setState(() {
-                                    isChecked = value;
-                                  });
-                                })))
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(left: screenwidth * 0.1)),
+                        SizedBox(
+                          width: 40,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Image.asset(
+                              "assets/imgs/wallet.png",
+                              scale: 0.8,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(left: screenwidth * 0.05)),
+                        CustomText(
+                            text: "Efectivo",
+                            fontFamily: "Roboto",
+                            fontSize: 16,
+                            color: Colors.white),
+                        Spacer(),
+                        Transform.scale(scale: 1.7, child: Checkbox(
+                          value: isChecked,
+                          onChanged: (bool? value) {
+                            setState(() {
+                              isChecked = value;
+                            });
+                          },
+                          activeColor: Color(0xFFEBA503),
+                          checkColor: Colors.white,
+                          shape: CircleBorder(),
+                        ))
+                        ,
+                        Padding(padding: EdgeInsets.only(right: screenwidth*0.1))
+                      ],
+                    )
                   ],
                 ))));
   }
