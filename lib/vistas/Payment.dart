@@ -104,6 +104,49 @@ class _PaymentState extends State<Payment> {
                         ,
                         Padding(padding: EdgeInsets.only(right: screenwidth*0.1))
                       ],
+                    ),
+                    Padding(padding: EdgeInsets.only(top: screenheight*0.06)),
+                     Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Padding(
+                            padding: EdgeInsets.only(left: screenwidth * 0.1)),
+                        SizedBox(
+                          width: 40,
+                          child: DecoratedBox(
+                            decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(5)),
+                            child: Image.asset(
+                              "assets/imgs/wallet.png",
+                              scale: 0.8,
+                            ),
+                          ),
+                        ),
+                        Padding(
+                            padding: EdgeInsets.only(left: screenwidth * 0.05)),
+                        CustomText(
+                            text: "Tarjeta de Crédito",
+                            fontFamily: "Roboto",
+                            fontSize: 12,
+                            color: Colors.white),
+                        Spacer(),
+                        CustomText(
+                            text: "4444 **** **** 5782",
+                            fontFamily: "Roboto",
+                            fontSize: 10,
+                            color: Colors.white),
+                        Custombotontxt(
+              funcion: () {},
+              color: Color.fromARGB(0, 255, 255, 255),
+              text: ">",
+              color2: Colors.white,
+              x: screenwidth * 0.11,
+              y: screenheight * 0.055,
+              border: 50,
+              tamtxt: 30),
+                        Padding(padding: EdgeInsets.only(right: screenwidth*0.09))
+                      ],
                     )
                   ],
                 ))));
