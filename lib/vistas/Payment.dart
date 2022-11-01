@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/Order.dart';
+import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
@@ -34,29 +35,16 @@ class _PaymentState extends State<Payment> {
                       height: (screenheight * 0.06),
                     ),
                     Row(children: [
-                      SizedBox(
-                        width: screenwidth * 0.08,
-                      ),
-                      Custombotontxt(
-                          funcion: () {
+                      Padding(padding: EdgeInsets.only(left: screenwidth*0.1)),
+                      CustomBackArrow(funcion: () {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
                                   return Order();
-                                },
-                              ),
-                            );
-                          },
-                          color: Color.fromARGB(0, 255, 255, 255),
-                          text: "<",
-                          color2: Colors.white,
-                          x: screenwidth * 0.11,
-                          y: screenheight * 0.055,
-                          border: 50,
-                          tamtxt: 30),
+                                }));}, dir: true, color: Colors.white),
                       SizedBox(
-                        width: screenwidth * 0.01,
+                        width: screenwidth * 0.03,
                       ),
                       const CustomText(
                         text: "Selecciona tú método de pago",
@@ -100,12 +88,12 @@ class _PaymentState extends State<Payment> {
                                   isChecked = value;
                                 });
                               },
-                              activeColor: Color(0xFFEBA503),
+                              activeColor: Color(0xFFFF7613),
                               checkColor: Colors.white,
                               shape: CircleBorder(),
                             )),
                         Padding(
-                            padding: EdgeInsets.only(right: screenwidth * 0.1))
+                            padding: EdgeInsets.only(right: screenwidth * 0.07))
                       ],
                     ),
                     Padding(padding: EdgeInsets.only(top: screenheight * 0.04)),
@@ -143,20 +131,11 @@ class _PaymentState extends State<Payment> {
                             fontFamily: "Roboto",
                             fontSize: 10,
                             color: Colors.white),
-                        Custombotontxt(
-                            funcion: () {},
-                            color: Color.fromARGB(0, 255, 255, 255),
-                            text: ">",
-                            color2: Colors.white,
-                            x: screenwidth * 0.11,
-                            y: screenheight * 0.055,
-                            border: 50,
-                            tamtxt: 30),
+                        CustomBackArrow(funcion: (){}, dir: false, color: Colors.white),
                         Padding(
-                            padding: EdgeInsets.only(right: screenwidth * 0.09))
+                            padding: EdgeInsets.only(right: screenwidth * 0.1))
                       ],
                     ),
-                    Transform.scale(scale: -1, child: Icon(Icons.arrow_back_ios_new,))
                     
                   ],
                 ))));

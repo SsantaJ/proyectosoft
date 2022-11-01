@@ -2,6 +2,7 @@
 import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
+import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
@@ -27,8 +28,7 @@ class SignIn extends StatelessWidget {
         ),
         Align(
           alignment: const Alignment(-0.88, 0),
-          child: Custombotontxt(
-              funcion: () {
+          child: CustomBackArrow(funcion: (){
                 Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -36,15 +36,7 @@ class SignIn extends StatelessWidget {
                       return WelcomePage();
                     },
                   ),
-                );
-              },
-              color: Color.fromARGB(0, 255, 255, 255),
-              text: "<",
-              color2: Colors.white,
-              x: screenwidth * 0.11,
-              y: screenheight * 0.055,
-              border: 50,
-              tamtxt: 30),
+                );}, dir: true, color: Colors.white),
         ),
         SizedBox(
           height: (screenheight * 0.02),
