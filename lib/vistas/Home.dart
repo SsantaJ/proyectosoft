@@ -140,8 +140,6 @@ class Home extends StatelessWidget {
                         y: screenheight * 0.2,
                         border: 10,
                         tamtxt: 10),
-                    /* boton(() {}, Colors.white, "aaa", Colors.amber,
-                        screenheight * 0.1, screenwidth * 0.2, 10, 10),*/
                   ),
                   Flexible(
                     child: Container(),
@@ -180,33 +178,165 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
-              const CustomText(
-                text: "text",
-                color: Colors.white,
-                fontSize: 20,
-                fontFamily: "Poppins",
+              Row(
+                children: [
+                  Flexible(
+                    child: Container(),
+                  ),
+                  SizedBox(
+                    height: screenheight * 0.1,
+                    width: screenwidth * 0.2,
+                    child: const CustomText(
+                      text: "Bebídas",
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontFamily: "Poppins",
+                    ),
+                  ),
+                  Flexible(
+                    child: Container(),
+                  ),
+                  SizedBox(
+                    height: screenheight * 0.1,
+                    width: screenwidth * 0.2,
+                    child: const CustomText(
+                      text: "Platos",
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontFamily: "Poppins",
+                    ),
+                  ),
+                  Flexible(
+                    child: Container(),
+                  ),
+                  SizedBox(
+                    height: screenheight * 0.1,
+                    width: screenwidth * 0.2,
+                    child: const CustomText(
+                      text: "Postres",
+                      color: Colors.white,
+                      fontSize: 15,
+                      fontFamily: "Poppins",
+                    ),
+                  ),
+                  Flexible(
+                    child: Container(),
+                  ),
+                ],
               ),
               SizedBox(
                 height: (screenheight * 0.05),
               ),
-              Custombotonf(
-                  funcion: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) {
-                          return const menu();
-                        },
-                      ),
-                    );
-                  },
-                  color: Colors.green,
-                  img: "assets/imgs/burger.png",
-                  color2: Colors.pink,
-                  x: screenheight * 0.1,
-                  y: screenwidth * 0.2,
-                  border: 3,
-                  tamimg: 2),
+              Row(
+                children: [
+                  Flexible(
+                    child: Container(
+                      width: screenwidth * 0.15,
+                    ),
+                  ),
+                  Custombotonf(
+                    funcion: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const menu();
+                          },
+                        ),
+                      );
+                    },
+                    color: Colors.green,
+                    img: "assets/imgs/burger.png",
+                    color2: Colors.pink,
+                    x: screenheight * 0.17,
+                    y: screenwidth * 0.3,
+                    border: 3,
+                    tamimg: 2,
+                  ),
+                  Flexible(
+                    child: Container(),
+                  ),
+                  Custombotonf(
+                    funcion: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const menu();
+                          },
+                        ),
+                      );
+                    },
+                    color: Colors.green,
+                    img: "assets/imgs/burger.png",
+                    color2: Colors.pink,
+                    x: screenheight * 0.17,
+                    y: screenwidth * 0.3,
+                    border: 3,
+                    tamimg: 2,
+                  ),
+                  Flexible(
+                    child: Container(
+                      width: screenwidth * 0.15,
+                    ),
+                  ),
+                ],
+              ),
+              Row(
+                children: [
+                  Flexible(
+                    child: Container(
+                      width: screenwidth * 0.15,
+                    ),
+                  ),
+                  Custombotonf(
+                    funcion: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const menu();
+                          },
+                        ),
+                      );
+                    },
+                    color: Colors.green,
+                    img: "assets/imgs/burger.png",
+                    color2: Colors.pink,
+                    x: screenheight * 0.17,
+                    y: screenwidth * 0.3,
+                    border: 3,
+                    tamimg: 2,
+                  ),
+                  Flexible(
+                    child: Container(),
+                  ),
+                  Custombotonf(
+                    funcion: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return const menu();
+                          },
+                        ),
+                      );
+                    },
+                    color: Colors.green,
+                    img: "assets/imgs/burger.png",
+                    color2: Colors.pink,
+                    x: screenheight * 0.17,
+                    y: screenwidth * 0.3,
+                    border: 3,
+                    tamimg: 2,
+                  ),
+                  Flexible(
+                    child: Container(
+                      width: screenwidth * 0.15,
+                    ),
+                  ),
+                ],
+              ),
 
               //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
               /* cart_card(screenheight: screenheight, screenwidth: screenwidth),

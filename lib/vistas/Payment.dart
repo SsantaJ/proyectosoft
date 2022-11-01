@@ -90,12 +90,12 @@ class _PaymentState extends State<Payment> {
                         ),
                         Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.05)),
-                        CustomText(
+                        const CustomText(
                             text: "Efectivo",
                             fontFamily: "Roboto",
                             fontSize: 16,
                             color: Colors.white),
-                        Spacer(),
+                        const Spacer(),
                         Transform.scale(
                             scale: 1.7,
                             child: Checkbox(
@@ -105,9 +105,9 @@ class _PaymentState extends State<Payment> {
                                   isChecked = value;
                                 });
                               },
-                              activeColor: Color(0xFFFF7613),
+                              activeColor: const Color(0xFFFF7613),
                               checkColor: Colors.white,
-                              shape: CircleBorder(),
+                              shape: const CircleBorder(),
                             )),
                         Padding(
                             padding: EdgeInsets.only(right: screenwidth * 0.07))
@@ -144,13 +144,13 @@ class _PaymentState extends State<Payment> {
                         ),
                         Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.05)),
-                        CustomText(
+                        const CustomText(
                             text: "Tarjeta de Crédito",
                             fontFamily: "Roboto",
                             fontSize: 12,
                             color: Colors.white),
-                        Spacer(),
-                        CustomText(
+                        const Spacer(),
+                        const CustomText(
                             text: "4444 **** **** 5782",
                             fontFamily: "Roboto",
                             fontSize: 10,

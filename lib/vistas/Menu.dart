@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/vistas/Home.dart';
-import 'package:proyectosoft/vistas/Payment.dart';
-import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/add_button.dart';
-import 'package:proyectosoft/widgets/cart_card.dart';
-import 'package:proyectosoft/widgets/custom_text.dart';
-import 'package:proyectosoft/widgets/custom_botontxt.dart';
+import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 
 class menu extends StatelessWidget {
   const menu({Key? key}) : super(key: key);
@@ -32,7 +28,7 @@ class menu extends StatelessWidget {
                   SizedBox(
                     width: screenwidth * 0.08,
                   ),
-                  Custombotontxt(
+                  CustomBackArrow(
                       funcion: () {
                         Navigator.push(
                           context,
@@ -43,13 +39,8 @@ class menu extends StatelessWidget {
                           ),
                         );
                       },
-                      color: const Color.fromARGB(0, 255, 255, 255),
-                      text: "<",
-                      color2: Colors.white,
-                      x: screenwidth * 0.11,
-                      y: screenheight * 0.055,
-                      border: 50,
-                      tamtxt: 30),
+                      dir: true,
+                      color: Colors.white),
                   SizedBox(
                     width: screenwidth * 0.1,
                   ),

@@ -33,8 +33,8 @@ class _Custombotonfstate extends State<Custombotonf> {
         decoration: BoxDecoration(
           image:
               DecorationImage(image: AssetImage(widget.img), fit: BoxFit.cover),
-          color: widget.color,
-          borderRadius: BorderRadius.circular(widget.border),
+          color: Color(0xff3498DB66),
+          borderRadius: BorderRadius.circular(10),
         ),
         /* child: Center(
           
