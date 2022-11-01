@@ -33,10 +33,7 @@ class _PaymentState extends State<Payment> {
                       height: (screenheight * 0.06),
                     ),
                     Row(children: [
-                      SizedBox(
-                        width: screenwidth * 0.08,
-                      ),
-                      Custombotontxt(
+                      /* Custombotontxt(
                           funcion: () {
                             Navigator.push(context,
                                 MaterialPageRoute(builder: (context) {
@@ -44,7 +41,25 @@ class _PaymentState extends State<Payment> {
                             }));
                           },
                           dir: true,
-                          color: Colors.white),
+                          color: Colors.white), */
+                      Custombotontxt(
+                          funcion: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const Order();
+                                },
+                              ),
+                            );
+                          },
+                          color: const Color.fromARGB(0, 255, 255, 255),
+                          text: "<",
+                          color2: Colors.white,
+                          x: screenwidth * 0.11,
+                          y: screenheight * 0.055,
+                          border: 50,
+                          tamtxt: 30),
                       SizedBox(
                         width: screenwidth * 0.03,
                       ),

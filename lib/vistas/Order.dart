@@ -30,7 +30,8 @@ class Order extends StatelessWidget {
                 SizedBox(
                   width: screenwidth * 0.08,
                 ),
-                CustomBackArrow(funcion: (){
+                CustomBackArrow(
+                    funcion: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -38,7 +39,10 @@ class Order extends StatelessWidget {
                             return const SignIn();
                           },
                         ),
-                      );}, dir: true, color: Colors.white),
+                      );
+                    },
+                    dir: true,
+                    color: Colors.white),
                 SizedBox(
                   width: screenwidth * 0.1,
                 ),
