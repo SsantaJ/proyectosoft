@@ -282,6 +282,9 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
+              Spacer(
+                flex: 1,
+              ),
               Row(
                 children: [
                   Flexible(
@@ -336,6 +339,9 @@ class Home extends StatelessWidget {
                     ),
                   ),
                 ],
+              ),
+              const Spacer(
+                flex: 5,
               ),
 
               //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
