@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/vistas/Payment.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
-class Order extends StatelessWidget {
-  const Order({Key? key}) : super(key: key);
+class menu extends StatelessWidget {
+  const menu({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Center(
-      child: Container(
+      body: Center(
+        child: Container(
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
@@ -25,38 +26,34 @@ class Order extends StatelessWidget {
               SizedBox(
                 height: (screenheight * 0.06),
               ),
-              Row(children: [
-                SizedBox(
-                  width: screenwidth * 0.08,
-                ),
-                Custombotontxt(
-                    funcion: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const SignIn();
-                          },
-                        ),
-                      );
-                    },
-                    color: const Color.fromARGB(0, 255, 255, 255),
-                    text: "<",
-                    color2: Colors.white,
-                    x: screenwidth * 0.11,
-                    y: screenheight * 0.055,
-                    border: 50,
-                    tamtxt: 30),
-                SizedBox(
-                  width: screenwidth * 0.1,
-                ),
-                const CustomText(
-                  text: "Carrito de comida",
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontFamily: "Poppins",
-                ),
-              ]),
+              Row(
+                children: [
+                  SizedBox(
+                    width: screenwidth * 0.08,
+                  ),
+                  Custombotontxt(
+                      funcion: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const HomePage();
+                            },
+                          ),
+                        );
+                      },
+                      color: const Color.fromARGB(0, 255, 255, 255),
+                      text: "<",
+                      color2: Colors.white,
+                      x: screenwidth * 0.11,
+                      y: screenheight * 0.055,
+                      border: 50,
+                      tamtxt: 30),
+                  SizedBox(
+                    width: screenwidth * 0.1,
+                  ),
+                ],
+              ),
               SizedBox(
                 height: screenheight * 0.04,
               ),
@@ -70,7 +67,9 @@ class Order extends StatelessWidget {
                 height: screenheight * 0.04,
               ),
               cart_card(screenheight: screenheight, screenwidth: screenwidth),
-              Flexible(child: Container()),
+              Flexible(
+                child: Container(),
+              ),
               Custombotontxt(
                   funcion: () {
                     Navigator.push(
@@ -93,7 +92,9 @@ class Order extends StatelessWidget {
                 height: screenheight * 0.04,
               ),
             ],
-          )),
-    ));
+          ),
+        ),
+      ),
+    );
   }
 }

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatefulWidget {
-  CustomTextField({
+  const CustomTextField({
     Key? key,
     required this.obs, //OPCIONAL
     required this.text,
@@ -32,18 +32,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
         child: TextField(
           obscureText: widget.obs,
           decoration: InputDecoration(
-            enabledBorder: OutlineInputBorder(
+            enabledBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular((30))),
               borderSide: BorderSide(color: Colors.black, width: 0.1),
             ),
-            focusedBorder: OutlineInputBorder(
+            focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular((30))),
               borderSide:
                   BorderSide(color: Color.fromARGB(255, 235, 165, 3), width: 2),
             ),
             iconColor: widget.color,
             labelText: widget.text,
-            labelStyle: TextStyle(
+            labelStyle: const TextStyle(
               color: Color.fromARGB(92, 61, 61, 61),
             ),
           ),

@@ -1,10 +1,8 @@
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
 class cart_card extends StatefulWidget {
-  cart_card({
+  const cart_card({
     Key? key,
     required this.screenheight,
     required this.screenwidth,
@@ -48,7 +46,7 @@ class _cart_cardState extends State<cart_card> {
                 fontFamily: "Poppins",
               ),
               Flexible(child: Container()),
-              CustomText(
+              const CustomText(
                 text: "\$99.99",
                 color: Colors.green,
                 fontSize: 12,

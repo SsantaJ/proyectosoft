@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:proyectosoft/vistas/Menu.dart';
 import 'package:proyectosoft/vistas/Order.dart';
-import 'package:proyectosoft/vistas/Payment.dart';
-import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/vistas/profile.dart';
-import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
@@ -22,7 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double screenwidth = 0.0;
   double screenheight = 0.0;
-  final estados = [Home(), profile(), Order()];
+  final estados = [const Home(), const profile(), const Order()];
   int index = 0;
 
   @override
@@ -32,9 +28,9 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: estados[index],
       bottomNavigationBar: NavigationBarTheme(
-        data: NavigationBarThemeData(indicatorColor: Color(0xFFEBA503)),
+        data: const NavigationBarThemeData(indicatorColor: Color(0xFFEBA503)),
         child: NavigationBar(
-          destinations: [
+          destinations: const [
             NavigationDestination(
               icon: Icon(Icons.home_outlined),
               label: "Inicio",
@@ -55,10 +51,10 @@ class _HomePageState extends State<HomePage> {
           onDestinationSelected: (index) => setState(() {
             this.index = index;
           }),
-          backgroundColor: Color.fromARGB(255, 86, 120, 193),
+          backgroundColor: const Color.fromARGB(255, 86, 120, 193),
           height: screenheight * 0.07,
           labelBehavior: NavigationDestinationLabelBehavior.onlyShowSelected,
-          animationDuration: Duration(seconds: 2),
+          animationDuration: const Duration(seconds: 2),
         ),
       ),
     );
@@ -105,7 +101,7 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
-                      color: Color.fromARGB(0, 255, 255, 255),
+                      color: const Color.fromARGB(0, 255, 255, 255),
                       text: "<",
                       color2: Colors.white,
                       x: screenwidth * 0.11,
@@ -194,7 +190,16 @@ class Home extends StatelessWidget {
                 height: (screenheight * 0.05),
               ),
               Custombotonf(
-                  funcion: () {},
+                  funcion: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const menu();
+                        },
+                      ),
+                    );
+                  },
                   color: Colors.green,
                   img: "assets/imgs/burger.png",
                   color2: Colors.pink,

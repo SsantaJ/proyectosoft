@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 import 'package:proyectosoft/vistas/Home.dart';
-import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:flutter/material.dart';
@@ -33,12 +32,12 @@ class SignIn extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return WelcomePage();
+                      return const WelcomePage();
                     },
                   ),
                 );
               },
-              color: Color.fromARGB(0, 255, 255, 255),
+              color: const Color.fromARGB(0, 255, 255, 255),
               text: "<",
               color2: Colors.white,
               x: screenwidth * 0.11,
@@ -51,13 +50,13 @@ class SignIn extends StatelessWidget {
         ),
         Container(
           decoration: const BoxDecoration(),
+          alignment: const Alignment(-0.85, -0.1),
           child: const CustomText(
             text: "Ingresar",
             color: Colors.white,
             fontSize: 20,
             fontFamily: "Poppins",
-          ),
-          alignment: const Alignment(-0.85, -0.1), //no sirve el height
+          ), //no sirve el height
         ),
         SizedBox(
           height: (screenheight * 0.045),
@@ -82,9 +81,14 @@ class SignIn extends StatelessWidget {
         ),
         Custombotontxt(
             funcion: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return HomePage();
-              }));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) {
+                    return const HomePage();
+                  },
+                ),
+              );
             },
             color: const Color.fromARGB(255, 235, 165, 3),
             text: "Iniciar Sesion",

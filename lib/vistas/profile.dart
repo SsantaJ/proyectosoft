@@ -1,6 +1,3 @@
-import 'package:proyectosoft/vistas/SignIn.dart';
-import 'package:proyectosoft/vistas/SignUp.dart';
-import 'package:proyectosoft/widgets/custom_botontxt.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
@@ -12,13 +9,13 @@ class profile extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 206, 218, 244),
+      backgroundColor: const Color.fromARGB(255, 206, 218, 244),
       body: Column(
-        children: [
+        children: const [
           Spacer(
             flex: 1,
           ),
-          const Center(
+          Center(
             child: CustomText(
               text: "AQUI VA LA VISTA DE PERFIL",
               color: Color.fromARGB(255, 0, 0, 0),

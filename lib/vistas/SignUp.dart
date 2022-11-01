@@ -13,7 +13,7 @@ class SignUP extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 75, 109, 184),
+      backgroundColor: const Color.fromARGB(255, 75, 109, 184),
       body: Column(
         children: [
           SizedBox(
@@ -27,12 +27,12 @@ class SignUP extends StatelessWidget {
                     context,
                     MaterialPageRoute(
                       builder: (context) {
-                        return WelcomePage();
+                        return const WelcomePage();
                       },
                     ),
                   );
                 },
-                color: Color.fromARGB(0, 255, 255, 255),
+                color: const Color.fromARGB(0, 255, 255, 255),
                 text: "<",
                 color2: Colors.white,
                 x: screenwidth * 0.11,
@@ -45,13 +45,13 @@ class SignUP extends StatelessWidget {
           ),
           Container(
             decoration: const BoxDecoration(),
+            alignment: const Alignment(-0.85, -0.1),
             child: const CustomText(
               text: "Registrate",
               color: Colors.white,
               fontSize: 20,
               fontFamily: "Poppins",
-            ),
-            alignment: Alignment(-0.85, -0.1), //no sirve el height
+            ), //no sirve el height
           ),
           SizedBox(
             height: (screenheight * 0.02),
@@ -114,7 +114,7 @@ class SignUP extends StatelessWidget {
             child: Container(),
           ),
           Align(
-            alignment: Alignment(-1, 1),
+            alignment: const Alignment(-1, 1),
             child: Image.asset(
               fit: BoxFit.cover,
               "assets/imgs/platofondo.png",

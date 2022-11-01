@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
@@ -42,12 +40,12 @@ class _PaymentState extends State<Payment> {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return Order();
+                                  return const Order();
                                 },
                               ),
                             );
                           },
-                          color: Color.fromARGB(0, 255, 255, 255),
+                          color: const Color.fromARGB(0, 255, 255, 255),
                           text: "<",
                           color2: Colors.white,
                           x: screenwidth * 0.11,
@@ -84,29 +82,31 @@ class _PaymentState extends State<Payment> {
                         ),
                         Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.05)),
-                        CustomText(
+                        const CustomText(
                             text: "Efectivo",
                             fontFamily: "Roboto",
                             fontSize: 16,
                             color: Colors.white),
-                        Spacer(),
-                        Transform.scale(scale: 1.7, child: Checkbox(
-                          value: isChecked,
-                          onChanged: (bool? value) {
-                            setState(() {
-                              isChecked = value;
-                            });
-                          },
-                          activeColor: Color(0xFFEBA503),
-                          checkColor: Colors.white,
-                          shape: CircleBorder(),
-                        ))
-                        ,
-                        Padding(padding: EdgeInsets.only(right: screenwidth*0.1))
+                        const Spacer(),
+                        Transform.scale(
+                            scale: 1.7,
+                            child: Checkbox(
+                              value: isChecked,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  isChecked = value;
+                                });
+                              },
+                              activeColor: const Color(0xFFEBA503),
+                              checkColor: Colors.white,
+                              shape: const CircleBorder(),
+                            )),
+                        Padding(
+                            padding: EdgeInsets.only(right: screenwidth * 0.1))
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: screenheight*0.06)),
-                     Row(
+                    Padding(padding: EdgeInsets.only(top: screenheight * 0.06)),
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
@@ -125,27 +125,28 @@ class _PaymentState extends State<Payment> {
                         ),
                         Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.05)),
-                        CustomText(
+                        const CustomText(
                             text: "Tarjeta de Crédito",
                             fontFamily: "Roboto",
                             fontSize: 12,
                             color: Colors.white),
-                        Spacer(),
-                        CustomText(
+                        const Spacer(),
+                        const CustomText(
                             text: "4444 **** **** 5782",
                             fontFamily: "Roboto",
                             fontSize: 10,
                             color: Colors.white),
                         Custombotontxt(
-              funcion: () {},
-              color: Color.fromARGB(0, 255, 255, 255),
-              text: ">",
-              color2: Colors.white,
-              x: screenwidth * 0.11,
-              y: screenheight * 0.055,
-              border: 50,
-              tamtxt: 30),
-                        Padding(padding: EdgeInsets.only(right: screenwidth*0.09))
+                            funcion: () {},
+                            color: const Color.fromARGB(0, 255, 255, 255),
+                            text: ">",
+                            color2: Colors.white,
+                            x: screenwidth * 0.11,
+                            y: screenheight * 0.055,
+                            border: 50,
+                            tamtxt: 30),
+                        Padding(
+                            padding: EdgeInsets.only(right: screenwidth * 0.09))
                       ],
                     )
                   ],
