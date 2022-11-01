@@ -128,87 +128,93 @@ class Home extends StatelessWidget {
                   Flexible(
                     child: Container(),
                   ),
-                  SizedBox(
-                    height: screenheight * 0.1,
-                    width: screenwidth * 0.2,
-                    child: Custombotontxt(
-                        funcion: () {},
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: screenheight * 0.1,
+                        width: screenwidth * 0.2,
+                        child: Custombotontxt(
+                            funcion: () {},
+                            color: Colors.white,
+                            text: "aaa",
+                            color2: Colors.amber,
+                            x: screenwidth * 0.1,
+                            y: screenheight * 0.2,
+                            border: 10,
+                            tamtxt: 10),
+                      ),
+                      const CustomText(
+                        text: "Postres",
                         color: Colors.white,
-                        text: "aaa",
-                        color2: Colors.amber,
-                        x: screenwidth * 0.1,
-                        y: screenheight * 0.2,
-                        border: 10,
-                        tamtxt: 10),
+                        fontSize: 15,
+                        fontFamily: "Poppins",
+                      ),
+                    ],
                   ),
                   Flexible(
                     child: Container(),
                   ),
-                  SizedBox(
-                    height: screenheight * 0.1,
-                    width: screenwidth * 0.2,
-                    child: Custombotontxt(
-                        funcion: () {},
-                        color: Colors.amber,
-                        text: "a",
-                        color2: Colors.white,
-                        x: screenwidth * 0.1,
-                        y: screenheight * 0.2,
-                        border: 10,
-                        tamtxt: 10),
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: screenheight * 0.1,
+                        width: screenwidth * 0.2,
+                        child: Custombotontxt(
+                            funcion: () {},
+                            color: Colors.amber,
+                            text: "a",
+                            color2: Colors.white,
+                            x: screenwidth * 0.1,
+                            y: screenheight * 0.2,
+                            border: 10,
+                            tamtxt: 10),
+                      ),
+                      const CustomText(
+                        text: "Postres",
+                        color: Colors.white,
+                        fontSize: 15,
+                        fontFamily: "Poppins",
+                      ),
+                    ],
                   ),
                   Flexible(
                     child: Container(),
                   ),
-                  SizedBox(
-                    height: screenheight * 0.1,
-                    width: screenwidth * 0.2,
-                    child: Custombotontxt(
-                        funcion: () {},
+                  Column(
+                    children: [
+                      SizedBox(
+                        height: screenheight * 0.1,
+                        width: screenwidth * 0.2,
+                        child: Custombotontxt(
+                            funcion: () {},
+                            color: Colors.white,
+                            text: "aaa",
+                            color2: Colors.amber,
+                            x: screenwidth * 0.1,
+                            y: screenheight * 0.2,
+                            border: 10,
+                            tamtxt: 10),
+                      ),
+                      const CustomText(
+                        text: "Postres",
                         color: Colors.white,
-                        text: "aaa",
-                        color2: Colors.amber,
-                        x: screenwidth * 0.1,
-                        y: screenheight * 0.2,
-                        border: 10,
-                        tamtxt: 10),
+                        fontSize: 15,
+                        fontFamily: "Poppins",
+                      ),
+                    ],
                   ),
                   Flexible(
                     child: Container(),
                   ),
                 ],
               ),
+
+              Flexible(
+                child: Container(),
+              ),
               Row(
                 children: [
-                  Flexible(
-                    child: Container(),
-                  ),
-                  SizedBox(
-                    height: screenheight * 0.1,
-                    width: screenwidth * 0.2,
-                    child: const CustomText(
-                      text: "Bebídas",
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                  Flexible(
-                    child: Container(),
-                  ),
-                  SizedBox(
-                    height: screenheight * 0.1,
-                    width: screenwidth * 0.2,
-                    child: const CustomText(
-                      text: "Platos",
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                  Flexible(
-                    child: Container(),
-                  ),
+                  const Spacer(),
                   SizedBox(
                     height: screenheight * 0.1,
                     width: screenwidth * 0.2,
@@ -219,10 +225,13 @@ class Home extends StatelessWidget {
                       fontFamily: "Poppins",
                     ),
                   ),
-                  Flexible(
-                    child: Container(),
+                  const Spacer(
+                    flex: 10,
                   ),
                 ],
+              ),
+              Flexible(
+                child: Container(),
               ),
               SizedBox(
                 height: (screenheight * 0.05),
@@ -282,7 +291,7 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
-              Spacer(
+              const Spacer(
                 flex: 1,
               ),
               Row(
