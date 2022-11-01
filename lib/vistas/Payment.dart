@@ -4,6 +4,7 @@ import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
+import 'package:proyectosoft/widgets/custom_txtField.dart';
 
 class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
@@ -90,35 +91,41 @@ class _PaymentState extends State<Payment> {
                             fontSize: 16,
                             color: Colors.white),
                         Spacer(),
-                        Transform.scale(scale: 1.7, child: Checkbox(
-                          value: isChecked,
-                          onChanged: (bool? value) {
-                            setState(() {
-                              isChecked = value;
-                            });
-                          },
-                          activeColor: Color(0xFFEBA503),
-                          checkColor: Colors.white,
-                          shape: CircleBorder(),
-                        ))
-                        ,
-                        Padding(padding: EdgeInsets.only(right: screenwidth*0.1))
+                        Transform.scale(
+                            scale: 1.7,
+                            child: Checkbox(
+                              value: isChecked,
+                              onChanged: (bool? value) {
+                                setState(() {
+                                  isChecked = value;
+                                });
+                              },
+                              activeColor: Color(0xFFEBA503),
+                              checkColor: Colors.white,
+                              shape: CircleBorder(),
+                            )),
+                        Padding(
+                            padding: EdgeInsets.only(right: screenwidth * 0.1))
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: screenheight*0.06)),
-                     Row(
+                    Padding(padding: EdgeInsets.only(top: screenheight * 0.04)),
+                    if(isChecked == true)
+                    CustomTextField(obs: false, text: "¿Con cuanto piensas pagar?", x: screenwidth*0.9, y: screenheight*0.07, color: Colors.white),
+                    if(isChecked == true)Padding(padding: EdgeInsets.only(top: screenheight * 0.04)),
+                    Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.1)),
                         SizedBox(
                           width: 40,
+                          height: 40,
                           child: DecoratedBox(
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(5)),
                             child: Image.asset(
-                              "assets/imgs/wallet.png",
+                              "assets/imgs/tarjeta.png",
                               scale: 0.8,
                             ),
                           ),
@@ -137,17 +144,20 @@ class _PaymentState extends State<Payment> {
                             fontSize: 10,
                             color: Colors.white),
                         Custombotontxt(
-              funcion: () {},
-              color: Color.fromARGB(0, 255, 255, 255),
-              text: ">",
-              color2: Colors.white,
-              x: screenwidth * 0.11,
-              y: screenheight * 0.055,
-              border: 50,
-              tamtxt: 30),
-                        Padding(padding: EdgeInsets.only(right: screenwidth*0.09))
+                            funcion: () {},
+                            color: Color.fromARGB(0, 255, 255, 255),
+                            text: ">",
+                            color2: Colors.white,
+                            x: screenwidth * 0.11,
+                            y: screenheight * 0.055,
+                            border: 50,
+                            tamtxt: 30),
+                        Padding(
+                            padding: EdgeInsets.only(right: screenwidth * 0.09))
                       ],
-                    )
+                    ),
+                    Transform.scale(scale: -1, child: Icon(Icons.arrow_back_ios_new,))
+                    
                   ],
                 ))));
   }
