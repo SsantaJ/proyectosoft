@@ -32,6 +32,7 @@ flutter:
     - assets/imgs/trash-can.png
     - assets/imgs/wallet.png
     - assets/imgs/burger.png
+    - assets/imgs/tarjeta.png
 
   fonts:
     - family: Poppins

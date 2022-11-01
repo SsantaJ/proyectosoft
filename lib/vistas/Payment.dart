@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/vistas/Order.dart';
+import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
+import 'package:proyectosoft/widgets/custom_txtField.dart';
 
 class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
@@ -36,24 +38,15 @@ class _PaymentState extends State<Payment> {
                       ),
                       Custombotontxt(
                           funcion: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return const Order();
-                                },
-                              ),
-                            );
+                            Navigator.push(context,
+                                MaterialPageRoute(builder: (context) {
+                              return Order();
+                            }));
                           },
-                          color: const Color.fromARGB(0, 255, 255, 255),
-                          text: "<",
-                          color2: Colors.white,
-                          x: screenwidth * 0.11,
-                          y: screenheight * 0.055,
-                          border: 50,
-                          tamtxt: 30),
+                          dir: true,
+                          color: Colors.white),
                       SizedBox(
-                        width: screenwidth * 0.01,
+                        width: screenwidth * 0.03,
                       ),
                       const CustomText(
                         text: "Selecciona tú método de pago",
@@ -82,12 +75,12 @@ class _PaymentState extends State<Payment> {
                         ),
                         Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.05)),
-                        const CustomText(
+                        CustomText(
                             text: "Efectivo",
                             fontFamily: "Roboto",
                             fontSize: 16,
                             color: Colors.white),
-                        const Spacer(),
+                        Spacer(),
                         Transform.scale(
                             scale: 1.7,
                             child: Checkbox(
@@ -97,15 +90,25 @@ class _PaymentState extends State<Payment> {
                                   isChecked = value;
                                 });
                               },
-                              activeColor: const Color(0xFFEBA503),
+                              activeColor: Color(0xFFFF7613),
                               checkColor: Colors.white,
-                              shape: const CircleBorder(),
+                              shape: CircleBorder(),
                             )),
                         Padding(
-                            padding: EdgeInsets.only(right: screenwidth * 0.1))
+                            padding: EdgeInsets.only(right: screenwidth * 0.07))
                       ],
                     ),
-                    Padding(padding: EdgeInsets.only(top: screenheight * 0.06)),
+                    Padding(padding: EdgeInsets.only(top: screenheight * 0.04)),
+                    if (isChecked == true)
+                      CustomTextField(
+                          obs: false,
+                          text: "¿Con cuanto piensas pagar?",
+                          x: screenwidth * 0.9,
+                          y: screenheight * 0.07,
+                          color: Colors.white),
+                    if (isChecked == true)
+                      Padding(
+                          padding: EdgeInsets.only(top: screenheight * 0.04)),
                     Row(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -113,42 +116,36 @@ class _PaymentState extends State<Payment> {
                             padding: EdgeInsets.only(left: screenwidth * 0.1)),
                         SizedBox(
                           width: 40,
+                          height: 40,
                           child: DecoratedBox(
                             decoration: BoxDecoration(
                                 color: Colors.white,
                                 borderRadius: BorderRadius.circular(5)),
                             child: Image.asset(
-                              "assets/imgs/wallet.png",
+                              "assets/imgs/tarjeta.png",
                               scale: 0.8,
                             ),
                           ),
                         ),
                         Padding(
                             padding: EdgeInsets.only(left: screenwidth * 0.05)),
-                        const CustomText(
+                        CustomText(
                             text: "Tarjeta de Crédito",
                             fontFamily: "Roboto",
                             fontSize: 12,
                             color: Colors.white),
-                        const Spacer(),
-                        const CustomText(
+                        Spacer(),
+                        CustomText(
                             text: "4444 **** **** 5782",
                             fontFamily: "Roboto",
                             fontSize: 10,
                             color: Colors.white),
-                        Custombotontxt(
-                            funcion: () {},
-                            color: const Color.fromARGB(0, 255, 255, 255),
-                            text: ">",
-                            color2: Colors.white,
-                            x: screenwidth * 0.11,
-                            y: screenheight * 0.055,
-                            border: 50,
-                            tamtxt: 30),
+                        CustomBackArrow(
+                            funcion: () {}, dir: false, color: Colors.white),
                         Padding(
-                            padding: EdgeInsets.only(right: screenwidth * 0.09))
+                            padding: EdgeInsets.only(right: screenwidth * 0.1))
                       ],
-                    )
+                    ),
                   ],
                 ))));
   }
