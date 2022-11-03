@@ -1,15 +1,37 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-final CollectionReference _mainCollection = _firestore.collection('notes');
+final CollectionReference _mainProductsCollection =
+    _firestore.collection('products');
+final CollectionReference _mainUserCollection = _firestore.collection('user');
 
 class Database {
   static String? userUid;
 
+  static Future<void> setFirstData() async {
+    List colecciones = ['bebidas', 'platos', 'postres'];
+
+    DocumentReference documentReferencer =
+        _mainProductsCollection.doc("bebidas");
+
+    Map<String, dynamic> data = <String, dynamic>{
+      "nombre": "Algo",
+      "precio": "45000",
+      'tamaño': '10kg'
+    };
+
+
+
+    await documentReferencer
+          .set(data)
+          .whenComplete(() => print("Note item added to the database"))
+          .catchError((e) => print(e));
+  }
+
   static Future<void> addItem(
       {required String title, required String note}) async {
     DocumentReference documentReferencer =
-        _mainCollection.doc(userUid).collection('items').doc();
+        _mainProductsCollection.doc(userUid).collection('items').doc();
 
     Map<String, dynamic> data = <String, dynamic>{
       "title": title,
@@ -27,7 +49,7 @@ class Database {
       required String note,
       required String docId}) async {
     DocumentReference documentReferencer =
-        _mainCollection.doc(userUid).collection('items').doc(docId);
+        _mainProductsCollection.doc(userUid).collection('items').doc(docId);
 
     Map<String, dynamic> data = <String, dynamic>{
       "title": title,
@@ -42,14 +64,14 @@ class Database {
 
   static Stream<QuerySnapshot> readItems() {
     CollectionReference notesItemCollection =
-        _mainCollection.doc(userUid).collection('items');
+        _mainProductsCollection.doc(userUid).collection('items');
 
     return notesItemCollection.snapshots();
   }
 
   static Future<void> deleteItem({required String docId}) async {
     DocumentReference documentReferencer =
-        _mainCollection.doc(userUid).collection('items').doc(docId);
+        _mainProductsCollection.doc(userUid).collection('items').doc(docId);
 
     await documentReferencer
         .delete()
