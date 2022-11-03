@@ -14,6 +14,7 @@ class SignUP extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: const Color.fromARGB(255, 75, 109, 184),
       body: Column(
         children: [

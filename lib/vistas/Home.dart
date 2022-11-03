@@ -18,7 +18,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double screenwidth = 0.0;
   double screenheight = 0.0;
-  final estados = [const Order(),const Home(),const profile()];
+  final estados = [const Order(), const Home(), const profile()];
   int index = 1;
 
   @override
@@ -34,17 +34,22 @@ class _HomePageState extends State<HomePage> {
             NavigationDestination(
               icon: Icon(Icons.shopping_cart, color: Colors.white),
               label: "Carrito",
-              selectedIcon: Icon(Icons.shopping_cart_outlined, color: Color(0xFFEBA503)),
+              selectedIcon:
+                  Icon(Icons.shopping_cart_outlined, color: Color(0xFFEBA503)),
             ),
             NavigationDestination(
               icon: Icon(Icons.store, color: Colors.white),
               label: "Inicio",
-              selectedIcon: Icon(Icons.store_outlined, color: Color(0xFFEBA503),),
+              selectedIcon: Icon(
+                Icons.store_outlined,
+                color: Color(0xFFEBA503),
+              ),
             ),
             NavigationDestination(
               icon: Icon(Icons.person, color: Colors.white),
               label: "Perfil",
-              selectedIcon: Icon(Icons.person_outline, color: Color(0xFFEBA503)),
+              selectedIcon:
+                  Icon(Icons.person_outline, color: Color(0xFFEBA503)),
             )
           ],
           selectedIndex: index,
@@ -117,10 +122,7 @@ class Home extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: (screenheight * 0.02),
-              ),
-              SizedBox(
-                height: screenheight * 0.04,
+                height: screenheight * 0.06,
               ),
 
               Row(
@@ -208,34 +210,16 @@ class Home extends StatelessWidget {
                   ),
                 ],
               ),
-
-              Flexible(
-                child: Container(),
+              const Spacer(
+                flex: 1,
               ),
-              Row(
-                children: [
-                  const Spacer(),
-                  SizedBox(
-                    height: screenheight * 0.1,
-                    width: screenwidth * 0.2,
-                    child: const CustomText(
-                      text: "Postres",
-                      color: Colors.white,
-                      fontSize: 15,
-                      fontFamily: "Poppins",
-                    ),
-                  ),
-                  const Spacer(
-                    flex: 10,
-                  ),
-                ],
+              const CustomText(
+                text: "Menu",
+                fontFamily: "Poppins",
+                fontSize: 15,
+                color: Colors.white,
               ),
-              Flexible(
-                child: Container(),
-              ),
-              SizedBox(
-                height: (screenheight * 0.05),
-              ),
+              const Spacer(),
               Row(
                 children: [
                   Flexible(
@@ -254,7 +238,7 @@ class Home extends StatelessWidget {
                         ),
                       );
                     },
-                    color: Colors.green,
+                    color: const Color.fromARGB(102, 52, 152, 219),
                     img: "assets/imgs/burger.png",
                     color2: Colors.pink,
                     x: screenheight * 0.17,
@@ -276,7 +260,7 @@ class Home extends StatelessWidget {
                         ),
                       );
                     },
-                    color: Colors.green,
+                    color: const Color.fromARGB(102, 52, 152, 219),
                     img: "assets/imgs/burger.png",
                     color2: Colors.pink,
                     x: screenheight * 0.17,
@@ -312,7 +296,7 @@ class Home extends StatelessWidget {
                         ),
                       );
                     },
-                    color: Colors.green,
+                    color: const Color.fromARGB(102, 52, 152, 219),
                     img: "assets/imgs/burger.png",
                     color2: Colors.pink,
                     x: screenheight * 0.17,
@@ -334,7 +318,7 @@ class Home extends StatelessWidget {
                         ),
                       );
                     },
-                    color: Colors.green,
+                    color: const Color.fromARGB(102, 52, 152, 219),
                     img: "assets/imgs/burger.png",
                     color2: Colors.pink,
                     x: screenheight * 0.17,
