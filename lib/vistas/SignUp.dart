@@ -24,14 +24,7 @@ class SignUP extends StatelessWidget {
             alignment: const Alignment(-0.88, 0),
             child: CustomBackArrow(
                 funcion: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return const WelcomePage();
-                      },
-                    ),
-                  );
+                  Navigator.pop(context);
                 },
                 dir: true,
                 color: Colors.white),

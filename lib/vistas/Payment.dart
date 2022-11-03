@@ -33,33 +33,9 @@ class _PaymentState extends State<Payment> {
                       height: (screenheight * 0.06),
                     ),
                     Row(children: [
-                      /* Custombotontxt(
-                          funcion: () {
-                            Navigator.push(context,
-                                MaterialPageRoute(builder: (context) {
-                              return Order();
-                            }));
-                          },
-                          dir: true,
-                          color: Colors.white), */
-                      Custombotontxt(
-                          funcion: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) {
-                                  return const Order();
-                                },
-                              ),
-                            );
-                          },
-                          color: const Color.fromARGB(0, 255, 255, 255),
-                          text: "<",
-                          color2: Colors.white,
-                          x: screenwidth * 0.11,
-                          y: screenheight * 0.055,
-                          border: 50,
-                          tamtxt: 30),
+                      Padding(
+                            padding: EdgeInsets.only(left: screenwidth * 0.1)),
+                      CustomBackArrow(funcion: (){Navigator.pop(context);}, dir: true, color: Colors.white),
                       SizedBox(
                         width: screenwidth * 0.03,
                       ),

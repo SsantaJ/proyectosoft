@@ -18,8 +18,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double screenwidth = 0.0;
   double screenheight = 0.0;
-  final estados = [const Home(), const profile(), const Order()];
-  int index = 0;
+  final estados = [const Order(),const Home(),const profile()];
+  int index = 1;
 
   @override
   Widget build(BuildContext context) {
@@ -28,23 +28,23 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       body: estados[index],
       bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(indicatorColor: Color(0xFFEBA503)),
+        data: const NavigationBarThemeData(indicatorColor: Colors.transparent),
         child: NavigationBar(
           destinations: const [
             NavigationDestination(
-              icon: Icon(Icons.home_outlined),
-              label: "Inicio",
-              selectedIcon: Icon(Icons.home),
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.person_outline),
-              label: "Perfil",
-              selectedIcon: Icon(Icons.person),
-            ),
-            NavigationDestination(
-              icon: Icon(Icons.shopping_cart_outlined),
+              icon: Icon(Icons.shopping_cart, color: Colors.white),
               label: "Carrito",
-              selectedIcon: Icon(Icons.shopping_cart),
+              selectedIcon: Icon(Icons.shopping_cart_outlined, color: Color(0xFFEBA503)),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.store, color: Colors.white),
+              label: "Inicio",
+              selectedIcon: Icon(Icons.store_outlined, color: Color(0xFFEBA503),),
+            ),
+            NavigationDestination(
+              icon: Icon(Icons.person, color: Colors.white),
+              label: "Perfil",
+              selectedIcon: Icon(Icons.person_outline, color: Color(0xFFEBA503)),
             )
           ],
           selectedIndex: index,
