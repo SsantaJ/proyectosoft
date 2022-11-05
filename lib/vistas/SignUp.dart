@@ -1,5 +1,4 @@
 import 'package:proyectosoft/vistas/Order.dart';
-import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:flutter/material.dart';

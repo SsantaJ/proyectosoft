@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
-import 'package:proyectosoft/widgets/custom_botontxt.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 
 class Payment extends StatefulWidget {
@@ -34,8 +32,13 @@ class _PaymentState extends State<Payment> {
                     ),
                     Row(children: [
                       Padding(
-                            padding: EdgeInsets.only(left: screenwidth * 0.1)),
-                      CustomBackArrow(funcion: (){Navigator.pop(context);}, dir: true, color: Colors.white),
+                          padding: EdgeInsets.only(left: screenwidth * 0.1)),
+                      CustomBackArrow(
+                          funcion: () {
+                            Navigator.pop(context);
+                          },
+                          dir: true,
+                          color: Colors.white),
                       SizedBox(
                         width: screenwidth * 0.03,
                       ),

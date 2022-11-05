@@ -1,6 +1,5 @@
 // ignore_for_file: file_names
 import 'package:proyectosoft/vistas/Home.dart';
-import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:flutter/material.dart';

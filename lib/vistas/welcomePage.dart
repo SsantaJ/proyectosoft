@@ -1,6 +1,6 @@
 import 'package:proyectosoft/db/database.dart';
-import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/vistas/SignUp.dart';
+import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
@@ -45,11 +45,11 @@ class WelcomePage extends StatelessWidget {
           ),
           Custombotontxt(
               funcion: () {
-                Database.setFirstData();
-                /* 
+                //Database.setFirstData();
+
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return const SignIn();
-                })); */
+                }));
               },
               color: const Color.fromARGB(255, 235, 165, 3),
               text: "Iniciar Sesion",
