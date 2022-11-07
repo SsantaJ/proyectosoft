@@ -35,6 +35,9 @@ flutter:
     - assets/imgs/tarjeta.png
     - assets/imgs/Add.png
     - assets/imgs/
+    - assets/imgs/burgeri.png
+    - assets/imgs/coffee.png
+    - assets/imgs/piece.png
 
   fonts:
     - family: Poppins

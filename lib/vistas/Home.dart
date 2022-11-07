@@ -107,24 +107,16 @@ class Home extends StatelessWidget {
                       SizedBox(
                         height: screenheight * 0.1,
                         width: screenwidth * 0.2,
-                        child: Custombotonicon(
+                        child: Custombotonf(
                             funcion: () {},
                             color: Colors.white,
-                            icono: Icons.local_pizza,
-                            color2: Colors.amber,
+                            img: "assets/imgs/coffee.png",
+                            color2: Color.fromARGB(0, 255, 193, 7),
                             x: screenwidth * 0.1,
                             y: screenheight * 0.2,
                             border: 10,
-                            tamtxt: 10),
-                        /* Custombotontxt(
-                            funcion: () {},
-                            color: Colors.white,
-                            text: "aaa",
-                            color2: Colors.amber,
-                            x: screenwidth * 0.1,
-                            y: screenheight * 0.2,
-                            border: 10,
-                            tamtxt: 10), */
+                            tamimg: 80,
+                            grosor: 0),
                       ),
                       const CustomText(
                         text: "Postres",
@@ -142,15 +134,16 @@ class Home extends StatelessWidget {
                       SizedBox(
                         height: screenheight * 0.1,
                         width: screenwidth * 0.2,
-                        child: Custombotontxt(
+                        child: Custombotonf(
                             funcion: () {},
                             color: Colors.amber,
-                            text: "a",
-                            color2: Colors.white,
+                            img: "assets/imgs/burgeri.png",
+                            color2: Color.fromARGB(0, 255, 193, 7),
                             x: screenwidth * 0.1,
                             y: screenheight * 0.2,
                             border: 10,
-                            tamtxt: 10),
+                            tamimg: 80,
+                            grosor: 0),
                       ),
                       const CustomText(
                         text: "Postres",
@@ -168,15 +161,16 @@ class Home extends StatelessWidget {
                       SizedBox(
                         height: screenheight * 0.1,
                         width: screenwidth * 0.2,
-                        child: Custombotontxt(
+                        child: Custombotonf(
                             funcion: () {},
                             color: Colors.white,
-                            text: "aaa",
-                            color2: Colors.amber,
+                            img: "assets/imgs/piece.png",
+                            color2: Color.fromARGB(0, 255, 193, 7),
                             x: screenwidth * 0.1,
                             y: screenheight * 0.2,
                             border: 10,
-                            tamtxt: 10),
+                            tamimg: 80,
+                            grosor: 0),
                       ),
                       const CustomText(
                         text: "Postres",
@@ -209,46 +203,46 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   Custombotonf(
-                    funcion: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const menu();
-                          },
-                        ),
-                      );
-                    },
-                    color: const Color.fromARGB(102, 52, 152, 219),
-                    img: "assets/imgs/burger.png",
-                    color2: Colors.pink,
-                    x: screenheight * 0.17,
-                    y: screenwidth * 0.3,
-                    border: 3,
-                    tamimg: 2,
-                  ),
+                      funcion: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const menu();
+                            },
+                          ),
+                        );
+                      },
+                      color: const Color.fromARGB(102, 52, 152, 219),
+                      img: "assets/imgs/burger.png",
+                      color2: Color.fromARGB(0, 233, 30, 98),
+                      x: screenheight * 0.17,
+                      y: screenwidth * 0.3,
+                      border: 15,
+                      tamimg: 2,
+                      grosor: 0),
                   Flexible(
                     child: Container(),
                   ),
                   Custombotonf(
-                    funcion: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const menu();
-                          },
-                        ),
-                      );
-                    },
-                    color: const Color.fromARGB(102, 52, 152, 219),
-                    img: "assets/imgs/burger.png",
-                    color2: Colors.pink,
-                    x: screenheight * 0.17,
-                    y: screenwidth * 0.3,
-                    border: 3,
-                    tamimg: 2,
-                  ),
+                      funcion: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const menu();
+                            },
+                          ),
+                        );
+                      },
+                      color: const Color.fromARGB(102, 52, 152, 219),
+                      img: "assets/imgs/burger.png",
+                      color2: Color.fromARGB(0, 233, 30, 98),
+                      x: screenheight * 0.17,
+                      y: screenwidth * 0.3,
+                      border: 15,
+                      tamimg: 2,
+                      grosor: 0),
                   Flexible(
                     child: Container(
                       width: screenwidth * 0.15,
@@ -267,46 +261,46 @@ class Home extends StatelessWidget {
                     ),
                   ),
                   Custombotonf(
-                    funcion: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const menu();
-                          },
-                        ),
-                      );
-                    },
-                    color: const Color.fromARGB(102, 52, 152, 219),
-                    img: "assets/imgs/burger.png",
-                    color2: Colors.pink,
-                    x: screenheight * 0.17,
-                    y: screenwidth * 0.3,
-                    border: 3,
-                    tamimg: 2,
-                  ),
+                      funcion: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const menu();
+                            },
+                          ),
+                        );
+                      },
+                      color: const Color.fromARGB(102, 52, 152, 219),
+                      img: "assets/imgs/burger.png",
+                      color2: Color.fromARGB(0, 233, 30, 98),
+                      x: screenheight * 0.17,
+                      y: screenwidth * 0.3,
+                      border: 15,
+                      tamimg: 2,
+                      grosor: 0),
                   Flexible(
                     child: Container(),
                   ),
                   Custombotonf(
-                    funcion: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const menu();
-                          },
-                        ),
-                      );
-                    },
-                    color: const Color.fromARGB(102, 52, 152, 219),
-                    img: "assets/imgs/burger.png",
-                    color2: Colors.pink,
-                    x: screenheight * 0.17,
-                    y: screenwidth * 0.3,
-                    border: 3,
-                    tamimg: 2,
-                  ),
+                      funcion: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const menu();
+                            },
+                          ),
+                        );
+                      },
+                      color: const Color.fromARGB(102, 52, 152, 219),
+                      img: "assets/imgs/burger.png",
+                      color2: Color.fromARGB(0, 233, 30, 98),
+                      x: screenheight * 0.17,
+                      y: screenwidth * 0.3,
+                      border: 15,
+                      tamimg: 2,
+                      grosor: 0),
                   Flexible(
                     child: Container(
                       width: screenwidth * 0.15,

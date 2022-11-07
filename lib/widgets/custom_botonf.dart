@@ -11,12 +11,13 @@ class Custombotonf extends StatefulWidget {
     required this.y,
     required this.border,
     required this.tamimg,
+    required this.grosor,
   }) : super(key: key);
   final VoidCallback funcion;
   final String img;
   final Color color;
   final Color color2;
-  final double x, y, border, tamimg;
+  final double x, y, border, tamimg, grosor;
 
   @override
   State<Custombotonf> createState() => _Custombotonfstate();
