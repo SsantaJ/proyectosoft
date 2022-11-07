@@ -4,6 +4,7 @@ import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/profile.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
+import 'package:proyectosoft/widgets/custom_botonicon.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 import 'package:proyectosoft/widgets/custom_botonf.dart';
@@ -84,43 +85,14 @@ class Home extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: (screenheight * 0.06),
+                height: (screenheight * 0.1),
               ),
-
-              SizedBox(
-                width: screenwidth * 0.08,
-              ),
-              SizedBox(
-                width: screenwidth * 0.1,
-              ),
-              Row(
-                children: [
-                  Custombotontxt(
-                      funcion: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return const WelcomePage();
-                            },
-                          ),
-                        );
-                      },
-                      color: const Color.fromARGB(0, 255, 255, 255),
-                      text: "<",
-                      color2: Colors.white,
-                      x: screenwidth * 0.11,
-                      y: screenheight * 0.055,
-                      border: 50,
-                      tamtxt: 30),
-                  CustomTextField(
-                      obs: false,
-                      text: "Busca tu plato",
-                      x: screenwidth * 0.8,
-                      y: screenheight * 0.07,
-                      color: Colors.white),
-                ],
-              ),
+              CustomTextField(
+                  obs: false,
+                  text: "Busca tu plato",
+                  x: screenwidth * 0.8,
+                  y: screenheight * 0.07,
+                  color: Colors.white),
               SizedBox(
                 height: screenheight * 0.06,
               ),
@@ -135,7 +107,16 @@ class Home extends StatelessWidget {
                       SizedBox(
                         height: screenheight * 0.1,
                         width: screenwidth * 0.2,
-                        child: Custombotontxt(
+                        child: Custombotonicon(
+                            funcion: () {},
+                            color: Colors.white,
+                            icono: Icons.local_pizza,
+                            color2: Colors.amber,
+                            x: screenwidth * 0.1,
+                            y: screenheight * 0.2,
+                            border: 10,
+                            tamtxt: 10),
+                        /* Custombotontxt(
                             funcion: () {},
                             color: Colors.white,
                             text: "aaa",
@@ -143,7 +124,7 @@ class Home extends StatelessWidget {
                             x: screenwidth * 0.1,
                             y: screenheight * 0.2,
                             border: 10,
-                            tamtxt: 10),
+                            tamtxt: 10), */
                       ),
                       const CustomText(
                         text: "Postres",
