@@ -5,6 +5,7 @@ import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/review_card.dart';
 
 import '../widgets/custom_back_arrow.dart';
+import '../widgets/custom_botontxt.dart';
 import '../widgets/custom_text.dart';
 
 class Order_Review extends StatelessWidget {
@@ -45,14 +46,19 @@ class Order_Review extends StatelessWidget {
                   fontFamily: "Poppins",
                 ),
               ]),
+              Divider(),
               CustomText(
                   text: "Método de pago",
                   fontFamily: "Poppins",
                   fontSize: 12,
                   color: Colors.white),
+                  Divider(),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
+              Divider(),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
+              Divider(),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
+              Spacer(flex:3),
               Row(
                 children: [Padding(padding: EdgeInsets.only(left: screenwidth*0.05)),
                 Column(
@@ -70,16 +76,21 @@ class Order_Review extends StatelessWidget {
                           color: Colors.white),
                           SizedBox(
                             width: screenwidth*0.9,
-                            height: 3,
+                            height: 2,
                             child: Container(
                               color: Color(0XFF34495E),
                             ),
                           ),
-                      CustomText(
+                          Row(children: [CustomText(
                           text: "Total: \$304.97",
                           fontFamily: "Poppins",
                           fontSize: 14,
                           color: Colors.white),
+                          Padding(padding: EdgeInsets.only(left: screenheight*0.16)),
+                          Icon(Icons.pin_drop_rounded, color: Colors.white,),
+                          Padding(padding: EdgeInsets.only(left: 15)),
+                          CustomText(text: "Cra 90 #900", fontFamily: "Poppins", fontSize: 10, color: Colors.white)
+                          ],),
                       CustomText(
                           text: "Cambio: \$15",
                           fontFamily: "Poppins",
@@ -88,7 +99,27 @@ class Order_Review extends StatelessWidget {
                     ],
                   )
                 ],
-              )
+              ),
+              Spacer(),
+              Custombotontxt(
+                        funcion: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const Order_Review();
+                              },
+                            ),
+                          );
+                        },
+                        color: const Color(0xFF70E000),
+                        text: "Pagar",
+                        color2: Colors.white,
+                        x: screenwidth * 0.8,
+                        y: screenheight * 0.06,
+                        border: 50,
+                        tamtxt: 20),
+                        Spacer()
             ],
           ),
         ),
