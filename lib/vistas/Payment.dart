@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/vistas/Order_Review.dart';
 import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
+
+import '../widgets/custom_botontxt.dart';
 
 class Payment extends StatefulWidget {
   const Payment({Key? key}) : super(key: key);
@@ -140,6 +143,26 @@ class _PaymentState extends State<Payment> {
                             padding: EdgeInsets.only(right: screenwidth * 0.1))
                       ],
                     ),
+                    Spacer(),
+                    Custombotontxt(
+                        funcion: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) {
+                                return const Order_Review();
+                              },
+                            ),
+                          );
+                        },
+                        color: const Color(0xFFEBA503),
+                        text: "Ir a Review",
+                        color2: Colors.white,
+                        x: screenwidth * 0.8,
+                        y: screenheight * 0.06,
+                        border: 50,
+                        tamtxt: 20),
+                        Padding(padding: EdgeInsets.only(bottom: screenheight*0.05))
                   ],
                 ))));
   }

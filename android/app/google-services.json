@@ -30,6 +30,14 @@
           }
         },
         {
+          "client_id": "1087592743276-u194ffnv8va274cemae2ojvcjbsbmaqe.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.proyectosoft",
+            "certificate_hash": "2762be814c84e0702e830ba163dc703da2159000"
+          }
+        },
+        {
           "client_id": "1087592743276-vsnopq36vfugg8khur0dru0kqdnd75dt.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {

@@ -26,33 +26,12 @@ class Order extends StatelessWidget {
               SizedBox(
                 height: (screenheight * 0.06),
               ),
-              Row(children: [
-                SizedBox(
-                  width: screenwidth * 0.08,
-                ),
-                CustomBackArrow(
-                    funcion: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) {
-                            return const SignIn();
-                          },
-                        ),
-                      );
-                    },
-                    dir: true,
-                    color: Colors.white),
-                SizedBox(
-                  width: screenwidth * 0.1,
-                ),
                 const CustomText(
                   text: "Carrito de comida",
                   color: Colors.white,
                   fontSize: 20,
                   fontFamily: "Poppins",
                 ),
-              ]),
               SizedBox(
                 height: screenheight * 0.04,
               ),
@@ -79,7 +58,7 @@ class Order extends StatelessWidget {
                     );
                   },
                   color: const Color(0xFFEBA503),
-                  text: "Enviar",
+                  text: "Llevar",
                   color2: Colors.white,
                   x: screenwidth * 0.8,
                   y: screenheight * 0.06,
