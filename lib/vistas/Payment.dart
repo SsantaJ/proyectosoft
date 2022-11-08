@@ -16,6 +16,7 @@ class Payment extends StatefulWidget {
 bool? isChecked = false;
 
 class _PaymentState extends State<Payment> {
+  final ignorar = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -98,11 +99,13 @@ class _PaymentState extends State<Payment> {
                     Padding(padding: EdgeInsets.only(top: screenheight * 0.04)),
                     if (isChecked == true)
                       CustomTextField(
-                          obs: false,
-                          text: "¿Con cuanto piensas pagar?",
-                          x: screenwidth * 0.9,
-                          y: screenheight * 0.07,
-                          color: Colors.white),
+                        obs: false,
+                        text: "¿Con cuanto piensas pagar?",
+                        x: screenwidth * 0.9,
+                        y: screenheight * 0.07,
+                        color: Colors.white,
+                        controlador: ignorar,
+                      ),
                     if (isChecked == true)
                       Padding(
                           padding: EdgeInsets.only(top: screenheight * 0.04)),
@@ -162,7 +165,8 @@ class _PaymentState extends State<Payment> {
                         y: screenheight * 0.06,
                         border: 50,
                         tamtxt: 20),
-                        Padding(padding: EdgeInsets.only(bottom: screenheight*0.05))
+                    Padding(
+                        padding: EdgeInsets.only(bottom: screenheight * 0.05))
                   ],
                 ))));
   }

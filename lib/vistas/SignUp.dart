@@ -6,7 +6,9 @@ import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
 class SignUP extends StatelessWidget {
-  const SignUP({Key? key}) : super(key: key);
+  SignUP({Key? key}) : super(key: key);
+
+  final ignorar = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -46,11 +48,13 @@ class SignUP extends StatelessWidget {
             height: (screenheight * 0.02),
           ),
           CustomTextField(
-              obs: false,
-              text: "Correo electronico",
-              x: screenwidth * 0.9,
-              y: screenheight * 0.07,
-              color: Colors.white),
+            obs: false,
+            text: "Correo electronico",
+            x: screenwidth * 0.9,
+            y: screenheight * 0.07,
+            color: Colors.white,
+            controlador: ignorar,
+          ),
           SizedBox(
             height: (screenheight * 0.02),
           ),
@@ -59,7 +63,8 @@ class SignUP extends StatelessWidget {
               text: "Usuario",
               x: screenwidth * 0.9,
               y: screenheight * 0.07,
-              color: Colors.white),
+              color: Colors.white,
+              controlador: ignorar),
           SizedBox(
             height: (screenheight * 0.02),
           ),
@@ -68,7 +73,8 @@ class SignUP extends StatelessWidget {
               text: "Contraseña",
               x: screenwidth * 0.9,
               y: screenheight * 0.07,
-              color: Colors.white),
+              color: Colors.white,
+              controlador: ignorar),
           SizedBox(
             height: (screenheight * 0.02),
           ),
@@ -77,7 +83,8 @@ class SignUP extends StatelessWidget {
               text: "Repita su contraseña",
               x: screenwidth * 0.9,
               y: screenheight * 0.07,
-              color: Colors.white),
+              color: Colors.white,
+              controlador: ignorar),
           SizedBox(
             height: (screenheight * 0.03),
           ),
@@ -87,7 +94,7 @@ class SignUP extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) {
-                      return const Order();
+                      return Order();
                     },
                   ),
                 );

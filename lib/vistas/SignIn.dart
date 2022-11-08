@@ -7,7 +7,13 @@ import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
 class SignIn extends StatelessWidget {
-  const SignIn({Key? key}) : super(key: key);
+  SignIn({Key? key}) : super(key: key);
+
+  final usuario = TextEditingController();
+  final password = TextEditingController();
+
+  String usu = '';
+  String pass = '';
 
   @override
   Widget build(BuildContext context) {
@@ -51,25 +57,34 @@ class SignIn extends StatelessWidget {
               height: (screenheight * 0.045),
             ),
             CustomTextField(
-                obs: false,
-                text: "Usuario",
-                x: screenwidth * 0.9,
-                y: screenheight * 0.07,
-                color: Colors.white),
+              obs: false,
+              text: "Usuario",
+              x: screenwidth * 0.9,
+              y: screenheight * 0.07,
+              color: Colors.white,
+              controlador: usuario,
+            ),
             SizedBox(
               height: (screenheight * 0.02),
             ),
             CustomTextField(
-                obs: true,
-                text: "Contraseña",
-                x: screenwidth * 0.9,
-                y: screenheight * 0.07,
-                color: Colors.white),
+              obs: true,
+              text: "Contraseña",
+              x: screenwidth * 0.9,
+              y: screenheight * 0.07,
+              color: Colors.white,
+              controlador: password,
+            ),
             SizedBox(
               height: (screenheight * 0.04),
             ),
             Custombotontxt(
                 funcion: () {
+                  usu = usuario.text;
+                  pass = password.text;
+
+                  print(usu + '-----' + pass);
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

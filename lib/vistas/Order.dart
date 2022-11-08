@@ -7,7 +7,9 @@ import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
 class Order extends StatelessWidget {
-  const Order({Key? key}) : super(key: key);
+  Order({Key? key}) : super(key: key);
+
+  final ignorar = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,12 +28,12 @@ class Order extends StatelessWidget {
               SizedBox(
                 height: (screenheight * 0.06),
               ),
-                const CustomText(
-                  text: "Carrito de comida",
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontFamily: "Poppins",
-                ),
+              const CustomText(
+                text: "Carrito de comida",
+                color: Colors.white,
+                fontSize: 20,
+                fontFamily: "Poppins",
+              ),
               SizedBox(
                 height: screenheight * 0.04,
               ),
@@ -52,7 +54,7 @@ class Order extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return const Payment();
+                          return Payment();
                         },
                       ),
                     );

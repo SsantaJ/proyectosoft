@@ -19,7 +19,7 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   double screenwidth = 0.0;
   double screenheight = 0.0;
-  final estados = [const Order(), const Home(), const profile()];
+  final estados = [Order(), Home(), const profile()];
   int index = 1;
 
   @override
@@ -68,7 +68,9 @@ class _HomePageState extends State<HomePage> {
 }
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
+
+  final ignorar = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -92,7 +94,8 @@ class Home extends StatelessWidget {
                   text: "Busca tu plato",
                   x: screenwidth * 0.8,
                   y: screenheight * 0.07,
-                  color: Colors.white),
+                  color: Colors.white,
+                  controlador: ignorar),
               SizedBox(
                 height: screenheight * 0.06,
               ),

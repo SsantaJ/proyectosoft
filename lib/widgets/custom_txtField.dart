@@ -8,12 +8,14 @@ class CustomTextField extends StatefulWidget {
     required this.x,
     required this.y,
     required this.color,
+    required this.controlador,
   }) : super(key: key);
 
   final bool obs; //puede ser nulla
   final String text;
   final Color? color;
   final double x, y;
+  final TextEditingController controlador;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -30,6 +32,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
         decoration: BoxDecoration(
             color: Colors.white, borderRadius: BorderRadius.circular(30)),
         child: TextField(
+          controller: widget.controlador,
           obscureText: widget.obs,
           decoration: InputDecoration(
             enabledBorder: const OutlineInputBorder(

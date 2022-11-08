@@ -48,7 +48,7 @@ class WelcomePage extends StatelessWidget {
                 //Database.setFirstData();
 
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const SignIn();
+                  return SignIn();
                 }));
               },
               color: const Color.fromARGB(255, 235, 165, 3),
@@ -64,7 +64,7 @@ class WelcomePage extends StatelessWidget {
           Custombotontxt(
               funcion: () {
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
-                  return const SignUP();
+                  return SignUP();
                 }));
               },
               color: const Color.fromARGB(255, 255, 118, 19),
