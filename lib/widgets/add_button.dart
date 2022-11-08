@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
@@ -6,9 +7,11 @@ class add_button extends StatefulWidget {
     Key? key,
     required this.screenheight,
     required this.screenwidth,
+    required this.stream
   }) : super(key: key);
 
   final double screenheight, screenwidth;
+  final Stream<QuerySnapshot> stream;
   @override
   State<add_button> createState() => _add_buttonState();
 }
@@ -39,8 +42,8 @@ class _add_buttonState extends State<add_button> {
               SizedBox(
                 height: widget.screenheight * 0.02,
               ),
-              const CustomText(
-                text: "Comida muy rica",
+              CustomText(
+                text: "x",
                 color: Colors.white,
                 fontSize: 14,
                 fontFamily: "Poppins",

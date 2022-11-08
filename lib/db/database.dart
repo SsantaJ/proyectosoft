@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-final CollectionReference _mainProductsCollection =
-    _firestore.collection('products');
-final CollectionReference _mainUserCollection = _firestore.collection('user');
+final CollectionReference _mainProductsCollection = _firestore.collection('Productos');
+final CollectionReference _mainDrinksCollection = _firestore.collection('Bebidas');
+final CollectionReference _mainUserCollection = _firestore.collection('User');
 
 class Database {
   static String? userUid;
@@ -19,8 +19,6 @@ class Database {
       "precio": "45000",
       'tamaño': '10kg'
     };
-
-
 
     await documentReferencer
           .set(data)
@@ -63,10 +61,8 @@ class Database {
   }
 
   static Stream<QuerySnapshot> readItems() {
-    CollectionReference notesItemCollection =
-        _mainProductsCollection.doc(userUid).collection('items');
-
-    return notesItemCollection.snapshots();
+    CollectionReference bebidasItemCollection = _mainProductsCollection.doc('Bebidas').collection('Bebidas');
+    return bebidasItemCollection.snapshots();
   }
 
   static Future<void> deleteItem({required String docId}) async {

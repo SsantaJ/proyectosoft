@@ -110,7 +110,16 @@ class Home extends StatelessWidget {
                   Column(
                     children: [
                       Custombotonf(
-                          funcion: () {},
+                          funcion: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) {
+                              return const menu();
+                            },
+                          ),
+                        );
+                      },
                           color: Colors.white,
                           img: "assets/imgs/coffee.png",
                           color2: Color.fromARGB(0, 255, 193, 7),

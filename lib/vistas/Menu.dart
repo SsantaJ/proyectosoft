@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/widgets/add_button.dart';
 import 'package:proyectosoft/widgets/custom_back_arrow.dart';
@@ -50,15 +51,15 @@ class menu extends StatelessWidget {
                 height: screenheight * 0.04,
               ),
               //CAMBIAR EN CART_CARD LOS PLACEHOLDERS, Y TEXTO DE PRECIO QUE ESTA EN BOLD
-              add_button(screenheight: screenheight, screenwidth: screenwidth),
+              add_button(screenheight: screenheight, screenwidth: screenwidth, stream: Database.readItems()),
               SizedBox(
                 height: screenheight * 0.04,
               ),
-              add_button(screenheight: screenheight, screenwidth: screenwidth),
+              add_button(screenheight: screenheight, screenwidth: screenwidth, stream: Database.readItems()),
               SizedBox(
                 height: screenheight * 0.04,
               ),
-              add_button(screenheight: screenheight, screenwidth: screenwidth),
+              add_button(screenheight: screenheight, screenwidth: screenwidth, stream: Database.readItems()),
               Flexible(
                 child: Container(),
               ),
