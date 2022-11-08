@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/widgets/custom_text.dart';
 
 class profile extends StatelessWidget {
   const profile({Key? key}) : super(key: key);
@@ -16,7 +17,15 @@ class profile extends StatelessWidget {
             color: Color.fromARGB(255, 75, 109, 184),
           ),
           child: Column(
-            children: [],
+            children: [
+              Spacer(),
+              CustomText(
+                  text: "VISTA DE PERFIL",
+                  fontFamily: "Poppins",
+                  fontSize: 20,
+                  color: Colors.white),
+              Spacer(),
+            ],
           ),
         ),
       ),
