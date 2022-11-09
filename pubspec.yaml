@@ -27,17 +27,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/imgs/platofondo.png
-    - assets/imgs/placeholder-carrito.png
-    - assets/imgs/trash-can.png
-    - assets/imgs/wallet.png
-    - assets/imgs/burger.png
-    - assets/imgs/tarjeta.png
-    - assets/imgs/Add.png
     - assets/imgs/
-    - assets/imgs/burgeri.png
-    - assets/imgs/coffee.png
-    - assets/imgs/piece.png
 
   fonts:
     - family: Poppins

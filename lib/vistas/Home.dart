@@ -134,7 +134,16 @@ class Home extends StatelessWidget {
                   Column(
                     children: [
                       Custombotonf(
-                          funcion: () {},
+                          funcion: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const menu();
+                                },
+                              ),
+                            );
+                          },
                           color: Colors.amber,
                           img: "assets/imgs/burgeri.png",
                           color2: const Color.fromARGB(0, 255, 193, 7),
@@ -155,7 +164,16 @@ class Home extends StatelessWidget {
                   Column(
                     children: [
                       Custombotonf(
-                          funcion: () {},
+                          funcion: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const menu();
+                                },
+                              ),
+                            );
+                          },
                           color: Colors.white,
                           img: "assets/imgs/piece.png",
                           color2: const Color.fromARGB(0, 255, 193, 7),
@@ -220,7 +238,7 @@ class Home extends StatelessWidget {
                         );
                       },
                       color: const Color.fromARGB(102, 52, 152, 219),
-                      img: "assets/imgs/burger.png",
+                      img: "assets/imgs/picsa.png",
                       color2: Palette.transparent,
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
@@ -246,7 +264,7 @@ class Home extends StatelessWidget {
                         );
                       },
                       color: const Color.fromARGB(102, 52, 152, 219),
-                      img: "assets/imgs/burger.png",
+                      img: "assets/imgs/fruta.png",
                       color2: Palette.transparent,
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
@@ -266,7 +284,7 @@ class Home extends StatelessWidget {
                         );
                       },
                       color: const Color.fromARGB(102, 52, 152, 219),
-                      img: "assets/imgs/burger.png",
+                      img: "assets/imgs/suchi.png",
                       color2: const Color.fromARGB(0, 233, 30, 98),
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
