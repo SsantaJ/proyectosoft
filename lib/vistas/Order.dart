@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/vistas/Payment.dart';
-import 'package:proyectosoft/vistas/SignIn.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
-import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
@@ -54,7 +52,7 @@ class Order extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return Payment();
+                          return const Payment();
                         },
                       ),
                     );

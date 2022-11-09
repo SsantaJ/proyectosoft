@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/review_card.dart';
 
@@ -46,31 +44,31 @@ class Order_Review extends StatelessWidget {
                   fontFamily: "Poppins",
                 ),
               ]),
-              Divider(),
-              CustomText(
+              const Divider(),
+              const CustomText(
                   text: "Método de pago",
                   fontFamily: "Poppins",
                   fontSize: 12,
                   color: Colors.white),
-              Divider(),
+              const Divider(),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
-              Divider(),
+              const Divider(),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
-              Divider(),
+              const Divider(),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
-              Spacer(flex: 3),
+              const Spacer(flex: 3),
               Row(
                 children: [
                   Padding(padding: EdgeInsets.only(left: screenwidth * 0.05)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      CustomText(
+                      const CustomText(
                           text: "Sub-Total: \$299.47",
                           fontFamily: "Poppins",
                           fontSize: 12,
                           color: Colors.white),
-                      CustomText(
+                      const CustomText(
                           text: "Domcilio: \$5",
                           fontFamily: "Poppins",
                           fontSize: 12,
@@ -79,12 +77,12 @@ class Order_Review extends StatelessWidget {
                         width: screenwidth * 0.9,
                         height: 2,
                         child: Container(
-                          color: Color(0XFF34495E),
+                          color: const Color(0XFF34495E),
                         ),
                       ),
                       Row(
                         children: [
-                          CustomText(
+                          const CustomText(
                               text: "Total: \$304.97",
                               fontFamily: "Poppins",
                               fontSize: 14,
@@ -92,19 +90,19 @@ class Order_Review extends StatelessWidget {
                           Padding(
                               padding:
                                   EdgeInsets.only(left: screenheight * 0.16)),
-                          Icon(
+                          const Icon(
                             Icons.pin_drop_rounded,
                             color: Colors.white,
                           ),
-                          Padding(padding: EdgeInsets.only(left: 15)),
-                          CustomText(
+                          const Padding(padding: EdgeInsets.only(left: 15)),
+                          const CustomText(
                               text: "Cra 90 #900",
                               fontFamily: "Poppins",
                               fontSize: 10,
                               color: Colors.white)
                         ],
                       ),
-                      CustomText(
+                      const CustomText(
                           text: "Cambio: \$15",
                           fontFamily: "Poppins",
                           fontSize: 14,
@@ -113,7 +111,7 @@ class Order_Review extends StatelessWidget {
                   )
                 ],
               ),
-              Spacer(),
+              const Spacer(),
               Custombotontxt(
                   funcion: () {
                     Navigator.push(
@@ -132,7 +130,7 @@ class Order_Review extends StatelessWidget {
                   y: screenheight * 0.06,
                   border: 50,
                   tamtxt: 20),
-              Spacer()
+              const Spacer()
             ],
           ),
         ),

@@ -3,12 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
 class add_button extends StatefulWidget {
-  const add_button({
-    Key? key,
-    required this.screenheight,
-    required this.screenwidth,
-    required this.stream
-  }) : super(key: key);
+  const add_button(
+      {Key? key,
+      required this.screenheight,
+      required this.screenwidth,
+      required this.stream})
+      : super(key: key);
 
   final double screenheight, screenwidth;
   final Stream<QuerySnapshot> stream;
@@ -42,7 +42,7 @@ class _add_buttonState extends State<add_button> {
               SizedBox(
                 height: widget.screenheight * 0.02,
               ),
-              CustomText(
+              const CustomText(
                 text: "x",
                 color: Colors.white,
                 fontSize: 14,

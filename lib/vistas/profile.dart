@@ -18,13 +18,13 @@ class profile extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Spacer(),
-              CustomText(
+              const Spacer(),
+              const CustomText(
                   text: "VISTA DE PERFIL",
                   fontFamily: "Poppins",
                   fontSize: 20,
                   color: Colors.white),
-              Spacer(),
+              const Spacer(),
             ],
           ),
         ),

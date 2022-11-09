@@ -146,7 +146,7 @@ class _PaymentState extends State<Payment> {
                             padding: EdgeInsets.only(right: screenwidth * 0.1))
                       ],
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Custombotontxt(
                         funcion: () {
                           Navigator.push(

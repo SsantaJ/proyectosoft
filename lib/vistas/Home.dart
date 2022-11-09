@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/vistas/Menu.dart';
@@ -7,9 +5,6 @@ import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/vistas/profile.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
-import 'package:proyectosoft/widgets/custom_botonicon.dart';
-import 'package:proyectosoft/vistas/welcomePage.dart';
-import 'package:proyectosoft/widgets/custom_botontxt.dart';
 import 'package:proyectosoft/widgets/custom_botonf.dart';
 
 class HomePage extends StatefulWidget {
@@ -103,26 +98,25 @@ class Home extends StatelessWidget {
               SizedBox(
                 height: screenheight * 0.06,
               ),
-
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Column(
                     children: [
                       Custombotonf(
                           funcion: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) {
-                              return const menu();
-                            },
-                          ),
-                        );
-                      },
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) {
+                                  return const menu();
+                                },
+                              ),
+                            );
+                          },
                           color: Colors.white,
                           img: "assets/imgs/coffee.png",
-                          color2: Color.fromARGB(0, 255, 193, 7),
+                          color2: const Color.fromARGB(0, 255, 193, 7),
                           x: screenwidth * 0.21,
                           y: screenwidth * 0.21,
                           border: 20,
@@ -136,14 +130,14 @@ class Home extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Column(
                     children: [
                       Custombotonf(
                           funcion: () {},
                           color: Colors.amber,
                           img: "assets/imgs/burgeri.png",
-                          color2: Color.fromARGB(0, 255, 193, 7),
+                          color2: const Color.fromARGB(0, 255, 193, 7),
                           x: screenwidth * 0.21,
                           y: screenwidth * 0.21,
                           border: 20,
@@ -157,14 +151,14 @@ class Home extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Spacer(),
+                  const Spacer(),
                   Column(
                     children: [
                       Custombotonf(
                           funcion: () {},
                           color: Colors.white,
                           img: "assets/imgs/piece.png",
-                          color2: Color.fromARGB(0, 255, 193, 7),
+                          color2: const Color.fromARGB(0, 255, 193, 7),
                           x: screenwidth * 0.21,
                           y: screenwidth * 0.21,
                           border: 10,
@@ -178,7 +172,7 @@ class Home extends StatelessWidget {
                       ),
                     ],
                   ),
-                  Spacer()
+                  const Spacer()
                 ],
               ),
               const Spacer(
@@ -193,7 +187,7 @@ class Home extends StatelessWidget {
               const Spacer(),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Custombotonf(
                       funcion: () {
                         Navigator.push(
@@ -207,13 +201,13 @@ class Home extends StatelessWidget {
                       },
                       color: const Color.fromARGB(102, 52, 152, 219),
                       img: "assets/imgs/burger.png",
-                      color2: Color.fromARGB(0, 233, 30, 98),
+                      color2: const Color.fromARGB(0, 233, 30, 98),
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
                       border: 20,
                       tamimg: 1,
                       grosor: 0),
-                  Spacer(),
+                  const Spacer(),
                   Custombotonf(
                       funcion: () {
                         Navigator.push(
@@ -233,13 +227,13 @@ class Home extends StatelessWidget {
                       border: 20,
                       tamimg: 1,
                       grosor: 0),
-                      Spacer(),
+                  const Spacer(),
                 ],
               ),
               const Spacer(),
               Row(
                 children: [
-                  Spacer(),
+                  const Spacer(),
                   Custombotonf(
                       funcion: () {
                         Navigator.push(
@@ -259,7 +253,7 @@ class Home extends StatelessWidget {
                       border: 20,
                       tamimg: 1,
                       grosor: 0),
-                  Spacer(),
+                  const Spacer(),
                   Custombotonf(
                       funcion: () {
                         Navigator.push(
@@ -273,13 +267,13 @@ class Home extends StatelessWidget {
                       },
                       color: const Color.fromARGB(102, 52, 152, 219),
                       img: "assets/imgs/burger.png",
-                      color2: Color.fromARGB(0, 233, 30, 98),
+                      color2: const Color.fromARGB(0, 233, 30, 98),
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
                       border: 20,
                       tamimg: 1,
                       grosor: 0),
-                  Spacer()
+                  const Spacer()
                 ],
               ),
               const Spacer(
