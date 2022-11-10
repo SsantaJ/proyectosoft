@@ -61,7 +61,7 @@ class Database {
   }
 
   static Stream<QuerySnapshot> readItems() {
-    CollectionReference bebidasItemCollection = _mainProductsCollection.doc('Bebidas').collection('Bebidas');
+    CollectionReference bebidasItemCollection = _mainProductsCollection.doc('Productos').collection('Bebidas');
     return bebidasItemCollection.snapshots();
   }
 

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
 class add_button extends StatefulWidget {
@@ -7,11 +8,13 @@ class add_button extends StatefulWidget {
       {Key? key,
       required this.screenheight,
       required this.screenwidth,
-      required this.stream})
+      required this.Nombre,
+      required this.Precio,
+      required this.Img})
       : super(key: key);
 
   final double screenheight, screenwidth;
-  final Stream<QuerySnapshot> stream;
+  final String Nombre, Precio, Img;
   @override
   State<add_button> createState() => _add_buttonState();
 }
@@ -25,12 +28,13 @@ class _add_buttonState extends State<add_button> {
       alignment: Alignment.center,
       child: Row(
         children: [
-          SizedBox(
+          Container(
             width: widget.screenwidth * 0.24,
-            child: Image.asset(
-              "assets/imgs/placeholder-carrito.png",
-              fit: BoxFit.fill,
-            ),
+            child: ClipRRect(borderRadius: BorderRadius.circular(20),
+            child: Image.network(
+              widget.Img,
+              fit: BoxFit.fitWidth,
+            ),)
           ),
           SizedBox(
             width: widget.screenwidth * 0.04,
@@ -42,15 +46,15 @@ class _add_buttonState extends State<add_button> {
               SizedBox(
                 height: widget.screenheight * 0.02,
               ),
-              const CustomText(
-                text: "x",
+              CustomText(
+                text: widget.Nombre,
                 color: Colors.white,
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),
               Flexible(child: Container()),
-              const CustomText(
-                text: "\$99.99",
+              CustomText(
+                text: "\$"+widget.Precio,
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
