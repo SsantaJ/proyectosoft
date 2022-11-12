@@ -36,10 +36,6 @@ class _Custombotontxtstate extends State<Custombotontxt> {
         decoration: BoxDecoration(
           color: widget.color,
           borderRadius: BorderRadius.circular(widget.border),
-          /* border: Border.all(
-            color: colorl,
-            width: 0.3,
-          ) */
         ),
         child: Center(
             child: Text(

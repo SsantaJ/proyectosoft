@@ -14,7 +14,6 @@ class menu extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       body: Center(
         child: Container(
           width: screenwidth,

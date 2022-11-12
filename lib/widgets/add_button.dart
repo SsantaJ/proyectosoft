@@ -29,13 +29,14 @@ class _add_buttonState extends State<add_button> {
       child: Row(
         children: [
           Container(
-            width: widget.screenwidth * 0.24,
-            child: ClipRRect(borderRadius: BorderRadius.circular(20),
-            child: Image.network(
-              widget.Img,
-              fit: BoxFit.fitWidth,
-            ),)
-          ),
+              width: widget.screenwidth * 0.24,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.network(
+                  widget.Img,
+                  fit: BoxFit.fitWidth,
+                ),
+              )),
           SizedBox(
             width: widget.screenwidth * 0.04,
           ),
@@ -54,7 +55,7 @@ class _add_buttonState extends State<add_button> {
               ),
               Flexible(child: Container()),
               CustomText(
-                text: "\$"+widget.Precio,
+                text: "\$" + widget.Precio,
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
