@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
+import 'package:proyectosoft/widgets/perfil_text.dart';
 
 class profile extends StatelessWidget {
   const profile({Key? key}) : super(key: key);
@@ -48,6 +49,10 @@ class profile extends StatelessWidget {
                     fontFamily: "Poppins"),
                 textAlign: TextAlign.right,
               ),
+              SizedBox(
+                height: screenheight * 0.03,
+              ),
+              perfil_text(text: "asasa")
             ],
           ),
         ),

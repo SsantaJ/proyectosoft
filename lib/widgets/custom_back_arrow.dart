@@ -26,13 +26,14 @@ class _CustomBackArrowState extends State<CustomBackArrow> {
       escala = -1;
     }
     return GestureDetector(
-        onTap: widget.funcion,
-        child: Transform.scale(
-          scale: escala,
-          child: Icon(
-            Icons.arrow_back_ios,
-            color: widget.color,
-          ),
-        ));
+      onTap: widget.funcion,
+      child: Transform.scale(
+        scale: escala,
+        child: Icon(
+          Icons.arrow_back_ios,
+          color: widget.color,
+        ),
+      ),
+    );
   }
 }
