@@ -1,6 +1,4 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
 class add_button extends StatefulWidget {
@@ -8,13 +6,13 @@ class add_button extends StatefulWidget {
       {Key? key,
       required this.screenheight,
       required this.screenwidth,
-      required this.Nombre,
-      required this.Precio,
-      required this.Img})
+      required this.nombre,
+      required this.precio,
+      required this.img})
       : super(key: key);
 
   final double screenheight, screenwidth;
-  final String Nombre, Precio, Img;
+  final String nombre, precio, img;
   @override
   State<add_button> createState() => _add_buttonState();
 }
@@ -28,12 +26,12 @@ class _add_buttonState extends State<add_button> {
       alignment: Alignment.center,
       child: Row(
         children: [
-          Container(
+          SizedBox(
               width: widget.screenwidth * 0.24,
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  widget.Img,
+                  widget.img,
                   fit: BoxFit.fitWidth,
                 ),
               )),
@@ -48,14 +46,14 @@ class _add_buttonState extends State<add_button> {
                 height: widget.screenheight * 0.02,
               ),
               CustomText(
-                text: widget.Nombre,
+                text: widget.nombre,
                 color: Colors.white,
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),
               Flexible(child: Container()),
               CustomText(
-                text: "\$" + widget.Precio,
+                text: "\$${widget.precio}",
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",

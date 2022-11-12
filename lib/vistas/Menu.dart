@@ -67,16 +67,16 @@ class menu extends StatelessWidget {
                               var itemInfo = snapshot.data!.docs[index].data()!
                                   as Map<String, dynamic>;
                               String docId = snapshot.data!.docs[index].id;
-                              String Name = itemInfo['Nombre'];
-                              String Price = itemInfo['Precio'].toString();
-                              String Url = itemInfo['Img'];
+                              String name = itemInfo['Nombre'];
+                              String price = itemInfo['Precio'].toString();
+                              String url = itemInfo['Img'];
 
                               return add_button(
                                   screenheight: screenheight,
                                   screenwidth: screenwidth,
-                                  Nombre: Name,
-                                  Precio: Price,
-                                  Img: Url);
+                                  nombre: name,
+                                  precio: price,
+                                  img: url);
                             }),
                             separatorBuilder: ((context, index) =>
                                 const SizedBox(

@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
-final CollectionReference _mainProductsCollection = _firestore.collection('Productos');
-final CollectionReference _mainDrinksCollection = _firestore.collection('Bebidas');
+final CollectionReference _mainProductsCollection =
+    _firestore.collection('Productos');
+final CollectionReference _mainDrinksCollection =
+    _firestore.collection('Bebidas');
 final CollectionReference _mainUserCollection = _firestore.collection('User');
 
 class Database {
@@ -21,9 +23,9 @@ class Database {
     };
 
     await documentReferencer
-          .set(data)
-          .whenComplete(() => print("Note item added to the database"))
-          .catchError((e) => print(e));
+        .set(data)
+        .whenComplete(() => print("Note item added to the database"))
+        .catchError((e) => print(e));
   }
 
   static Future<void> addItem(
@@ -61,7 +63,8 @@ class Database {
   }
 
   static Stream<QuerySnapshot> readItems() {
-    CollectionReference bebidasItemCollection = _mainProductsCollection.doc('Productos').collection('Bebidas');
+    CollectionReference bebidasItemCollection =
+        _mainProductsCollection.doc('Productos').collection('Bebidas');
     return bebidasItemCollection.snapshots();
   }
 

@@ -83,7 +83,7 @@ class SignIn extends StatelessWidget {
                   usu = usuario.text;
                   pass = password.text;
 
-                  print(usu + '-----' + pass);
+                  print('$usu-----$pass');
 
                   Navigator.push(
                     context,

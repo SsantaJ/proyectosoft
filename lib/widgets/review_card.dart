@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/foundation/key.dart';
-import 'package:flutter/src/widgets/framework.dart';
-
 import 'custom_text.dart';
 
 class review_card extends StatefulWidget {
@@ -9,8 +6,7 @@ class review_card extends StatefulWidget {
     Key? key,
     required this.screenheight,
     required this.screenwidth,
-
-    }) : super(key: key);
+  }) : super(key: key);
 
   final double screenheight, screenwidth;
 
