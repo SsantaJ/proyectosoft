@@ -52,7 +52,22 @@ class profile extends StatelessWidget {
               SizedBox(
                 height: screenheight * 0.03,
               ),
-              perfil_text(text: "asasa")
+              perfil_text(
+                main: "Correo electrónico",
+                info: "tucorreo@mmfood.com",
+              ),
+              perfil_text(
+                main: "Cambiar contraseña",
+                info: "aisdhujasd",
+              ),
+              perfil_text(
+                main: "Método de pago",
+                info: "Tarjeta debito Bancolombia",
+              ),
+              perfil_text(
+                main: "Dirección",
+                info: "Crra 47 #78-34",
+              ),
             ],
           ),
         ),
