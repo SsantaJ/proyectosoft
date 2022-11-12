@@ -14,6 +14,7 @@ class menu extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Center(
         child: Container(
           width: screenwidth,
@@ -52,32 +53,47 @@ class menu extends StatelessWidget {
               SizedBox(
                 height: screenheight * 0.03,
               ),
-              SizedBox(height: screenheight*0.8414, width: screenwidth * 0.86, child: StreamBuilder<QuerySnapshot>(stream: Database.readItems(),builder: (context, snapshot){
-                if(snapshot.hasError){
-                  return const Text(
-                    'Hubo un error en la carga. Por favor intenta nuevamente en un rato');
-                }
-                else if(snapshot.hasData || snapshot.data != null){
-                  return ListView.separated(itemBuilder: ((context, index) {
-                    var itemInfo = snapshot.data!.docs[index].data()!
-                    as Map<String, dynamic>;
-                    String docId = snapshot.data!.docs[index].id;
-                    String Name = itemInfo['Nombre'];
-                    String Price = itemInfo['Precio'].toString();
-                    String Url = itemInfo['Img'];
-                    
-                    return add_button(screenheight: screenheight, screenwidth: screenwidth, Nombre: Name, Precio: Price, Img: Url);
-                  }), separatorBuilder: ((context, index) => const SizedBox(height: 16,)), itemCount: snapshot.data!.docs.length);
-                }
-               return const Center(
-                child: CircularProgressIndicator(
-                  valueColor: AlwaysStoppedAnimation<Color>(
-                    Palette.primary,
-                  ),
-                ),
-              );
-              }
-              ),),
+              SizedBox(
+                height: screenheight * 0.8414,
+                width: screenwidth * 0.86,
+                child: StreamBuilder<QuerySnapshot>(
+                    stream: Database.readItems(),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return const Text(
+                            'Hubo un error en la carga. Por favor intenta nuevamente en un rato');
+                      } else if (snapshot.hasData || snapshot.data != null) {
+                        return ListView.separated(
+                            itemBuilder: ((context, index) {
+                              var itemInfo = snapshot.data!.docs[index].data()!
+                                  as Map<String, dynamic>;
+                              String docId = snapshot.data!.docs[index].id;
+                              String Name = itemInfo['Nombre'];
+                              String Price = itemInfo['Precio'].toString();
+                              String Url = itemInfo['Img'];
+
+                              return add_button(
+                                  screenheight: screenheight,
+                                  screenwidth: screenwidth,
+                                  Nombre: Name,
+                                  Precio: Price,
+                                  Img: Url);
+                            }),
+                            separatorBuilder: ((context, index) =>
+                                const SizedBox(
+                                  height: 16,
+                                )),
+                            itemCount: snapshot.data!.docs.length);
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Palette.primary,
+                          ),
+                        ),
+                      );
+                    }),
+              ),
               SizedBox(
                 height: screenheight * 0.04,
               ),
