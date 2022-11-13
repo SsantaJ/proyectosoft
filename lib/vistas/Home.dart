@@ -28,7 +28,7 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       body: estados[index],
       bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(indicatorColor: Colors.transparent),
+        data: const NavigationBarThemeData(indicatorColor: Colors.transparent, labelTextStyle: MaterialStatePropertyAll(TextStyle(color: Palette.secondary, fontSize: 12))),
         child: NavigationBar(
           destinations: const [
             NavigationDestination(
