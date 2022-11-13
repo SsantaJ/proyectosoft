@@ -19,7 +19,7 @@ class menu extends StatelessWidget {
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 75, 109, 184),
+            color: Palette.primary,
           ),
           child: Column(
             children: [

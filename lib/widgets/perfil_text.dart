@@ -3,6 +3,8 @@ import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
+import '../util/Palette.dart';
+
 class perfil_text extends StatelessWidget {
   const perfil_text({
     Key? key,
@@ -68,7 +70,7 @@ class perfil_text extends StatelessWidget {
               text: info,
               fontFamily: "Poppins",
               fontSize: 14,
-              color: const Color.fromARGB(255, 75, 109, 184),
+              color: Palette.primary,
             ),
           ],
         ),

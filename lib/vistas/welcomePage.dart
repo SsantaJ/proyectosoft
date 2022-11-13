@@ -5,6 +5,8 @@ import 'package:proyectosoft/widgets/custom_botontxt.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
+import '../util/Palette.dart';
+
 class WelcomePage extends StatelessWidget {
   const WelcomePage({Key? key}) : super(key: key);
 
@@ -13,7 +15,7 @@ class WelcomePage extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 75, 109, 184),
+      backgroundColor: Palette.primary,
       body: Column(
         children: [
           const Spacer(
@@ -51,7 +53,7 @@ class WelcomePage extends StatelessWidget {
                   return SignIn();
                 }));
               },
-              color: const Color.fromARGB(255, 235, 165, 3),
+              color: Palette.secondary,
               text: "Iniciar Sesion",
               color2: Colors.white,
               x: screenwidth * 0.9,
@@ -67,7 +69,7 @@ class WelcomePage extends StatelessWidget {
                   return SignUP();
                 }));
               },
-              color: const Color.fromARGB(255, 255, 118, 19),
+              color: Palette.complement,
               text: "Registrate",
               color2: Colors.white,
               x: screenwidth * 0.9,

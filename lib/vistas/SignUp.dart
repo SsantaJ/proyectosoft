@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
+import '../util/Palette.dart';
+
 class SignUP extends StatelessWidget {
   SignUP({Key? key}) : super(key: key);
 
@@ -16,7 +18,7 @@ class SignUP extends StatelessWidget {
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: const Color.fromARGB(255, 75, 109, 184),
+      backgroundColor: Palette.primary,
       body: Column(
         children: [
           SizedBox(
@@ -99,7 +101,7 @@ class SignUP extends StatelessWidget {
                   ),
                 );
               },
-              color: const Color.fromARGB(255, 255, 118, 19),
+              color: Palette.complement,
               text: "Registrarse",
               color2: Colors.white,
               x: screenwidth * 0.9,

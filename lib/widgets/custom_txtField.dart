@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../util/Palette.dart';
+
 class CustomTextField extends StatefulWidget {
   const CustomTextField({
     Key? key,
@@ -41,8 +43,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
             ),
             focusedBorder: const OutlineInputBorder(
               borderRadius: BorderRadius.all(Radius.circular((30))),
-              borderSide:
-                  BorderSide(color: Color.fromARGB(255, 235, 165, 3), width: 2),
+              borderSide: BorderSide(
+                color: Palette.secondary,
+                width: 2,
+              ),
             ),
             iconColor: widget.color,
             labelText: widget.text,

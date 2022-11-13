@@ -4,6 +4,8 @@ import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
+import '../util/Palette.dart';
+
 class Order extends StatelessWidget {
   Order({Key? key}) : super(key: key);
 
@@ -19,7 +21,7 @@ class Order extends StatelessWidget {
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
-            color: Color.fromARGB(255, 75, 109, 184),
+            color: Palette.primary,
           ),
           child: Column(
             children: [
@@ -57,7 +59,7 @@ class Order extends StatelessWidget {
                       ),
                     );
                   },
-                  color: const Color(0xFFEBA503),
+                  color: Palette.secondary,
                   text: "Llevar",
                   color2: Colors.white,
                   x: screenwidth * 0.8,

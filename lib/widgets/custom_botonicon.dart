@@ -50,9 +50,3 @@ class _Custombotoniconstate extends State<Custombotonicon> {
     );
   }
 }
-/*
-child: Icon(
-            Icons.arrow_back_ios,
-            color: widget.color,
-          ),
-          */
