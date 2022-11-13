@@ -20,18 +20,14 @@ class profile extends StatelessWidget {
           child: Column(
             children: [
               SizedBox(
-                height: (screenheight * 0.045),
+                height: (screenheight * 0.06),
               ),
               Container(
-                height: screenheight * 0.2,
-                width: screenheight * 0.2,
-                /* child: Image.network(
-                  "https://static-cdn.jtvnw.net/jtv_user_pictures/2507d5ab-22ce-4f7e-8f38-ccefce4e5aac-profile_image-150x150.png",
-                  height: screenheight * 0.3,
-                ), */
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(150),
-                  color: Colors.pink[50],
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(120),
+                  child: Image.network(
+                    "https://static-cdn.jtvnw.net/jtv_user_pictures/2507d5ab-22ce-4f7e-8f38-ccefce4e5aac-profile_image-150x150.png",
+                  ),
                 ),
               ),
               const CustomText(
