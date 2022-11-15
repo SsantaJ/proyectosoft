@@ -4,13 +4,18 @@ import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
-
 import '../util/Palette.dart';
+import '../auth/auth.dart';
 
 class SignUP extends StatelessWidget {
   SignUP({Key? key}) : super(key: key);
 
   final ignorar = TextEditingController();
+
+  final TextEditingController _emailController = TextEditingController();
+
+  final TextEditingController _passwordController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -92,14 +97,18 @@ class SignUP extends StatelessWidget {
           ),
           Custombotontxt(
               funcion: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return Order();
-                    },
-                  ),
-                );
+                
+                CustomAuth.registerWithEmailAndPassword(
+                      //Llamamos la función de registro
+                      email: _emailController.text,
+                      pass: _passwordController.text,
+                      context: context,
+                    ).then((value) => Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) {
+                          return Order();
+                        },)));
+
               },
               color: Palette.complement,
               text: "Registrarse",

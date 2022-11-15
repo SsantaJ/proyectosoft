@@ -5,14 +5,14 @@ import 'package:proyectosoft/widgets/custom_txtField.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
-
 import '../util/Palette.dart';
+import '../auth/auth.dart';
 
 class SignIn extends StatelessWidget {
   SignIn({Key? key}) : super(key: key);
 
-  final usuario = TextEditingController();
-  final password = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
 
   String usu = '';
   String pass = '';
@@ -30,60 +30,67 @@ class SignIn extends StatelessWidget {
           color: Palette.primary,
         ),
         child: Column(children: [
-          SizedBox(
-            height: (screenheight * 0.06),
-          ),
-          Align(
-            alignment: const Alignment(-0.88, 0),
-            child: CustomBackArrow(
-                funcion: () {
-                  Navigator.pop(context);
-                },
-                dir: true,
-                color: Colors.white),
-          ),
-          SizedBox(
-            height: (screenheight * 0.02),
-          ),
-          Container(
-            decoration: const BoxDecoration(),
-            alignment: const Alignment(-0.85, -0.1),
-            child: const CustomText(
-              text: "Ingresar",
+            SizedBox(
+              height: (screenheight * 0.06),
+            ),
+            Align(
+              alignment: const Alignment(-0.88, 0),
+              child: CustomBackArrow(
+                  funcion: () {
+                    Navigator.pop(context);
+                  },
+                  dir: true,
+                  color: Colors.white),
+            ),
+            SizedBox(
+              height: (screenheight * 0.02),
+            ),
+            Container(
+              decoration: const BoxDecoration(),
+              alignment: const Alignment(-0.85, -0.1),
+              child: const CustomText(
+                text: "Ingresar",
+                color: Colors.white,
+                fontSize: 20,
+                fontFamily: "Poppins",
+              ), //no sirve el height
+            ),
+            SizedBox(
+              height: (screenheight * 0.045),
+            ),
+            CustomTextField(
+              obs: false,
+              text: "Usuario",
+              x: screenwidth * 0.9,
+              y: screenheight * 0.07,
               color: Colors.white,
-              fontSize: 20,
-              fontFamily: "Poppins",
-            ), //no sirve el height
-          ),
-          SizedBox(
-            height: (screenheight * 0.045),
-          ),
-          CustomTextField(
-            obs: false,
-            text: "Usuario",
-            x: screenwidth * 0.9,
-            y: screenheight * 0.07,
-            color: Colors.white,
-            controlador: usuario,
-          ),
-          SizedBox(
-            height: (screenheight * 0.02),
-          ),
-          CustomTextField(
-            obs: true,
-            text: "Contraseña",
-            x: screenwidth * 0.9,
-            y: screenheight * 0.07,
-            color: Colors.white,
-            controlador: password,
-          ),
-          SizedBox(
-            height: (screenheight * 0.04),
-          ),
-          Custombotontxt(
-              funcion: () {
-                usu = usuario.text;
-                pass = password.text;
+              controlador: _emailController,
+            ),
+            SizedBox(
+              height: (screenheight * 0.02),
+            ),
+            CustomTextField(
+              obs: true,
+              text: "Contraseña",
+              x: screenwidth * 0.9,
+              y: screenheight * 0.07,
+              color: Colors.white,
+              controlador: _passwordController,
+            ),
+            SizedBox(
+              height: (screenheight * 0.04),
+            ),
+            Custombotontxt(
+                funcion: () {
+                  CustomAuth.signInWithEmailAndPassword(
+                        email: _emailController.text,
+                        pass: _passwordController.text,
+                        context: context,
+                      );
+
+                  usu = _emailController.text;
+                  pass = _passwordController.text;
+        
 
                 print('$usu-----$pass');
 

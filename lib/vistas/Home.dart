@@ -30,9 +30,9 @@ class _HomePageState extends State<HomePage> {
       resizeToAvoidBottomInset: false,
       body: estados[index],
       bottomNavigationBar: NavigationBarTheme(
-        data: const NavigationBarThemeData(
+        data: NavigationBarThemeData(
             indicatorColor: Colors.transparent,
-            labelTextStyle: MaterialStatePropertyAll(
+            labelTextStyle: MaterialStateProperty.all(
                 TextStyle(color: Palette.secondary, fontSize: 12))),
         child: NavigationBar(
           destinations: const [
