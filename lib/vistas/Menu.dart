@@ -1,5 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:proyectosoft/Provider/MenuProvider.dart';
 import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/vistas/Home.dart';
@@ -56,7 +58,7 @@ class menu extends StatelessWidget {
                 height: screenheight * 0.8414,
                 width: screenwidth * 0.86,
                 child: StreamBuilder<QuerySnapshot>(
-                    stream: Database.readItems(),
+                    stream: Database.readItems(context.watch<MenuProvider>().opcion),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
                         return const Text(

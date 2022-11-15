@@ -62,9 +62,9 @@ class Database {
         .catchError((e) => print(e));
   }
 
-  static Stream<QuerySnapshot> readItems() {
+  static Stream<QuerySnapshot> readItems(String opc) {
     CollectionReference bebidasItemCollection =
-        _mainProductsCollection.doc('Productos').collection('Bebidas');
+        _mainProductsCollection.doc('Productos').collection(opc);
     return bebidasItemCollection.snapshots();
   }
 

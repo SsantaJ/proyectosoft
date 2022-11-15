@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:proyectosoft/Provider/MenuProvider.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/vistas/Menu.dart';
 import 'package:proyectosoft/vistas/Order.dart';
@@ -110,6 +112,7 @@ class Home extends StatelessWidget {
                       Custombotonf(
                           text: "",
                           funcion: () {
+                            context.read<MenuProvider>().filloption("Bebidas");
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -141,6 +144,7 @@ class Home extends StatelessWidget {
                       Custombotonf(
                           text: "",
                           funcion: () {
+                            context.read<MenuProvider>().filloption("Platos");
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -171,6 +175,7 @@ class Home extends StatelessWidget {
                     children: [
                       Custombotonf(
                           funcion: () {
+                            context.read<MenuProvider>().filloption("Postres");
                             Navigator.push(
                               context,
                               MaterialPageRoute(
