@@ -19,6 +19,7 @@ class CustomAuth {
     //nuestro método para REGISTRAR (PD: Loguea automáticamente en caso satisfactorio, ya que el Stream detecta data)
     required String email,
     required String pass,
+    required String userName,
     required BuildContext context,
   }) async {
     late User? user;

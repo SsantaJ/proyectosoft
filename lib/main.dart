@@ -4,6 +4,7 @@ import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:provider/provider.dart';
 
 import 'Provider/MenuProvider.dart';
+import 'Provider/UserProvider.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,7 +17,10 @@ void main() async {
     ),
   );
   runApp(MultiProvider(
-    providers: [ChangeNotifierProvider(create: (_) => MenuProvider())],
+    providers: [
+      ChangeNotifierProvider(create: (_) => MenuProvider()),
+      ChangeNotifierProvider(create: (_) => UserProvider()),
+    ],
     child: const MyApp(),
   ));
 }

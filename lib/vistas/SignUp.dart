@@ -16,6 +16,8 @@ class SignUP extends StatelessWidget {
 
   final TextEditingController _passwordController = TextEditingController();
 
+  final TextEditingController _userController = TextEditingController();
+
 
   @override
   Widget build(BuildContext context) {
@@ -102,6 +104,7 @@ class SignUP extends StatelessWidget {
                       //Llamamos la función de registro
                       email: _emailController.text,
                       pass: _passwordController.text,
+                      userName: _userController.text,
                       context: context,
                     ).then((value) => Navigator.push(
                         context,
