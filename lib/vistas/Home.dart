@@ -38,13 +38,13 @@ class _HomePageState extends State<HomePage> {
         child: NavigationBar(
           destinations: const [
             NavigationDestination(
-              icon: Icon(Icons.shopping_cart, color: Colors.white),
+              icon: Icon(Icons.shopping_cart, color: Palette.complement),
               label: "Carrito",
               selectedIcon:
                   Icon(Icons.shopping_cart_outlined, color: Palette.secondary),
             ),
             NavigationDestination(
-              icon: Icon(Icons.store, color: Colors.white),
+              icon: Icon(Icons.store, color: Palette.complement),
               label: "Inicio",
               selectedIcon: Icon(
                 Icons.store_outlined,
@@ -52,7 +52,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             NavigationDestination(
-              icon: Icon(Icons.person, color: Colors.white),
+              icon: Icon(Icons.person, color: Palette.complement),
               label: "Perfil",
               selectedIcon:
                   Icon(Icons.person_outline, color: Palette.secondary),
@@ -125,9 +125,9 @@ class Home extends StatelessWidget {
                               ),
                             );
                           },
-                          color: Colors.white,
+                          color: Color(0XFFEFE5B3),
                           img: "assets/imgs/coffee.png",
-                          color2: const Color.fromARGB(0, 255, 193, 7),
+                          color2: Palette.transparent,
                           x: screenwidth * 0.21,
                           y: screenwidth * 0.21,
                           border: 20,
@@ -135,7 +135,7 @@ class Home extends StatelessWidget {
                           grosor: 0),
                       const CustomText(
                         text: "Bebidas",
-                        color: Colors.white,
+                        color: Palette.seccomponent,
                         fontSize: 15,
                         fontFamily: "Poppins",
                       ),
@@ -157,9 +157,9 @@ class Home extends StatelessWidget {
                               ),
                             );
                           },
-                          color: Colors.amber,
+                          color: Palette.secondary,
                           img: "assets/imgs/burgeri.png",
-                          color2: const Color.fromARGB(0, 255, 193, 7),
+                          color2: Palette.transparent,
                           x: screenwidth * 0.21,
                           y: screenwidth * 0.21,
                           border: 20,
@@ -167,7 +167,7 @@ class Home extends StatelessWidget {
                           grosor: 0),
                       const CustomText(
                         text: "Platos",
-                        color: Colors.white,
+                        color: Palette.seccomponent,
                         fontSize: 15,
                         fontFamily: "Poppins",
                       ),
@@ -188,9 +188,9 @@ class Home extends StatelessWidget {
                               ),
                             );
                           },
-                          color: Colors.white,
+                          color: Color(0XFFEFE5B3),
                           img: "assets/imgs/piece.png",
-                          color2: const Color.fromARGB(0, 255, 193, 7),
+                          color2: Palette.transparent,
                           x: screenwidth * 0.21,
                           y: screenwidth * 0.21,
                           border: 10,
@@ -199,7 +199,7 @@ class Home extends StatelessWidget {
                           grosor: 0),
                       const CustomText(
                         text: "Postres",
-                        color: Colors.white,
+                        color: Palette.seccomponent,
                         fontSize: 15,
                         fontFamily: "Poppins",
                       ),
@@ -215,7 +215,7 @@ class Home extends StatelessWidget {
                 text: "Menu",
                 fontFamily: "Poppins",
                 fontSize: 25,
-                color: Colors.white,
+                color: Palette.seccomponent,
               ),
               SizedBox(
                 height: screenheight * 0.02,
@@ -224,7 +224,7 @@ class Home extends StatelessWidget {
                 children: [
                   const Spacer(),
                   Custombotonf(
-                      text: "Burger",
+                      text: "",
                       funcion: () {
                         Navigator.push(
                           context,
@@ -235,9 +235,9 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
-                      color: const Color.fromARGB(102, 52, 152, 219),
+                      color: Palette.primary,
                       img: "assets/imgs/burger.png",
-                      color2: const Color.fromARGB(0, 233, 30, 98),
+                      color2: Palette.transparent,
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
                       border: 20,
@@ -256,7 +256,7 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
-                      color: const Color.fromARGB(102, 52, 152, 219),
+                      color: Palette.primary,
                       img: "assets/imgs/picsa.png",
                       color2: Palette.transparent,
                       x: screenheight * 0.17,
@@ -285,7 +285,7 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
-                      color: const Color.fromARGB(102, 52, 152, 219),
+                      color: Palette.primary,
                       img: "assets/imgs/fruta.png",
                       color2: Palette.transparent,
                       x: screenheight * 0.17,
@@ -306,9 +306,9 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
-                      color: const Color.fromARGB(102, 52, 152, 219),
+                      color: Palette.primary,
                       img: "assets/imgs/suchi.png",
-                      color2: Color.fromARGB(0, 233, 30, 98),
+                      color2: Palette.transparent,
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
                       border: 20,
