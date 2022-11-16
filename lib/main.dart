@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/vistas/welcomePage.dart';
 import 'package:provider/provider.dart';
+import 'dart:ffi';
 
 import 'Provider/MenuProvider.dart';
 import 'Provider/UserProvider.dart';

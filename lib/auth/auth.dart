@@ -2,8 +2,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:provider/provider.dart';
+import 'package:proyectosoft/Provider/UserProvider.dart';
 
-import '../Model/custom_user.dart';
+import '../model/custom_user.dart';
 import '../db/database.dart';
 
 class CustomAuth {
