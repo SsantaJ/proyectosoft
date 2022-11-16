@@ -62,7 +62,7 @@ class SignUP extends StatelessWidget {
             x: screenwidth * 0.9,
             y: screenheight * 0.07,
             color: Colors.white,
-            controlador: ignorar,
+            controlador: _emailController,
           ),
           SizedBox(
             height: (screenheight * 0.02),
@@ -73,7 +73,7 @@ class SignUP extends StatelessWidget {
               x: screenwidth * 0.9,
               y: screenheight * 0.07,
               color: Colors.white,
-              controlador: ignorar),
+              controlador: _userController),
           SizedBox(
             height: (screenheight * 0.02),
           ),
@@ -83,7 +83,7 @@ class SignUP extends StatelessWidget {
               x: screenwidth * 0.9,
               y: screenheight * 0.07,
               color: Colors.white,
-              controlador: ignorar),
+              controlador: _passwordController),
           SizedBox(
             height: (screenheight * 0.02),
           ),
