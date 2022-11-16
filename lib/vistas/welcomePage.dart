@@ -1,3 +1,4 @@
+import 'package:flutter/services.dart';
 import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/vistas/SignUp.dart';
 import 'package:proyectosoft/vistas/SignIn.dart';
@@ -12,6 +13,7 @@ class WelcomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(statusBarColor: Palette.transparent));
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -21,25 +23,22 @@ class WelcomePage extends StatelessWidget {
           const Spacer(
             flex: 1,
           ),
-          Stack(
-            alignment: const Alignment(0, 0),
+          Wrap(
+            runSpacing: -(screenwidth*0.2083),
+            alignment: WrapAlignment.center,
             children: [
-              const CustomText(
+              CustomText(
                 text: "mm",
-                color: Colors.white,
-                fontSize: 65,
+                color: Palette.complement,
+                fontSize: screenwidth*0.3255,
                 fontFamily: "Poppins",
               ),
-              Container(
-                height: screenheight * 0.28,
-                alignment: const Alignment(0, 1),
-                child: const CustomText(
-                  text: "food",
-                  color: Colors.white,
-                  fontSize: 65,
-                  fontFamily: "Poppins",
-                ),
-              ),
+              CustomText(
+                text: "food",
+                color: Palette.complement,
+                fontSize: screenwidth*0.3125,
+                fontFamily: "Poppins",
+              )
             ],
           ),
           const Spacer(
@@ -47,19 +46,17 @@ class WelcomePage extends StatelessWidget {
           ),
           Custombotontxt(
               funcion: () {
-                //Database.setFirstData();
-
                 Navigator.push(context, MaterialPageRoute(builder: (context) {
                   return SignIn();
                 }));
               },
               color: Palette.secondary,
-              text: "Iniciar Sesion",
-              color2: Colors.white,
-              x: screenwidth * 0.9,
-              y: screenheight * 0.075,
+              text: "Iniciar Sesión",
+              color2: Palette.complement,
+              x: screenwidth * 0.85,
+              y: screenheight * 0.065,
               border: 50,
-              tamtxt: 25),
+              tamtxt: screenwidth*0.052),
           SizedBox(
             height: (screenheight * 0.05),
           ),
@@ -71,11 +68,11 @@ class WelcomePage extends StatelessWidget {
               },
               color: Palette.complement,
               text: "Registrate",
-              color2: Colors.white,
-              x: screenwidth * 0.9,
-              y: screenheight * 0.075,
+              color2: Palette.secondary,
+              x: screenwidth * 0.85,
+              y: screenheight * 0.065,
               border: 50,
-              tamtxt: 25),
+              tamtxt: screenwidth*0.052),
           const Spacer(
             flex: 1,
           ),

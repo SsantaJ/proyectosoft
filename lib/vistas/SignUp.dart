@@ -41,17 +41,17 @@ class SignUP extends StatelessWidget {
                 color: Colors.white),
           ),
           SizedBox(
-            height: (screenheight * 0.015),
+            height: (screenheight * 0.05),
           ),
           Container(
             decoration: const BoxDecoration(),
             alignment: const Alignment(-0.85, -0.1),
             child: const CustomText(
               text: "Registrate",
-              color: Colors.white,
+              color: Palette.complement,
               fontSize: 20,
               fontFamily: "Poppins",
-            ), //no sirve el height
+            )
           ),
           SizedBox(
             height: (screenheight * 0.02),
@@ -59,8 +59,8 @@ class SignUP extends StatelessWidget {
           CustomTextField(
             obs: false,
             text: "Correo electronico",
-            x: screenwidth * 0.9,
-            y: screenheight * 0.07,
+             x: screenwidth * 0.85,
+              y: screenheight * 0.065,
             color: Colors.white,
             controlador: _emailController,
           ),
@@ -70,8 +70,8 @@ class SignUP extends StatelessWidget {
           CustomTextField(
               obs: false,
               text: "Usuario",
-              x: screenwidth * 0.9,
-              y: screenheight * 0.07,
+               x: screenwidth * 0.85,
+              y: screenheight * 0.065,
               color: Colors.white,
               controlador: _userController),
           SizedBox(
@@ -80,8 +80,8 @@ class SignUP extends StatelessWidget {
           CustomTextField(
               obs: true,
               text: "Contraseña",
-              x: screenwidth * 0.9,
-              y: screenheight * 0.07,
+               x: screenwidth * 0.85,
+              y: screenheight * 0.065,
               color: Colors.white,
               controlador: _passwordController),
           SizedBox(
@@ -89,9 +89,9 @@ class SignUP extends StatelessWidget {
           ),
           CustomTextField(
               obs: true,
-              text: "Repita su contraseña",
-              x: screenwidth * 0.9,
-              y: screenheight * 0.07,
+              text: "Repite tu contraseña",
+               x: screenwidth * 0.85,
+              y: screenheight * 0.065,
               color: Colors.white,
               controlador: ignorar),
           SizedBox(
@@ -101,7 +101,6 @@ class SignUP extends StatelessWidget {
               funcion: () {
                 
                 CustomAuth.registerWithEmailAndPassword(
-                      //Llamamos la función de registro
                       email: _emailController.text,
                       pass: _passwordController.text,
                       userName: _userController.text,
@@ -115,9 +114,9 @@ class SignUP extends StatelessWidget {
               },
               color: Palette.complement,
               text: "Registrarse",
-              color2: Colors.white,
-              x: screenwidth * 0.9,
-              y: screenheight * 0.075,
+              color2: Palette.secondary,
+               x: screenwidth * 0.85,
+              y: screenheight * 0.065,
               border: 50,
               tamtxt: 20),
           Flexible(

@@ -53,72 +53,9 @@ class Database {
     return customUser;
   }
 
-
-  static Future<void> setFirstData() async {
-    List colecciones = ['bebidas', 'platos', 'postres'];
-
-    DocumentReference documentReferencer =
-        _mainProductsCollection.doc("bebidas");
-
-    Map<String, dynamic> data = <String, dynamic>{
-      "nombre": "Algo",
-      "precio": "45000",
-      'tamaño': '10kg'
-    };
-
-    await documentReferencer
-        .set(data)
-        .whenComplete(() => print("Note item added to the database"))
-        .catchError((e) => print(e));
-  }
-
-  static Future<void> addItem(
-      {required String title, required String note}) async {
-    DocumentReference documentReferencer =
-        _mainProductsCollection.doc(userUid).collection('items').doc();
-
-    Map<String, dynamic> data = <String, dynamic>{
-      "title": title,
-      "note": note,
-    };
-
-    await documentReferencer
-        .set(data)
-        .whenComplete(() => print("Note item added to the database"))
-        .catchError((e) => print(e));
-  }
-
-  static Future<void> updateItem(
-      {required String title,
-      required String note,
-      required String docId}) async {
-    DocumentReference documentReferencer =
-        _mainProductsCollection.doc(userUid).collection('items').doc(docId);
-
-    Map<String, dynamic> data = <String, dynamic>{
-      "title": title,
-      "note": note,
-    };
-
-    await documentReferencer
-        .update(data)
-        .whenComplete(() => print("Note item updated in the database"))
-        .catchError((e) => print(e));
-  }
-
   static Stream<QuerySnapshot> readItems(String opc) {
     CollectionReference bebidasItemCollection =
         _mainProductsCollection.doc('Productos').collection(opc);
     return bebidasItemCollection.snapshots();
-  }
-
-  static Future<void> deleteItem({required String docId}) async {
-    DocumentReference documentReferencer =
-        _mainProductsCollection.doc(userUid).collection('items').doc(docId);
-
-    await documentReferencer
-        .delete()
-        .whenComplete(() => print('Note item deleted from the database'))
-        .catchError((e) => print(e));
   }
 }

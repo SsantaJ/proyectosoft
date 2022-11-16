@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
 
 class Palette {
-  static const Color primary = Color.fromARGB(255, 75, 109, 184);
-  static const Color secondary = Color.fromARGB(255, 235, 165, 3);
-  static const Color complement = Color.fromARGB(255, 255, 118, 19);
+  static const Color primary = Color(0XFF3B771F);
+  static const Color secondary = Color(0xFFEC9440);
+  static const Color complement = Color(0XFFFFF6CB);
   static const Color transparent = Color.fromARGB(0, 233, 30, 98);
-  static const Color background = Color.fromARGB(255, 207, 207, 207);
+  static const Color seccomponent = Color(0xFF5A0203);
 }
