@@ -7,6 +7,7 @@ class CustomTextField extends StatefulWidget {
     Key? key,
     required this.obs, //OPCIONAL
     required this.text,
+    required this.colorbg,
     required this.x,
     required this.y,
     required this.color,
@@ -15,7 +16,7 @@ class CustomTextField extends StatefulWidget {
 
   final bool obs; //puede ser nulla
   final String text;
-  final Color? color;
+  final Color? color, colorbg;
   final double x, y;
   final TextEditingController controlador;
 
@@ -29,10 +30,9 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return SizedBox(
       width: widget.x,
       height: widget.y,
-      //padding: const EdgeInsets.symmetric(horizontal: 20),
       child: DecoratedBox(
         decoration: BoxDecoration(
-            color: Colors.white, borderRadius: BorderRadius.circular(30)),
+            color: widget.colorbg, borderRadius: BorderRadius.circular(30)),
         child: TextField(
           controller: widget.controlador,
           obscureText: widget.obs,

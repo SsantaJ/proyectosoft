@@ -64,6 +64,7 @@ class SignIn extends StatelessWidget {
             x: screenwidth * 0.85,
             y: screenheight * 0.065,
             color: Colors.white,
+            colorbg: Colors.white,
             controlador: _emailController,
           ),
           SizedBox(
@@ -75,6 +76,7 @@ class SignIn extends StatelessWidget {
             x: screenwidth * 0.85,
             y: screenheight * 0.065,
             color: Colors.white,
+            colorbg: Colors.white,
             controlador: _passwordController,
           ),
           SizedBox(

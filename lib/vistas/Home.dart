@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:proyectosoft/Provider/MenuProvider.dart';
 import 'package:proyectosoft/util/Palette.dart';
@@ -78,6 +79,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle.dark);
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
@@ -87,7 +89,7 @@ class Home extends StatelessWidget {
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
-            color: Palette.primary,
+            color: Palette.complement,
           ),
           child: Column(
             children: [
@@ -97,9 +99,10 @@ class Home extends StatelessWidget {
               CustomTextField(
                   obs: false,
                   text: "Busca tu plato",
-                  x: screenwidth * 0.8,
-                  y: screenheight * 0.07,
+                  x: screenwidth * 0.85,
+                  y: screenheight * 0.065,
                   color: Colors.white,
+                  colorbg: Color(0XFFEFE5B3),
                   controlador: ignorar),
               SizedBox(
                 height: screenheight * 0.02,
