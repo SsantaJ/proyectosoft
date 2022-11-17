@@ -1,4 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:developer';
 
 import '../model/custom_user.dart';
@@ -6,9 +7,10 @@ import '../model/custom_user.dart';
 final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final CollectionReference _mainProductsCollection =
     _firestore.collection('Productos');
-final CollectionReference _mainDrinksCollection =
-    _firestore.collection('Bebidas');
 final CollectionReference _mainUserCollection = _firestore.collection('User');
+var user = FirebaseAuth.instance.currentUser!;
+var uid = user.uid;
+final CollectionReference cartCollection = _mainUserCollection.doc(uid).collection('Cart');
 
 class Database {
   static String? userUid;
@@ -31,7 +33,6 @@ class Database {
         .set(data)
         .whenComplete(() => log("User agregado correctamente a la DB"))
         .catchError((e) => log(e));
-
   }
 
   static Future getUser({required String id}) async {
@@ -57,5 +58,27 @@ class Database {
     CollectionReference bebidasItemCollection =
         _mainProductsCollection.doc('Productos').collection(opc);
     return bebidasItemCollection.snapshots();
+  }
+
+  static Stream<QuerySnapshot> readCart() {
+    CollectionReference cartItemCollection =
+        cartCollection;
+    return cartItemCollection.snapshots();
+  }
+
+  static Future<void> addItem({required String Img, required String Nombre, required String Precio}) async {
+    DocumentReference documentReferencer =
+        cartCollection.doc();
+
+    Map<String, dynamic> data = <String, dynamic>{
+      "Nombre": Nombre,
+      "Precio": Precio,
+      "Img": Img,
+    };
+
+    await documentReferencer
+        .set(data)
+        .whenComplete(() => log("item added to the cart"))
+        .catchError((e) => log(e));
   }
 }

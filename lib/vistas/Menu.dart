@@ -60,6 +60,9 @@ class menu extends StatelessWidget {
                 child: StreamBuilder<QuerySnapshot>(
                     stream: Database.readItems(context.watch<MenuProvider>().opcion),
                     builder: (context, snapshot) {
+                      if(snapshot.data!.size == 0){
+                        Text("Hola");
+                      }
                       if (snapshot.hasError) {
                         return const Text(
                             'Hubo un error en la carga. Por favor intenta nuevamente en un rato');
@@ -68,7 +71,6 @@ class menu extends StatelessWidget {
                             itemBuilder: ((context, index) {
                               var itemInfo = snapshot.data!.docs[index].data()!
                                   as Map<String, dynamic>;
-                              String docId = snapshot.data!.docs[index].id;
                               String name = itemInfo['Nombre'];
                               String price = itemInfo['Precio'].toString();
                               String url = itemInfo['Img'];
