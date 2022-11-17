@@ -46,13 +46,14 @@ class CustomAuth {
     }
   }
 
-  static Future<void> signInWithEmailAndPassword({
+  static Future<bool> signInWithEmailAndPassword({
     //Nuestra función para INICIAR SESIÓN
     required String email,
     required String pass,
     required BuildContext context,
   }) async {
     late User? user;
+    bool isLogged = false;
     try {
       user = (await _auth.signInWithEmailAndPassword(
         email: email,
@@ -67,8 +68,11 @@ class CustomAuth {
     if (user != null) {
       //LLenamos datos desde DB porque NO tenemos forma de traer los otros datos
       context.read<UserProvider>().fillUserFromDB(user.uid);
+      isLogged =true;
     }
+    return isLogged;
   }
+  
 
   static signOut({required BuildContext context}) async {
     //La función más fácil del universo, para cerrar sesión. El Stream auto detecta que no hay más data
