@@ -101,6 +101,7 @@ class _PaymentState extends State<Payment> {
                   x: screenwidth * 0.9,
                   y: screenheight * 0.07,
                   color: Colors.white,
+                  colorbg: Color(0XFFEFE5B3),
                   controlador: ignorar,
                 ),
               if (isChecked == true)
