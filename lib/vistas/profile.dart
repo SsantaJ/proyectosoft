@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/perfil_text.dart';
 
@@ -15,7 +16,7 @@ class profile extends StatelessWidget {
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
-            color: Colors.white,
+            color: Palette.complement,
           ),
           child: Column(
             children: [
@@ -34,13 +35,13 @@ class profile extends StatelessWidget {
                 text: "USER",
                 fontFamily: "Poppins",
                 fontSize: 20,
-                color: Colors.black,
+                color: Palette.seccomponent,
               ),
               const Text(
                 "+57 3218759535",
                 style: TextStyle(
                     fontSize: 17,
-                    color: Colors.black,
+                    color: Palette.primary,
                     fontWeight: FontWeight.w300,
                     fontFamily: "Poppins"),
                 textAlign: TextAlign.right,

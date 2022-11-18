@@ -30,7 +30,7 @@ class perfil_text extends StatelessWidget {
                 text: main,
                 fontFamily: "Poppins",
                 fontSize: 20,
-                color: Colors.black),
+                color: Palette.seccomponent),
             Flexible(
               child: Container(),
             ),
@@ -49,7 +49,7 @@ class perfil_text extends StatelessWidget {
                 scale: -1,
                 child: const Icon(
                   Icons.arrow_back_ios,
-                  color: Colors.black,
+                  color: Palette.seccomponent,
                 ),
               ),
             ),

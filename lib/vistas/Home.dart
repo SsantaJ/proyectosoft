@@ -217,11 +217,15 @@ class Home extends StatelessWidget {
               SizedBox(
                 height: screenheight * 0.02,
               ),
-              const CustomText(
-                text: "Menu",
-                fontFamily: "Poppins",
-                fontSize: 25,
-                color: Palette.seccomponent,
+              Container(
+                decoration: const BoxDecoration(),
+                alignment: const Alignment(0, 0),
+                child: const CustomText(
+                  text: "Menu",
+                  fontFamily: "Poppins",
+                  fontSize: 35,
+                  color: Palette.seccomponent,
+                ),
               ),
               SizedBox(
                 height: screenheight * 0.02,
