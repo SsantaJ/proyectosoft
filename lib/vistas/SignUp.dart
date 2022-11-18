@@ -1,3 +1,4 @@
+import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/vistas/Order.dart';
 import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_txtField.dart';
@@ -112,7 +113,7 @@ class SignUP extends StatelessWidget {
                     ).then((value) => Navigator.push(
                         context,
                         MaterialPageRoute(builder: (context) {
-                          return Order();
+                          return HomePage();
                         },)));
 
               },

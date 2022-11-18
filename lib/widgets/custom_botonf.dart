@@ -28,13 +28,10 @@ class Custombotonf extends StatefulWidget {
 class _Custombotonfstate extends State<Custombotonf> {
   @override
   Widget build(BuildContext context) {
+    double screenwidth = MediaQuery.of(context).size.width;
+    double screenheight = MediaQuery.of(context).size.height;
     return Column(
       children: [
-        CustomText(
-            text: widget.text,
-            fontFamily: "Poppins",
-            fontSize: 15,
-            color: Colors.white),
         GestureDetector(
           onTap: widget.funcion,
           child: Container(
@@ -49,6 +46,18 @@ class _Custombotonfstate extends State<Custombotonf> {
                 color: widget.color2,
                 width: widget.grosor,
               ),
+            ),
+            child: Column(
+              children: [
+                SizedBox(
+                  height: screenheight * 0.01,
+                ),
+                CustomText(
+                    text: widget.text,
+                    fontFamily: "Poppins",
+                    fontSize: 15,
+                    color: Colors.white),
+              ],
             ),
           ),
         ),

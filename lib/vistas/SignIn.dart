@@ -88,21 +88,18 @@ class SignIn extends StatelessWidget {
                   email: _emailController.text,
                   pass: _passwordController.text,
                   context: context,
-                );
-
-                usu = _emailController.text;
-                pass = _passwordController.text;
-
-                print('$usu-----$pass');
-
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) {
-                      return const HomePage();
-                    },
-                  ),
-                );
+                ).then((value) {
+                  if (value) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const HomePage();
+                        },
+                      ),
+                    );
+                  }
+                });
               },
               color: Palette.secondary,
               text: "Iniciar Sesion",

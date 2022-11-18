@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
 class add_button extends StatefulWidget {
@@ -63,7 +64,9 @@ class _add_buttonState extends State<add_button> {
           ),
           Flexible(child: Container()),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Database.addItem(Img: widget.img, Precio: widget.precio, Nombre: widget.nombre);
+            },
             child: Image.asset('assets/imgs/Add.png'),
           )
         ],
