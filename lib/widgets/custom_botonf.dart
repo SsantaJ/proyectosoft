@@ -13,13 +13,15 @@ class Custombotonf extends StatefulWidget {
       required this.border,
       required this.tamimg,
       required this.grosor,
+      required this.ax,
+      required this.ay,
       required this.text})
       : super(key: key);
   final VoidCallback funcion;
   final String img, text;
   final Color color;
   final Color color2;
-  final double x, y, border, tamimg, grosor;
+  final double x, y, border, tamimg, grosor, ax, ay;
 
   @override
   State<Custombotonf> createState() => _Custombotonfstate();
@@ -39,7 +41,10 @@ class _Custombotonfstate extends State<Custombotonf> {
             height: widget.y,
             decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage(widget.img), scale: widget.tamimg),
+                image: AssetImage(widget.img),
+                scale: widget.tamimg,
+                alignment: Alignment(widget.ax, widget.ay),
+              ),
               color: widget.color,
               borderRadius: BorderRadius.circular(widget.border),
               border: Border.all(
@@ -47,16 +52,29 @@ class _Custombotonfstate extends State<Custombotonf> {
                 width: widget.grosor,
               ),
             ),
+            alignment: const Alignment(-0.8, 1),
+            /*Align(
+            alignment: const Alignment(-1, 1),
+            child: Image.asset(
+              fit: BoxFit.cover,
+              "assets/imgs/platofondo.png",
+              height: screenheight * 0.35,
+              scale: 0.1,
+            ),
+          ),*/
             child: Column(
               children: [
                 SizedBox(
                   height: screenheight * 0.01,
                 ),
+                SizedBox(
+                  width: screenwidth * 0.02,
+                ),
                 CustomText(
                     text: widget.text,
                     fontFamily: "Poppins",
                     fontSize: 15,
-                    color: Colors.white),
+                    color: widget.color2),
               ],
             ),
           ),

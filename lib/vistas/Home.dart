@@ -125,6 +125,8 @@ class Home extends StatelessWidget {
                               ),
                             );
                           },
+                          ax: 0,
+                          ay: 0,
                           color: Color(0XFFEFE5B3),
                           img: "assets/imgs/coffee.png",
                           color2: Palette.transparent,
@@ -157,6 +159,8 @@ class Home extends StatelessWidget {
                               ),
                             );
                           },
+                          ax: 0,
+                          ay: 0,
                           color: Palette.secondary,
                           img: "assets/imgs/burgeri.png",
                           color2: Palette.transparent,
@@ -188,6 +192,8 @@ class Home extends StatelessWidget {
                               ),
                             );
                           },
+                          ax: 0,
+                          ay: 0,
                           color: Color(0XFFEFE5B3),
                           img: "assets/imgs/piece.png",
                           color2: Palette.transparent,
@@ -224,7 +230,7 @@ class Home extends StatelessWidget {
                 children: [
                   const Spacer(),
                   Custombotonf(
-                      text: "HAMBURGESAS",
+                      text: "Hamburguesas",
                       funcion: () {
                         Navigator.push(
                           context,
@@ -235,9 +241,11 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
+                      ax: 1,
+                      ay: 1,
                       color: Palette.primary,
                       img: "assets/imgs/burger.png",
-                      color2: Palette.transparent,
+                      color2: Palette.complement,
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
                       border: 20,
@@ -245,7 +253,7 @@ class Home extends StatelessWidget {
                       grosor: 0),
                   const Spacer(),
                   Custombotonf(
-                      text: "PIZZAS",
+                      text: "Pizzas",
                       funcion: () {
                         Navigator.push(
                           context,
@@ -256,9 +264,11 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
+                      ax: 1,
+                      ay: 1,
                       color: Palette.primary,
                       img: "assets/imgs/picsa.png",
-                      color2: Palette.transparent,
+                      color2: Palette.complement,
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
                       border: 20,
@@ -274,7 +284,7 @@ class Home extends StatelessWidget {
                 children: [
                   const Spacer(),
                   Custombotonf(
-                      text: "FRUTAS",
+                      text: "Frutas",
                       funcion: () {
                         Navigator.push(
                           context,
@@ -285,9 +295,11 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
+                      ax: 1,
+                      ay: 1,
                       color: Palette.primary,
                       img: "assets/imgs/fruta.png",
-                      color2: Palette.transparent,
+                      color2: Palette.complement,
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
                       border: 20,
@@ -295,7 +307,7 @@ class Home extends StatelessWidget {
                       grosor: 0),
                   const Spacer(),
                   Custombotonf(
-                      text: "SUSHIS",
+                      text: "Sushis",
                       funcion: () {
                         Navigator.push(
                           context,
@@ -306,9 +318,11 @@ class Home extends StatelessWidget {
                           ),
                         );
                       },
+                      ax: 1,
+                      ay: 1,
                       color: Palette.primary,
                       img: "assets/imgs/suchi.png",
-                      color2: Palette.transparent,
+                      color2: Palette.complement,
                       x: screenheight * 0.17,
                       y: screenwidth * 0.3,
                       border: 20,

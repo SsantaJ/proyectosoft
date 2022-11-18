@@ -37,10 +37,10 @@ class Order extends StatelessWidget {
                 fontFamily: "Poppins",
               ),
               SizedBox(
-                height: screenheight * 0.04,
+                height: screenheight * 0.02,
               ),
               SizedBox(
-                height: screenheight * 0.695,
+                height: screenheight * 0.68,
                 width: screenwidth * 0.86,
                 child: StreamBuilder<QuerySnapshot>(
                     stream: Database.readCart(),
@@ -78,6 +78,9 @@ class Order extends StatelessWidget {
                         ),
                       );
                     }),
+              ),
+              SizedBox(
+                height: screenheight * 0.02,
               ),
               Custombotontxt(
                   funcion: () {
