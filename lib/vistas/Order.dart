@@ -1,12 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 import 'package:proyectosoft/vistas/Payment.dart';
 import 'package:proyectosoft/widgets/cart_card.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/custom_botontxt.dart';
 
-import '../Provider/MenuProvider.dart';
 import '../db/database.dart';
 import '../util/Palette.dart';
 

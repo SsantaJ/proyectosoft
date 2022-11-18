@@ -224,7 +224,7 @@ class Home extends StatelessWidget {
                 children: [
                   const Spacer(),
                   Custombotonf(
-                      text: "",
+                      text: "HAMBURGESAS",
                       funcion: () {
                         Navigator.push(
                           context,
@@ -245,7 +245,7 @@ class Home extends StatelessWidget {
                       grosor: 0),
                   const Spacer(),
                   Custombotonf(
-                      text: "",
+                      text: "PIZZAS",
                       funcion: () {
                         Navigator.push(
                           context,
@@ -274,7 +274,7 @@ class Home extends StatelessWidget {
                 children: [
                   const Spacer(),
                   Custombotonf(
-                      text: "",
+                      text: "FRUTAS",
                       funcion: () {
                         Navigator.push(
                           context,
@@ -295,7 +295,7 @@ class Home extends StatelessWidget {
                       grosor: 0),
                   const Spacer(),
                   Custombotonf(
-                      text: "",
+                      text: "SUSHIS",
                       funcion: () {
                         Navigator.push(
                           context,
