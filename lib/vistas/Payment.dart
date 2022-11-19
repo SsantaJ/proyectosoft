@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:proyectosoft/Provider/MenuProvider.dart';
 import 'package:proyectosoft/vistas/Order_Review.dart';
 import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
@@ -99,11 +101,12 @@ class _PaymentState extends State<Payment> {
                 CustomTextField(
                   obs: false,
                   text: "¿Con cuanto piensas pagar?",
-                  x: screenwidth * 0.9,
-                  y: screenheight * 0.07,
+                  x: screenwidth * 0.85,
+                  y: screenheight * 0.055,
                   color: Colors.white,
                   colorbg: Color(0XFFEFE5B3),
                   controlador: _cashController,
+                  digit: true,
                 ),
               if (isChecked == true)
                 Padding(padding: EdgeInsets.only(top: screenheight * 0.04)),
@@ -144,6 +147,9 @@ class _PaymentState extends State<Payment> {
               const Spacer(),
               Custombotontxt(
                   funcion: () {
+                    if(isChecked == true){
+                      context.read<MenuProvider>().selectPay(cash: true, can: int.parse(_cashController.text));
+                    }
                     Navigator.push(
                       context,
                       MaterialPageRoute(

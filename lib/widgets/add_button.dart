@@ -76,6 +76,19 @@ class _add_buttonState extends State<add_button> {
           Spacer(),
           GestureDetector(
             onTap: () {
+              FirebaseFirestore.instance
+                    .collection("User")
+                    .doc(widget.uid)
+                    .collection("Cart")
+                    .where("Nombre", isEqualTo: widget.nombre)
+                    .limit(1)
+                    .get()
+                    .then((value) {
+                  value.docs.forEach((element) {
+                    docID = element.id;
+                    can = element["Cantidad"];
+                  });
+                });
               if (!Added) {
                 Database.addItem(
                     Img: widget.img,
@@ -85,18 +98,6 @@ class _add_buttonState extends State<add_button> {
                 Added = true;
               }
               if (Added) {
-                FirebaseFirestore.instance
-                    .collection("User")
-                    .doc(widget.uid)
-                    .collection("Cart")
-                    .where("Nombre", isEqualTo: widget.nombre)
-                    .get()
-                    .then((value) {
-                  value.docs.forEach((element) {
-                    if (element["Nombre"] == widget.nombre) docID = element.id;
-                    can = element["Cantidad"];
-                  });
-                });
                 Database.updateItem(
                     Img: widget.img,
                     Precio: widget.precio,
