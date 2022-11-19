@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:proyectosoft/util/Palette.dart';
 import 'custom_text.dart';
 
 class review_card extends StatefulWidget {
@@ -42,7 +43,7 @@ class _review_cardState extends State<review_card> {
               ),
               const CustomText(
                 text: "Comida muy rica",
-                color: Colors.white,
+                color: Palette.seccomponent,
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),

@@ -57,10 +57,11 @@ class menu extends StatelessWidget {
                 height: screenheight * 0.03,
               ),
               SizedBox(
-                height: screenheight * 0.8414,
+                height: screenheight * 0.8,
                 width: screenwidth * 0.86,
                 child: StreamBuilder<QuerySnapshot>(
-                    stream: Database.readItems(context.watch<MenuProvider>().opcion),
+                    stream: Database.readItems(
+                        context.watch<MenuProvider>().opcion),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
                         return const Text(
@@ -79,7 +80,10 @@ class menu extends StatelessWidget {
                                   screenheight: screenheight,
                                   screenwidth: screenwidth,
                                   nombre: name,
-                                  uid: context.watch<UserProvider>().customUser.uid,
+                                  uid: context
+                                      .watch<UserProvider>()
+                                      .customUser
+                                      .uid,
                                   precio: price,
                                   docId: docID,
                                   img: url);

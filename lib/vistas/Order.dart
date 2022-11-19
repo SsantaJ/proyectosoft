@@ -45,7 +45,8 @@ class Order extends StatelessWidget {
                 height: screenheight * 0.68,
                 width: screenwidth * 0.86,
                 child: StreamBuilder<QuerySnapshot>(
-                    stream: Database.readCart(usuario: context.watch<UserProvider>().customUser.uid),
+                    stream: Database.readCart(
+                        usuario: context.watch<UserProvider>().customUser.uid),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
                         return const Text(
@@ -68,7 +69,10 @@ class Order extends StatelessWidget {
                                   Precio: price,
                                   Can: can,
                                   docID: docID,
-                                  user: context.watch<UserProvider>().customUser.uid,
+                                  user: context
+                                      .watch<UserProvider>()
+                                      .customUser
+                                      .uid,
                                   Img: url);
                             }),
                             separatorBuilder: ((context, index) =>

@@ -72,26 +72,28 @@ class _add_buttonState extends State<add_button> {
           Spacer(),
           GestureDetector(
             onTap: () {
-              if(!Added){
-              Database.addItem(
-                  Img: widget.img,
-                  Precio: widget.precio,
-                  Nombre: widget.nombre,
-                  usuario: widget.uid);
-                  Added = true;
-                  can = 1;
-                  }
-              if(Added){
+              if (!Added) {
+                Database.addItem(
+                    Img: widget.img,
+                    Precio: widget.precio,
+                    Nombre: widget.nombre,
+                    usuario: widget.uid);
+                Added = true;
+                can = 1;
+              }
+              if (Added) {
                 can++;
-                Database.updateItem(Img: widget.img,
-                  Precio: widget.precio,
-                  Nombre: widget.nombre,
-                  usuario: widget.uid,
-                   Cantidad: can, docId: widget.docId);
+                Database.updateItem(
+                    Img: widget.img,
+                    Precio: widget.precio,
+                    Nombre: widget.nombre,
+                    usuario: widget.uid,
+                    Cantidad: can,
+                    docId: widget.docId);
               }
               final snackbar = SnackBar(
                   content: CustomText(
-                      text: widget.nombre+" añanido al carrito",
+                      text: widget.nombre + " añanido al carrito",
                       fontFamily: "Poppins",
                       fontSize: 12,
                       color: Palette.complement),

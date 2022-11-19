@@ -105,13 +105,19 @@ class Home extends StatelessWidget {
                   colorbg: Color(0XFFEFE5B3),
                   controlador: ignorar),
               SizedBox(
-                height: screenheight * 0.02,
+                height: screenheight * 0.05,
               ),
               Row(
                 children: [
                   const Spacer(),
                   Column(
                     children: [
+                      const CustomText(
+                        text: "Bebidas",
+                        color: Palette.seccomponent,
+                        fontSize: 15,
+                        fontFamily: "Poppins",
+                      ),
                       Custombotonf(
                           text: "",
                           funcion: () {
@@ -135,17 +141,17 @@ class Home extends StatelessWidget {
                           border: 20,
                           tamimg: 1,
                           grosor: 0),
-                      const CustomText(
-                        text: "Bebidas",
-                        color: Palette.seccomponent,
-                        fontSize: 15,
-                        fontFamily: "Poppins",
-                      ),
                     ],
                   ),
                   const Spacer(),
                   Column(
                     children: [
+                      const CustomText(
+                        text: "Platos",
+                        color: Palette.seccomponent,
+                        fontSize: 15,
+                        fontFamily: "Poppins",
+                      ),
                       Custombotonf(
                           text: "",
                           funcion: () {
@@ -169,17 +175,17 @@ class Home extends StatelessWidget {
                           border: 20,
                           tamimg: 1,
                           grosor: 0),
-                      const CustomText(
-                        text: "Platos",
-                        color: Palette.seccomponent,
-                        fontSize: 15,
-                        fontFamily: "Poppins",
-                      ),
                     ],
                   ),
                   const Spacer(),
                   Column(
                     children: [
+                      const CustomText(
+                        text: "Postres",
+                        color: Palette.seccomponent,
+                        fontSize: 15,
+                        fontFamily: "Poppins",
+                      ),
                       Custombotonf(
                           funcion: () {
                             context.read<MenuProvider>().filloption("Postres");
@@ -203,19 +209,13 @@ class Home extends StatelessWidget {
                           tamimg: 1,
                           text: "",
                           grosor: 0),
-                      const CustomText(
-                        text: "Postres",
-                        color: Palette.seccomponent,
-                        fontSize: 15,
-                        fontFamily: "Poppins",
-                      ),
                     ],
                   ),
                   const Spacer()
                 ],
               ),
               SizedBox(
-                height: screenheight * 0.02,
+                height: screenheight * 0.03,
               ),
               Container(
                 decoration: const BoxDecoration(),
@@ -228,7 +228,7 @@ class Home extends StatelessWidget {
                 ),
               ),
               SizedBox(
-                height: screenheight * 0.02,
+                height: screenheight * 0.03,
               ),
               Row(
                 children: [
@@ -250,7 +250,7 @@ class Home extends StatelessWidget {
                       color: Palette.primary,
                       img: "assets/imgs/burger.png",
                       color2: Palette.complement,
-                      x: screenheight * 0.17,
+                      x: screenheight * 0.18,
                       y: screenwidth * 0.3,
                       border: 20,
                       tamimg: 1,
@@ -273,7 +273,7 @@ class Home extends StatelessWidget {
                       color: Palette.primary,
                       img: "assets/imgs/picsa.png",
                       color2: Palette.complement,
-                      x: screenheight * 0.17,
+                      x: screenheight * 0.18,
                       y: screenwidth * 0.3,
                       border: 20,
                       tamimg: 1,
@@ -282,7 +282,7 @@ class Home extends StatelessWidget {
                 ],
               ),
               SizedBox(
-                height: screenheight * 0.02,
+                height: screenheight * 0.04,
               ),
               Row(
                 children: [
@@ -304,7 +304,7 @@ class Home extends StatelessWidget {
                       color: Palette.primary,
                       img: "assets/imgs/fruta.png",
                       color2: Palette.complement,
-                      x: screenheight * 0.17,
+                      x: screenheight * 0.18,
                       y: screenwidth * 0.3,
                       border: 20,
                       tamimg: 1,
@@ -327,7 +327,7 @@ class Home extends StatelessWidget {
                       color: Palette.primary,
                       img: "assets/imgs/suchi.png",
                       color2: Palette.complement,
-                      x: screenheight * 0.17,
+                      x: screenheight * 0.18,
                       y: screenwidth * 0.3,
                       border: 20,
                       tamimg: 1,

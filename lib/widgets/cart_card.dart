@@ -65,11 +65,15 @@ class _cart_cardState extends State<cart_card> {
               ),
               Spacer(),
               CustomText(
-                text: "\$" + widget.Precio+" cantidad: "+widget.Can.toString(),
+                text: "\$" +
+                    widget.Precio +
+                    " cantidad: " +
+                    widget.Can.toString(),
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
-              ),Spacer()
+              ),
+              Spacer()
             ],
           ),
           Spacer(),
@@ -78,7 +82,7 @@ class _cart_cardState extends State<cart_card> {
               Database.deleteItem(docId: widget.docID, usuario: widget.user);
               final snackbar = SnackBar(
                   content: CustomText(
-                      text: widget.Nombre+" eliminado del carrito",
+                      text: widget.Nombre + " eliminado del carrito",
                       fontFamily: "Poppins",
                       fontSize: 12,
                       color: Palette.complement),
@@ -88,9 +92,16 @@ class _cart_cardState extends State<cart_card> {
                 ..removeCurrentSnackBar()
                 ..showSnackBar(snackbar);
             },
-            child: Icon(
-              cart_card.trash,
-              color: Palette.seccomponent,
+            child: Container(
+              width: 33,
+              height: 33,
+              decoration: BoxDecoration(
+                  color: Palette.seccomponent,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Icon(
+                cart_card.trash,
+                color: Palette.complement,
+              ),
             ),
           )
         ],
