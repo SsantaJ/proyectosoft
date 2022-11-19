@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/db/database.dart';
+import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
 class add_button extends StatefulWidget {
@@ -49,7 +50,7 @@ class _add_buttonState extends State<add_button> {
               ),
               CustomText(
                 text: widget.nombre,
-                color: Colors.white,
+                color: Palette.seccomponent,
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),
@@ -66,9 +67,34 @@ class _add_buttonState extends State<add_button> {
           Flexible(child: Container()),
           GestureDetector(
             onTap: () {
-              Database.addItem(Img: widget.img, Precio: widget.precio, Nombre: widget.nombre, usuario: widget.uid);
+              Database.addItem(
+                  Img: widget.img,
+                  Precio: widget.precio,
+                  Nombre: widget.nombre,
+                  usuario: widget.uid);
+              final snackbar = SnackBar(
+                  content: CustomText(
+                      text: widget.nombre+" añanido al carrito",
+                      fontFamily: "Poppins",
+                      fontSize: 12,
+                      color: Palette.complement),
+                  backgroundColor: Palette.primary);
+
+              ScaffoldMessenger.of(context)
+                ..removeCurrentSnackBar()
+                ..showSnackBar(snackbar);
             },
-            child: Image.asset('assets/imgs/Add.png'),
+            child: Container(
+              width: 32,
+              height: 32,
+              decoration: BoxDecoration(
+                  color: Palette.primary,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Icon(
+                Icons.add,
+                color: Colors.white,
+              ),
+            ),
           )
         ],
       ),

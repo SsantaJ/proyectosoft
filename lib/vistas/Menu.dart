@@ -23,7 +23,7 @@ class menu extends StatelessWidget {
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
-            color: Palette.primary,
+            color: Palette.complement,
           ),
           child: Column(
             children: [
@@ -47,7 +47,7 @@ class menu extends StatelessWidget {
                         );
                       },
                       dir: true,
-                      color: Colors.white),
+                      color: Palette.seccomponent),
                   SizedBox(
                     width: screenwidth * 0.1,
                   ),
