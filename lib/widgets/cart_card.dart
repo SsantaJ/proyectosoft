@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/Cupertino.dart';
+import 'package:provider/provider.dart';
+import 'package:proyectosoft/Provider/UserProvider.dart';
+import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
@@ -11,12 +14,13 @@ class cart_card extends StatefulWidget {
     required this.Nombre,
     required this.Precio,
     required this.Img,
+    required this.docID,
     required this.Can,
-    required this.docId,
+    required this.user,
   }) : super(key: key);
 
   final double screenheight, screenwidth;
-  final String Img, Precio, Nombre, docId;
+  final String Img, Precio, Nombre, docID, user;
   final int Can;
   static const IconData trash = IconData(0xf4c4,
       fontFamily: CupertinoIcons.iconFont,
@@ -61,17 +65,29 @@ class _cart_cardState extends State<cart_card> {
               ),
               Spacer(),
               CustomText(
-                text: "\$" + widget.Precio,
+                text: "\$" + widget.Precio+" cantidad: "+widget.Can.toString(),
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
-              ),
-              Flexible(child: Container())
+              ),Spacer()
             ],
           ),
-          Flexible(child: Container()),
+          Spacer(),
           GestureDetector(
-            onTap: () {},
+            onTap: () {
+              Database.deleteItem(docId: widget.docID, usuario: widget.user);
+              final snackbar = SnackBar(
+                  content: CustomText(
+                      text: widget.Nombre+" eliminado del carrito",
+                      fontFamily: "Poppins",
+                      fontSize: 12,
+                      color: Palette.complement),
+                  backgroundColor: Palette.primary);
+
+              ScaffoldMessenger.of(context)
+                ..removeCurrentSnackBar()
+                ..showSnackBar(snackbar);
+            },
             child: Icon(
               cart_card.trash,
               color: Palette.seccomponent,

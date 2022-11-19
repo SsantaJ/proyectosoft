@@ -18,6 +18,7 @@ bool? isChecked = false;
 
 class _PaymentState extends State<Payment> {
   final ignorar = TextEditingController();
+  final TextEditingController _cashController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -28,7 +29,7 @@ class _PaymentState extends State<Payment> {
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
-            color: Palette.primary,
+            color: Palette.complement,
           ),
           child: Column(
             children: [
@@ -42,13 +43,13 @@ class _PaymentState extends State<Payment> {
                       Navigator.pop(context);
                     },
                     dir: true,
-                    color: Colors.white),
+                    color: Palette.seccomponent),
                 SizedBox(
                   width: screenwidth * 0.03,
                 ),
                 const CustomText(
                   text: "Selecciona tú método de pago",
-                  color: Colors.white,
+                  color: Palette.seccomponent,
                   fontSize: 17,
                   fontFamily: "Poppins",
                 ),
@@ -75,7 +76,7 @@ class _PaymentState extends State<Payment> {
                       text: "Efectivo",
                       fontFamily: "Roboto",
                       fontSize: 16,
-                      color: Colors.white),
+                      color: Palette.seccomponent),
                   const Spacer(),
                   Transform.scale(
                       scale: 1.7,
@@ -86,7 +87,7 @@ class _PaymentState extends State<Payment> {
                             isChecked = value;
                           });
                         },
-                        activeColor: Palette.complement,
+                        activeColor: Palette.secondary,
                         checkColor: Colors.white,
                         shape: const CircleBorder(),
                       )),
@@ -102,7 +103,7 @@ class _PaymentState extends State<Payment> {
                   y: screenheight * 0.07,
                   color: Colors.white,
                   colorbg: Color(0XFFEFE5B3),
-                  controlador: ignorar,
+                  controlador: _cashController,
                 ),
               if (isChecked == true)
                 Padding(padding: EdgeInsets.only(top: screenheight * 0.04)),
@@ -128,15 +129,15 @@ class _PaymentState extends State<Payment> {
                       text: "Tarjeta de Crédito",
                       fontFamily: "Roboto",
                       fontSize: 12,
-                      color: Colors.white),
+                      color: Palette.seccomponent),
                   const Spacer(),
                   const CustomText(
                       text: "4444 **** **** 5782",
                       fontFamily: "Roboto",
                       fontSize: 10,
-                      color: Colors.white),
+                      color: Palette.seccomponent),
                   CustomBackArrow(
-                      funcion: () {}, dir: false, color: Colors.white),
+                      funcion: () {}, dir: false, color: Palette.seccomponent),
                   Padding(padding: EdgeInsets.only(right: screenwidth * 0.1))
                 ],
               ),

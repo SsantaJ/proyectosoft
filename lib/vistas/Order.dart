@@ -67,7 +67,8 @@ class Order extends StatelessWidget {
                                   Nombre: name,
                                   Precio: price,
                                   Can: can,
-                                  docId: docID,
+                                  docID: docID,
+                                  user: context.watch<UserProvider>().customUser.uid,
                                   Img: url);
                             }),
                             separatorBuilder: ((context, index) =>

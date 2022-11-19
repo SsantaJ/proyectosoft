@@ -70,6 +70,7 @@ class menu extends StatelessWidget {
                             itemBuilder: ((context, index) {
                               var itemInfo = snapshot.data!.docs[index].data()!
                                   as Map<String, dynamic>;
+                              String docID = snapshot.data!.docs[index].id;
                               String name = itemInfo['Nombre'];
                               String price = itemInfo['Precio'].toString();
                               String url = itemInfo['Img'];
@@ -80,6 +81,7 @@ class menu extends StatelessWidget {
                                   nombre: name,
                                   uid: context.watch<UserProvider>().customUser.uid,
                                   precio: price,
+                                  docId: docID,
                                   img: url);
                             }),
                             separatorBuilder: ((context, index) =>

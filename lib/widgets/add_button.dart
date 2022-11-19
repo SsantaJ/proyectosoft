@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
@@ -11,11 +13,12 @@ class add_button extends StatefulWidget {
       required this.nombre,
       required this.precio,
       required this.uid,
+      required this.docId,
       required this.img})
       : super(key: key);
 
   final double screenheight, screenwidth;
-  final String nombre, precio, img, uid;
+  final String nombre, precio, img, uid, docId;
   @override
   State<add_button> createState() => _add_buttonState();
 }
@@ -23,6 +26,8 @@ class add_button extends StatefulWidget {
 class _add_buttonState extends State<add_button> {
   @override
   Widget build(BuildContext context) {
+    int can = 0;
+    bool Added = false;
     return Container(
       height: widget.screenheight * 0.11,
       width: widget.screenwidth * 0.86,
@@ -54,24 +59,36 @@ class _add_buttonState extends State<add_button> {
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),
-              Flexible(child: Container()),
+              Spacer(),
               CustomText(
                 text: "\$${widget.precio}",
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
               ),
-              Flexible(child: Container())
+              Spacer()
             ],
           ),
-          Flexible(child: Container()),
+          Spacer(),
           GestureDetector(
             onTap: () {
+              if(!Added){
               Database.addItem(
                   Img: widget.img,
                   Precio: widget.precio,
                   Nombre: widget.nombre,
                   usuario: widget.uid);
+                  Added = true;
+                  can = 1;
+                  }
+              if(Added){
+                can++;
+                Database.updateItem(Img: widget.img,
+                  Precio: widget.precio,
+                  Nombre: widget.nombre,
+                  usuario: widget.uid,
+                   Cantidad: can, docId: widget.docId);
+              }
               final snackbar = SnackBar(
                   content: CustomText(
                       text: widget.nombre+" añanido al carrito",

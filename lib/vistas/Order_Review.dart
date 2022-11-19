@@ -19,7 +19,7 @@ class Order_Review extends StatelessWidget {
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
-            color: Palette.primary,
+            color: Palette.complement,
           ),
           child: Column(
             children: [
@@ -33,28 +33,28 @@ class Order_Review extends StatelessWidget {
                       Navigator.pop(context);
                     },
                     dir: true,
-                    color: Colors.white),
+                    color: Palette.seccomponent),
                 SizedBox(
                   width: screenwidth * 0.13,
                 ),
                 const CustomText(
                   text: "Pago de Producto",
-                  color: Colors.white,
+                  color: Palette.seccomponent,
                   fontSize: 20,
                   fontFamily: "Poppins",
                 ),
               ]),
-              const Divider(),
+              const Divider(color: Palette.transparent,),
               const CustomText(
                   text: "Método de pago",
                   fontFamily: "Poppins",
                   fontSize: 12,
-                  color: Colors.white),
-              const Divider(),
+                  color: Palette.seccomponent),
+              const Divider(color: Palette.transparent),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
-              const Divider(),
+              const Divider(color: Palette.transparent),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
-              const Divider(),
+              const Divider(color: Palette.transparent),
               review_card(screenheight: screenheight, screenwidth: screenwidth),
               const Spacer(flex: 3),
               Row(
@@ -67,12 +67,12 @@ class Order_Review extends StatelessWidget {
                           text: "Sub-Total: \$299.47",
                           fontFamily: "Poppins",
                           fontSize: 12,
-                          color: Colors.white),
+                          color: Palette.seccomponent),
                       const CustomText(
                           text: "Domcilio: \$5",
                           fontFamily: "Poppins",
                           fontSize: 12,
-                          color: Colors.white),
+                          color: Palette.seccomponent),
                       SizedBox(
                         width: screenwidth * 0.9,
                         height: 2,
@@ -86,27 +86,27 @@ class Order_Review extends StatelessWidget {
                               text: "Total: \$304.97",
                               fontFamily: "Poppins",
                               fontSize: 14,
-                              color: Colors.white),
+                              color: Palette.seccomponent),
                           Padding(
                               padding:
                                   EdgeInsets.only(left: screenheight * 0.16)),
                           const Icon(
                             Icons.pin_drop_rounded,
-                            color: Colors.white,
+                            color: Palette.seccomponent,
                           ),
                           const Padding(padding: EdgeInsets.only(left: 15)),
                           const CustomText(
                               text: "Cra 90 #900",
                               fontFamily: "Poppins",
                               fontSize: 10,
-                              color: Colors.white)
+                              color: Palette.seccomponent)
                         ],
                       ),
                       const CustomText(
                           text: "Cambio: \$15",
                           fontFamily: "Poppins",
                           fontSize: 14,
-                          color: Colors.white),
+                          color: Palette.seccomponent),
                     ],
                   )
                 ],
@@ -123,9 +123,9 @@ class Order_Review extends StatelessWidget {
                       ),
                     );
                   },
-                  color: const Color(0xFF70E000),
+                  color: Palette.primary,
                   text: "Pagar",
-                  color2: Colors.white,
+                  color2: Palette.complement,
                   x: screenwidth * 0.8,
                   y: screenheight * 0.06,
                   border: 50,

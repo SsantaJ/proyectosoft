@@ -89,7 +89,7 @@ class Database {
       "Nombre": Nombre,
       "Precio": Precio,
       "Img": Img,
-      "Cantidad": Cantidad+1
+      "Cantidad": Cantidad
     };
 
     await documentReferencer
@@ -97,4 +97,14 @@ class Database {
         .whenComplete(() => log("Cart item updated in the database"))
         .catchError((e) => log(e));
       }
+
+  static Future<void> deleteItem({required String docId, required String usuario}) async {
+    DocumentReference documentReferencer =
+       _mainUserCollection.doc(usuario).collection("Cart").doc(docId);
+
+    await documentReferencer
+        .delete()
+        .whenComplete(() => print('Cart item deleted from the database'))
+        .catchError((e) => print(e));
+  }
 }
