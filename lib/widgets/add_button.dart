@@ -1,5 +1,7 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
@@ -13,12 +15,11 @@ class add_button extends StatefulWidget {
       required this.nombre,
       required this.precio,
       required this.uid,
-      required this.docId,
       required this.img})
       : super(key: key);
 
   final double screenheight, screenwidth;
-  final String nombre, precio, img, uid, docId;
+  final String nombre, precio, img, uid;
   @override
   State<add_button> createState() => _add_buttonState();
 }
@@ -27,6 +28,7 @@ class _add_buttonState extends State<add_button> {
   @override
   Widget build(BuildContext context) {
     int can = 0;
+    String docID = "";
     bool Added = false;
     return Container(
       height: widget.screenheight * 0.11,
@@ -79,17 +81,27 @@ class _add_buttonState extends State<add_button> {
                     Nombre: widget.nombre,
                     usuario: widget.uid);
                 Added = true;
-                can = 1;
               }
               if (Added) {
-                can++;
+                FirebaseFirestore.instance
+                    .collection("User")
+                    .doc(widget.uid)
+                    .collection("Cart")
+                    .where("Nombre", isEqualTo: widget.nombre)
+                    .get()
+                    .then((value) {
+                  value.docs.forEach((element) {
+                    if (element["Nombre"] == widget.nombre) docID = element.id;
+                    can = element["Cantidad"];
+                  });
+                });
                 Database.updateItem(
                     Img: widget.img,
                     Precio: widget.precio,
                     Nombre: widget.nombre,
                     usuario: widget.uid,
-                    Cantidad: can,
-                    docId: widget.docId);
+                    Cantidad: can+1,
+                    docId: docID);
               }
               final snackbar = SnackBar(
                   content: CustomText(
