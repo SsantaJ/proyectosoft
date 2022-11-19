@@ -57,6 +57,7 @@ class Database {
     return bebidasItemCollection.snapshots();
   }
 
+
   static Stream<QuerySnapshot> readCart({required String usuario}) {
     CollectionReference cartItemCollection =
        _mainUserCollection.doc(usuario).collection("Cart");
@@ -70,6 +71,7 @@ class Database {
       "Nombre": Nombre,
       "Precio": Precio,
       "Img": Img,
+      "Cantidad": 1,
     };
 
     await documentReferencer
@@ -77,4 +79,22 @@ class Database {
         .whenComplete(() => log("item added to the cart"))
         .catchError((e) => log(e));
   }
+
+  static Future<void> updateItem({required String Img, required String Nombre, required String Precio, required String usuario, required int Cantidad,
+      required String docId}) async {
+    DocumentReference documentReferencer =
+        _mainUserCollection.doc(usuario).collection("Cart").doc(docId);
+
+    Map<String, dynamic> data = <String, dynamic>{
+      "Nombre": Nombre,
+      "Precio": Precio,
+      "Img": Img,
+      "Cantidad": Cantidad+1
+    };
+
+    await documentReferencer
+        .update(data)
+        .whenComplete(() => log("Cart item updated in the database"))
+        .catchError((e) => log(e));
+      }
 }

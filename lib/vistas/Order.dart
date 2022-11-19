@@ -55,8 +55,10 @@ class Order extends StatelessWidget {
                             itemBuilder: ((context, index) {
                               var itemInfo = snapshot.data!.docs[index].data()!
                                   as Map<String, dynamic>;
+                              String docID = snapshot.data!.docs[index].id;
                               String name = itemInfo['Nombre'];
                               String price = itemInfo['Precio'].toString();
+                              int can = itemInfo['Cantidad'];
                               String url = itemInfo['Img'];
 
                               return cart_card(
@@ -64,6 +66,8 @@ class Order extends StatelessWidget {
                                   screenwidth: screenwidth,
                                   Nombre: name,
                                   Precio: price,
+                                  Can: can,
+                                  docId: docID,
                                   Img: url);
                             }),
                             separatorBuilder: ((context, index) =>

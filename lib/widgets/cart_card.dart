@@ -11,11 +11,16 @@ class cart_card extends StatefulWidget {
     required this.Nombre,
     required this.Precio,
     required this.Img,
+    required this.Can,
+    required this.docId,
   }) : super(key: key);
 
   final double screenheight, screenwidth;
-  final String Img, Precio, Nombre;
-  static const IconData trash = IconData(0xf4c4, fontFamily: CupertinoIcons.iconFont, fontPackage: CupertinoIcons.iconFontPackage);
+  final String Img, Precio, Nombre, docId;
+  final int Can;
+  static const IconData trash = IconData(0xf4c4,
+      fontFamily: CupertinoIcons.iconFont,
+      fontPackage: CupertinoIcons.iconFontPackage);
   @override
   State<cart_card> createState() => _cart_cardState();
 }
@@ -30,15 +35,14 @@ class _cart_cardState extends State<cart_card> {
       child: Row(
         children: [
           SizedBox(
-            width: widget.screenwidth * 0.24,
-            child: ClipRRect(
+              width: widget.screenwidth * 0.24,
+              child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
                   widget.Img,
                   fit: BoxFit.fitWidth,
                 ),
-              )
-          ),
+              )),
           SizedBox(
             width: widget.screenwidth * 0.04,
           ),
@@ -55,9 +59,9 @@ class _cart_cardState extends State<cart_card> {
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),
-              Flexible(child: Container()),
+              Spacer(),
               CustomText(
-                text: "\$"+widget.Precio,
+                text: "\$" + widget.Precio,
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
@@ -68,7 +72,10 @@ class _cart_cardState extends State<cart_card> {
           Flexible(child: Container()),
           GestureDetector(
             onTap: () {},
-            child: Icon(cart_card.trash, color: Palette.seccomponent,),
+            child: Icon(
+              cart_card.trash,
+              color: Palette.seccomponent,
+            ),
           )
         ],
       ),
