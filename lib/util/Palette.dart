@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:proyectosoft/db/database.dart';
 
 class Palette {
   static const Color primary = Color(0XFF3B771F);

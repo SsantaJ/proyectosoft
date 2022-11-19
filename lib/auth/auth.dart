@@ -21,6 +21,7 @@ class CustomAuth {
     required String email,
     required String pass,
     required String userName,
+    required String adress,
     required BuildContext context,
   }) async {
     late User? user;
@@ -68,11 +69,10 @@ class CustomAuth {
     if (user != null) {
       //LLenamos datos desde DB porque NO tenemos forma de traer los otros datos
       context.read<UserProvider>().fillUserFromDB(user.uid);
-      isLogged =true;
+      isLogged = true;
     }
     return isLogged;
   }
-  
 
   static signOut({required BuildContext context}) async {
     //La función más fácil del universo, para cerrar sesión. El Stream auto detecta que no hay más data

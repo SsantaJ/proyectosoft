@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/Cupertino.dart';
-import 'package:provider/provider.dart';
-import 'package:proyectosoft/Provider/UserProvider.dart';
 import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
@@ -11,17 +9,17 @@ class cart_card extends StatefulWidget {
     Key? key,
     required this.screenheight,
     required this.screenwidth,
-    required this.Nombre,
-    required this.Precio,
-    required this.Img,
+    required this.nombre,
+    required this.precio,
+    required this.img,
     required this.docID,
-    required this.Can,
+    required this.can,
     required this.user,
   }) : super(key: key);
 
   final double screenheight, screenwidth;
-  final String Img, Precio, Nombre, docID, user;
-  final int Can;
+  final String img, precio, nombre, docID, user;
+  final int can;
   static const IconData trash = IconData(0xf4c4,
       fontFamily: CupertinoIcons.iconFont,
       fontPackage: CupertinoIcons.iconFontPackage);
@@ -43,7 +41,7 @@ class _cart_cardState extends State<cart_card> {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
-                  widget.Img,
+                  widget.img,
                   fit: BoxFit.fitWidth,
                 ),
               )),
@@ -58,27 +56,28 @@ class _cart_cardState extends State<cart_card> {
                 height: widget.screenheight * 0.02,
               ),
               CustomText(
-                text: widget.Nombre,
+                text: widget.nombre,
                 color: Palette.seccomponent,
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),
-              Spacer(),
+              const Spacer(),
               CustomText(
-                text: "\$" + widget.Precio+" cantidad: "+widget.Can.toString(),
+                text: "\$${widget.precio} cantidad: ${widget.can}",
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
-              ),Spacer()
+              ),
+              const Spacer()
             ],
           ),
-          Spacer(),
+          const Spacer(),
           GestureDetector(
             onTap: () {
               Database.deleteItem(docId: widget.docID, usuario: widget.user);
               final snackbar = SnackBar(
                   content: CustomText(
-                      text: widget.Nombre+" eliminado del carrito",
+                      text: "${widget.nombre} eliminado del carrito",
                       fontFamily: "Poppins",
                       fontSize: 12,
                       color: Palette.complement),
@@ -88,7 +87,7 @@ class _cart_cardState extends State<cart_card> {
                 ..removeCurrentSnackBar()
                 ..showSnackBar(snackbar);
             },
-            child: Icon(
+            child: const Icon(
               cart_card.trash,
               color: Palette.seccomponent,
             ),

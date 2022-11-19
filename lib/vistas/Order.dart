@@ -20,8 +20,8 @@ class Order extends StatelessWidget {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
     return Scaffold(
-        body: Center(
-      child: Container(
+      body: Center(
+        child: Container(
           width: screenwidth,
           height: screenheight,
           decoration: const BoxDecoration(
@@ -45,7 +45,8 @@ class Order extends StatelessWidget {
                 height: screenheight * 0.68,
                 width: screenwidth * 0.86,
                 child: StreamBuilder<QuerySnapshot>(
-                    stream: Database.readCart(usuario: context.watch<UserProvider>().customUser.uid),
+                    stream: Database.readCart(
+                        usuario: context.watch<UserProvider>().customUser.uid),
                     builder: (context, snapshot) {
                       if (snapshot.hasError) {
                         return const Text(
@@ -64,12 +65,15 @@ class Order extends StatelessWidget {
                               return cart_card(
                                   screenheight: screenheight,
                                   screenwidth: screenwidth,
-                                  Nombre: name,
-                                  Precio: price,
-                                  Can: can,
+                                  nombre: name,
+                                  precio: price,
+                                  can: can,
                                   docID: docID,
-                                  user: context.watch<UserProvider>().customUser.uid,
-                                  Img: url);
+                                  user: context
+                                      .watch<UserProvider>()
+                                      .customUser
+                                      .uid,
+                                  img: url);
                             }),
                             separatorBuilder: ((context, index) =>
                                 const SizedBox(
@@ -111,7 +115,9 @@ class Order extends StatelessWidget {
                 height: screenheight * 0.04,
               ),
             ],
-          )),
-    ));
+          ),
+        ),
+      ),
+    );
   }
 }

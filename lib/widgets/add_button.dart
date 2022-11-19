@@ -59,39 +59,41 @@ class _add_buttonState extends State<add_button> {
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),
-              Spacer(),
+              const Spacer(),
               CustomText(
                 text: "\$${widget.precio}",
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
               ),
-              Spacer()
+              const Spacer()
             ],
           ),
-          Spacer(),
+          const Spacer(),
           GestureDetector(
             onTap: () {
-              if(!Added){
-              Database.addItem(
-                  Img: widget.img,
-                  Precio: widget.precio,
-                  Nombre: widget.nombre,
-                  usuario: widget.uid);
-                  Added = true;
-                  can = 1;
-                  }
-              if(Added){
+              if (!Added) {
+                Database.addItem(
+                    img: widget.img,
+                    precio: widget.precio,
+                    nombre: widget.nombre,
+                    usuario: widget.uid);
+                Added = true;
+                can = 1;
+              }
+              if (Added) {
                 can++;
-                Database.updateItem(Img: widget.img,
-                  Precio: widget.precio,
-                  Nombre: widget.nombre,
-                  usuario: widget.uid,
-                   Cantidad: can, docId: widget.docId);
+                Database.updateItem(
+                    img: widget.img,
+                    precio: widget.precio,
+                    nombre: widget.nombre,
+                    usuario: widget.uid,
+                    cantidad: can,
+                    docId: widget.docId);
               }
               final snackbar = SnackBar(
                   content: CustomText(
-                      text: widget.nombre+" añanido al carrito",
+                      text: widget.nombre + " añanido al carrito",
                       fontFamily: "Poppins",
                       fontSize: 12,
                       color: Palette.complement),
@@ -107,7 +109,7 @@ class _add_buttonState extends State<add_button> {
               decoration: BoxDecoration(
                   color: Palette.primary,
                   borderRadius: BorderRadius.circular(10)),
-              child: Icon(
+              child: const Icon(
                 Icons.add,
                 color: Colors.white,
               ),

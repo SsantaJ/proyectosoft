@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
@@ -10,10 +8,12 @@ class perfil_text extends StatelessWidget {
     Key? key,
     required this.main,
     required this.info,
+    required this.tick,
   }) : super(key: key);
 
   final String main;
   final String info;
+  final double tick;
 
   @override
   Widget build(BuildContext context) {
@@ -73,6 +73,10 @@ class perfil_text extends StatelessWidget {
               color: Palette.primary,
             ),
           ],
+        ),
+        Divider(
+          height: 7,
+          thickness: tick,
         ),
       ],
     );
