@@ -150,6 +150,9 @@ class _PaymentState extends State<Payment> {
                     if(isChecked == true){
                       context.read<MenuProvider>().selectPay(cash: true, can: int.parse(_cashController.text));
                     }
+                    if(isChecked == false){
+                      context.read<MenuProvider>().selectPay();
+                    }
                     Navigator.push(
                       context,
                       MaterialPageRoute(

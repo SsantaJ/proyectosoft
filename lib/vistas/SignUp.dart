@@ -104,8 +104,7 @@ class SignUP extends StatelessWidget {
           ),
           Custombotontxt(
               funcion: () {
-                
-                CustomAuth.registerWithEmailAndPassword(
+                if(_passwordController.text.length >= 6){CustomAuth.registerWithEmailAndPassword(
                       email: _emailController.text,
                       pass: _passwordController.text,
                       userName: _userController.text,
@@ -114,7 +113,20 @@ class SignUP extends StatelessWidget {
                         context,
                         MaterialPageRoute(builder: (context) {
                           return HomePage();
-                        },)));
+                        },)));}
+                else{
+                  final snackbar = SnackBar(
+                  content: CustomText(
+                      text: "La contraseña debe de tener mínimo 6 digitos, intenta otra vez",
+                      fontFamily: "Poppins",
+                      fontSize: 12,
+                      color: Palette.complement),
+                  backgroundColor: Palette.seccomponent);
+
+              ScaffoldMessenger.of(context)
+                ..removeCurrentSnackBar()
+                ..showSnackBar(snackbar);
+                }
 
               },
               color: Palette.complement,

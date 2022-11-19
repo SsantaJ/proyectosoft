@@ -18,7 +18,6 @@ class Order_Review extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenheight = MediaQuery.of(context).size.height;
     double screenwidth = MediaQuery.of(context).size.width;
-    int total = 0;
     return Scaffold(
       body: Center(
         child: Container(
@@ -74,15 +73,19 @@ class Order_Review extends StatelessWidget {
                                     .data()! as Map<String, dynamic>;
                                 String docID = snapshot.data!.docs[index].id;
                                 String name = itemInfo['Nombre'];
-                                String price = itemInfo['Precio'].toString();
+                                int price = int.parse(itemInfo['Precio']);
                                 int can = itemInfo['Cantidad'];
                                 String url = itemInfo['Img'];
-
+    
+                                if(snapshot.connectionState == ConnectionState.done){
+                                  context.read<MenuProvider>().calcSubTotal(price*can);
+                                  print(price*can);
+                                }
                                 return review_card(
                                     screenheight: screenheight,
                                     screenwidth: screenwidth,
                                     nombre: name,
-                                    precio: price,
+                                    precio: price.toString(),
                                     can: can,
                                     uid: context
                                         .watch<UserProvider>()
@@ -105,6 +108,7 @@ class Order_Review extends StatelessWidget {
                         );
                       }),
                 ),
+                Spacer(),
               Row(
                 children: [
                   Padding(padding: EdgeInsets.only(left: screenwidth * 0.05)),
@@ -112,12 +116,12 @@ class Order_Review extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomText(
-                          text: "Sub-Total: \$"+total.toString(),
+                          text: "Sub-Total: \$"+context.watch<MenuProvider>().subtotal.toString(),
                           fontFamily: "Poppins",
                           fontSize: 12,
                           color: Palette.seccomponent),
                       const CustomText(
-                          text: "Domcilio: \$5",
+                          text: "Domcilio: \$5000",
                           fontFamily: "Poppins",
                           fontSize: 12,
                           color: Palette.seccomponent),

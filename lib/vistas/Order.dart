@@ -18,6 +18,9 @@ class Order extends StatelessWidget {
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
     double screenheight = MediaQuery.of(context).size.height;
+    context
+        .read<MenuProvider>()
+        .checkEmpty(uid: context.watch<UserProvider>().customUser.uid);
     return Scaffold(
         body: Center(
       child: Visibility(
@@ -34,7 +37,10 @@ class Order extends StatelessWidget {
                 Text(
                   "El Carrito esta vacio empieza agregando algo",
                   textAlign: TextAlign.center,
-                  style: TextStyle(color: Palette.seccomponent, fontSize: 25, fontFamily: "Poppins"),
+                  style: TextStyle(
+                      color: Palette.seccomponent,
+                      fontSize: 25,
+                      fontFamily: "Poppins"),
                 ),
               ],
             )),

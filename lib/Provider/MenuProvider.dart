@@ -5,10 +5,12 @@ class MenuProvider with ChangeNotifier {
   String _opcion = "";
   String _pay = "";
   bool _Empty = false;
+  int _subtotal = 0;
 
   String get opcion => _opcion;
   String get pay => _pay;
   bool get Empty => _Empty;
+  int get subtotal => _subtotal;
 
   void filloption(String opt) {
     _opcion = opt;
@@ -24,6 +26,13 @@ class MenuProvider with ChangeNotifier {
     else{
       _pay = "Con tarjeta";
     }
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      notifyListeners();
+    });
+  }
+
+  void calcSubTotal(int part){
+    _subtotal += part;
     WidgetsBinding.instance.addPostFrameCallback((_) {
       notifyListeners();
     });
