@@ -76,11 +76,6 @@ class Order_Review extends StatelessWidget {
                                 int price = int.parse(itemInfo['Precio']);
                                 int can = itemInfo['Cantidad'];
                                 String url = itemInfo['Img'];
-    
-                                if(snapshot.connectionState == ConnectionState.done){
-                                  context.read<MenuProvider>().calcSubTotal(price*can);
-                                  print(price*can);
-                                }
                                 return review_card(
                                     screenheight: screenheight,
                                     screenwidth: screenwidth,

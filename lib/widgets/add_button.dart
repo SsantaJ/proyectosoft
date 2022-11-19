@@ -107,6 +107,7 @@ class _add_buttonState extends State<add_button> {
                     docId: docID);
               }
               context.read<MenuProvider>().checkEmpty(uid: widget.uid);
+              context.read<MenuProvider>().calcSubTotal(uid: widget.uid);
               final snackbar = SnackBar(
                   content: CustomText(
                       text: widget.nombre + " añanido al carrito",

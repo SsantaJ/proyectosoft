@@ -19,7 +19,6 @@ class SignUP extends StatelessWidget {
 
   final TextEditingController _userController = TextEditingController();
 
-
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -45,23 +44,22 @@ class SignUP extends StatelessWidget {
             height: (screenheight * 0.05),
           ),
           Container(
-            decoration: const BoxDecoration(),
-            alignment: const Alignment(-0.85, -0.1),
-            child: const CustomText(
-              text: "Registrate",
-              color: Palette.complement,
-              fontSize: 20,
-              fontFamily: "Poppins",
-            )
-          ),
+              decoration: const BoxDecoration(),
+              alignment: const Alignment(-0.85, -0.1),
+              child: const CustomText(
+                text: "Registrate",
+                color: Palette.complement,
+                fontSize: 20,
+                fontFamily: "Poppins",
+              )),
           SizedBox(
             height: (screenheight * 0.02),
           ),
           CustomTextField(
             obs: false,
             text: "Correo electronico",
-             x: screenwidth * 0.85,
-              y: screenheight * 0.065,
+            x: screenwidth * 0.85,
+            y: screenheight * 0.065,
             color: Colors.white,
             colorbg: Colors.white,
             controlador: _emailController,
@@ -72,7 +70,7 @@ class SignUP extends StatelessWidget {
           CustomTextField(
               obs: false,
               text: "Usuario",
-               x: screenwidth * 0.85,
+              x: screenwidth * 0.85,
               y: screenheight * 0.065,
               color: Colors.white,
               colorbg: Colors.white,
@@ -83,7 +81,7 @@ class SignUP extends StatelessWidget {
           CustomTextField(
               obs: true,
               text: "Contraseña",
-               x: screenwidth * 0.85,
+              x: screenwidth * 0.85,
               y: screenheight * 0.065,
               color: Colors.white,
               colorbg: Colors.white,
@@ -94,7 +92,7 @@ class SignUP extends StatelessWidget {
           CustomTextField(
               obs: true,
               text: "Repite tu contraseña",
-               x: screenwidth * 0.85,
+              x: screenwidth * 0.85,
               y: screenheight * 0.065,
               color: Colors.white,
               colorbg: Colors.white,
@@ -104,35 +102,35 @@ class SignUP extends StatelessWidget {
           ),
           Custombotontxt(
               funcion: () {
-                if(_passwordController.text.length >= 6){CustomAuth.registerWithEmailAndPassword(
-                      email: _emailController.text,
-                      pass: _passwordController.text,
-                      userName: _userController.text,
-                      context: context,
-                    ).then((value) => Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) {
+                if (_passwordController.text.length >= 6) {
+                  CustomAuth.registerWithEmailAndPassword(
+                    email: _emailController.text,
+                    pass: _passwordController.text,
+                    userName: _userController.text,
+                    context: context,
+                  ).then((value) => Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
                           return HomePage();
-                        },)));}
-                else{
+                        },
+                      )));
+                } else {
+                  FocusManager.instance.primaryFocus?.unfocus();
                   final snackbar = SnackBar(
-                  content: CustomText(
-                      text: "La contraseña debe de tener mínimo 6 digitos, intenta otra vez",
-                      fontFamily: "Poppins",
-                      fontSize: 12,
-                      color: Palette.complement),
-                  backgroundColor: Palette.seccomponent);
-
-              ScaffoldMessenger.of(context)
-                ..removeCurrentSnackBar()
-                ..showSnackBar(snackbar);
+                      content: CustomText(
+                          text: "La contraseña debe de tener mínimo 6 digitos",
+                          fontFamily: "Poppins",
+                          fontSize: 12,
+                          color: Palette.complement),
+                      backgroundColor: Palette.seccomponent);
+                  ScaffoldMessenger.of(context)
+                    ..removeCurrentSnackBar()
+                    ..showSnackBar(snackbar);
                 }
-
               },
               color: Palette.complement,
               text: "Registrarse",
               color2: Palette.secondary,
-               x: screenwidth * 0.85,
+              x: screenwidth * 0.85,
               y: screenheight * 0.065,
               border: 50,
               tamtxt: 20),

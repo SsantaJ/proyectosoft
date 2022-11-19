@@ -5,7 +5,7 @@ class MenuProvider with ChangeNotifier {
   String _opcion = "";
   String _pay = "";
   bool _Empty = false;
-  int _subtotal = 0;
+  late int _subtotal;
 
   String get opcion => _opcion;
   String get pay => _pay;
@@ -19,11 +19,10 @@ class MenuProvider with ChangeNotifier {
     });
   }
 
-  void selectPay({bool cash = false, int can = 0}){
-    if(cash){
-      _pay = "Con efectivo : "+can.toString();
-    }
-    else{
+  void selectPay({bool cash = false, int can = 0}) {
+    if (cash) {
+      _pay = "Con efectivo : " + can.toString();
+    } else {
       _pay = "Con tarjeta";
     }
     WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -31,19 +30,37 @@ class MenuProvider with ChangeNotifier {
     });
   }
 
-  void calcSubTotal(int part){
-    _subtotal += part;
+  void calcSubTotal({required String uid}) async {
+ QuerySnapshot<Map<String, dynamic>> query = await FirebaseFirestore.instance.collection("User").doc(uid).collection("Cart").get();
+ _subtotal = 0;
+ if(query.docs.isEmpty){
+  _subtotal = 0;
+ }
+  else{
+    for(var item in query.docs){
+      int can = item["Cantidad"];
+      int precio = int.parse(item["Precio"]);
+      _subtotal = _subtotal +(precio*can);
+    }
+  }
+    print(_subtotal);
     WidgetsBinding.instance.addPostFrameCallback((_) {
       notifyListeners();
     });
   }
 
-  void checkEmpty({required String uid}) async{
-    QuerySnapshot<Map<String, dynamic>> query = await FirebaseFirestore.instance.collection("User").doc(uid).collection("Cart").limit(1).get();
-    if(query.docs.isEmpty){
+  void checkEmpty({required String uid}) async {
+    QuerySnapshot<Map<String, dynamic>> query = await FirebaseFirestore.instance
+        .collection("User")
+        .doc(uid)
+        .collection("Cart")
+        .limit(1)
+        .get();
+    if (query.docs.isEmpty) {
       _Empty = true;
+    } else {
+      _Empty = false;
     }
-    else{_Empty = false;}
     WidgetsBinding.instance.addPostFrameCallback((_) {
       notifyListeners();
     });

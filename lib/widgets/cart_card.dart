@@ -89,6 +89,7 @@ class _cart_cardState extends State<cart_card> {
             onTap: () {
               Database.deleteItem(docId: widget.docID, usuario: widget.user);
               context.read<MenuProvider>().checkEmpty(uid: widget.user);
+              context.read<MenuProvider>().calcSubTotal(uid: widget.user);
               final snackbar = SnackBar(
                   content: CustomText(
                       text: widget.Nombre + " eliminado del carrito",
