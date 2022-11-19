@@ -6,6 +6,8 @@ import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 
+import '../Provider/MenuProvider.dart';
+
 class cart_card extends StatefulWidget {
   const cart_card({
     Key? key,
@@ -65,10 +67,16 @@ class _cart_cardState extends State<cart_card> {
               ),
               Spacer(),
               CustomText(
-                text: "\$" +
-                    widget.Precio +
-                    " cantidad: " +
+                text: "Cantidad: " +
                     widget.Can.toString(),
+                color: Palette.seccomponent,
+                fontSize: 12,
+                fontFamily: "Poppins",
+              ),
+              Spacer(),
+              CustomText(
+                text: "\$" +
+                    widget.Precio,
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
@@ -80,6 +88,7 @@ class _cart_cardState extends State<cart_card> {
           GestureDetector(
             onTap: () {
               Database.deleteItem(docId: widget.docID, usuario: widget.user);
+              context.read<MenuProvider>().checkEmpty(uid: widget.user);
               final snackbar = SnackBar(
                   content: CustomText(
                       text: widget.Nombre + " eliminado del carrito",

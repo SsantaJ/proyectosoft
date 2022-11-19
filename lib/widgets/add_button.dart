@@ -3,6 +3,8 @@ import 'dart:async';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:proyectosoft/Provider/MenuProvider.dart';
 import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
@@ -103,6 +105,7 @@ class _add_buttonState extends State<add_button> {
                     Cantidad: can+1,
                     docId: docID);
               }
+              context.read<MenuProvider>().checkEmpty(uid: widget.uid);
               final snackbar = SnackBar(
                   content: CustomText(
                       text: widget.nombre + " añanido al carrito",
