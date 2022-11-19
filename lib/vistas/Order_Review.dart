@@ -50,11 +50,16 @@ class Order_Review extends StatelessWidget {
                 ),
               ]),
               const Divider(color: Palette.transparent,),
-              CustomText(
-                  text: context.watch<MenuProvider>().pay,
+              Visibility(visible: context.watch<MenuProvider>().pay == "Con tarjeta", replacement: CustomText(
+                  text: "Efectivo con: "+context.watch<MenuProvider>().pay,
                   fontFamily: "Poppins",
                   fontSize: 12,
                   color: Palette.seccomponent),
+                  child: CustomText(
+                  text: context.watch<MenuProvider>().pay,
+                  fontFamily: "Poppins",
+                  fontSize: 12,
+                  color: Palette.seccomponent),),
               SizedBox(
                   height: screenheight * 0.58,
                   width: screenwidth * 0.86,
@@ -129,8 +134,8 @@ class Order_Review extends StatelessWidget {
                       ),
                       Row(
                         children: [
-                          const CustomText(
-                              text: "Total: \$304.97",
+                          CustomText(
+                              text: "Total: \$"+(context.watch<MenuProvider>().subtotal+5000).toString(),
                               fontFamily: "Poppins",
                               fontSize: 14,
                               color: Palette.seccomponent),
@@ -149,11 +154,18 @@ class Order_Review extends StatelessWidget {
                               color: Palette.seccomponent)
                         ],
                       ),
-                      const CustomText(
-                          text: "Cambio: \$15",
+                      if(context.watch<MenuProvider>().pay == "Con tarjeta")
+                      CustomText(
+                          text: "Cambio: \$0",
                           fontFamily: "Poppins",
                           fontSize: 14,
                           color: Palette.seccomponent),
+                      if(context.watch<MenuProvider>().pay != "Con tarjeta")
+                      CustomText(
+                          text: "Cambio: \$"+(int.parse(context.watch<MenuProvider>().pay)-(context.watch<MenuProvider>().subtotal+5000)).toString(),
+                          fontFamily: "Poppins",
+                          fontSize: 14,
+                          color: Palette.seccomponent)
                     ],
                   )
                 ],

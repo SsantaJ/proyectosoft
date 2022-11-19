@@ -21,7 +21,7 @@ class MenuProvider with ChangeNotifier {
 
   void selectPay({bool cash = false, int can = 0}) {
     if (cash) {
-      _pay = "Con efectivo : " + can.toString();
+      _pay = can.toString();
     } else {
       _pay = "Con tarjeta";
     }
