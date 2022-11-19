@@ -9,11 +9,12 @@ class add_button extends StatefulWidget {
       required this.screenwidth,
       required this.nombre,
       required this.precio,
+      required this.uid,
       required this.img})
       : super(key: key);
 
   final double screenheight, screenwidth;
-  final String nombre, precio, img;
+  final String nombre, precio, img, uid;
   @override
   State<add_button> createState() => _add_buttonState();
 }
@@ -65,7 +66,7 @@ class _add_buttonState extends State<add_button> {
           Flexible(child: Container()),
           GestureDetector(
             onTap: () {
-              Database.addItem(Img: widget.img, Precio: widget.precio, Nombre: widget.nombre);
+              Database.addItem(Img: widget.img, Precio: widget.precio, Nombre: widget.nombre, usuario: widget.uid);
             },
             child: Image.asset('assets/imgs/Add.png'),
           )

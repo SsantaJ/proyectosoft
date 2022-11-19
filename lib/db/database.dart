@@ -8,9 +8,6 @@ final FirebaseFirestore _firestore = FirebaseFirestore.instance;
 final CollectionReference _mainProductsCollection =
     _firestore.collection('Productos');
 final CollectionReference _mainUserCollection = _firestore.collection('User');
-var user = FirebaseAuth.instance.currentUser!;
-var uid = user.uid;
-final CollectionReference cartCollection = _mainUserCollection.doc(uid).collection('Cart');
 
 class Database {
   static String? userUid;
@@ -60,15 +57,14 @@ class Database {
     return bebidasItemCollection.snapshots();
   }
 
-  static Stream<QuerySnapshot> readCart() {
+  static Stream<QuerySnapshot> readCart({required String usuario}) {
     CollectionReference cartItemCollection =
-        cartCollection;
+       _mainUserCollection.doc(usuario).collection("Cart");
     return cartItemCollection.snapshots();
   }
 
-  static Future<void> addItem({required String Img, required String Nombre, required String Precio}) async {
-    DocumentReference documentReferencer =
-        cartCollection.doc();
+  static Future<void> addItem({required String Img, required String Nombre, required String Precio, required String usuario}) async {
+    DocumentReference documentReferencer = _mainUserCollection.doc(usuario).collection("Cart").doc();
 
     Map<String, dynamic> data = <String, dynamic>{
       "Nombre": Nombre,

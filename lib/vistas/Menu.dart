@@ -8,6 +8,8 @@ import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/widgets/add_button.dart';
 import 'package:proyectosoft/widgets/custom_back_arrow.dart';
 
+import '../Provider/UserProvider.dart';
+
 class menu extends StatelessWidget {
   const menu({Key? key}) : super(key: key);
 
@@ -60,9 +62,6 @@ class menu extends StatelessWidget {
                 child: StreamBuilder<QuerySnapshot>(
                     stream: Database.readItems(context.watch<MenuProvider>().opcion),
                     builder: (context, snapshot) {
-                      if(snapshot.data!.size == 0){
-                        Text("Hola");
-                      }
                       if (snapshot.hasError) {
                         return const Text(
                             'Hubo un error en la carga. Por favor intenta nuevamente en un rato');
@@ -79,6 +78,7 @@ class menu extends StatelessWidget {
                                   screenheight: screenheight,
                                   screenwidth: screenwidth,
                                   nombre: name,
+                                  uid: context.watch<UserProvider>().customUser.uid,
                                   precio: price,
                                   img: url);
                             }),
