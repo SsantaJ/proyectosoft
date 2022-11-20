@@ -1,16 +1,15 @@
-# proyectosoft
+# mmfood
 
-A new Flutter project.
+Proyecto para Ingeniería de Software 2022-2
 
-## Getting Started
+## Universidad Pontificia Bolivaria - Escuela de Ingenierías
 
-This project is a starting point for a Flutter application.
+Aplicación para restaurante, implementada en el framework Flutter, conectada con base de datos a firebase firestore
 
-A few resources to get you started if this is your first Flutter project:
+Diseño: https://www.figma.com/file/GcSlFFH8qBiYF3oj5iSRHU/mmfood?node-id=0%3A1&t=Qzo3yMaHe3W3DHNp-1
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Miembros:
+Samuel Santa Jaramillo
+Emanuel Duque Alvarez
+Mateo Gonzalez Tobon
+Over Orozco Ospina
