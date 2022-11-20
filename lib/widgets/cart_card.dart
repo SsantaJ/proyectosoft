@@ -73,13 +73,6 @@ class _cart_cardState extends State<cart_card> {
               ),
               Spacer(),
               CustomText(
-                text: "Cantidad: " + widget.can.toString(),
-                color: Palette.seccomponent,
-                fontSize: 12,
-                fontFamily: "Poppins",
-              ),
-              Spacer(),
-              CustomText(
                 text: "\$" + widget.precio,
                 color: Colors.green,
                 fontSize: 12,
