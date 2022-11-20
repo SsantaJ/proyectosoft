@@ -63,32 +63,19 @@ class _add_buttonState extends State<add_button> {
                 fontSize: 14,
                 fontFamily: "Poppins",
               ),
-              Spacer(),
+              const Spacer(),
               CustomText(
                 text: "\$${widget.precio}",
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
               ),
-              Spacer()
+              const Spacer()
             ],
           ),
-          Spacer(),
+          const Spacer(),
           GestureDetector(
             onTap: () {
-              FirebaseFirestore.instance
-                    .collection("User")
-                    .doc(widget.uid)
-                    .collection("Cart")
-                    .where("Nombre", isEqualTo: widget.nombre)
-                    .limit(1)
-                    .get()
-                    .then((value) {
-                  value.docs.forEach((element) {
-                    docID = element.id;
-                    can = element["Cantidad"];
-                  });
-                });
               if (!Added) {
                 Database.addItem(
                     Img: widget.img,
@@ -96,15 +83,18 @@ class _add_buttonState extends State<add_button> {
                     Nombre: widget.nombre,
                     usuario: widget.uid);
                 Added = true;
+                can = 1;
               }
               if (Added) {
+                can++;
                 Database.updateItem(
-                    Img: widget.img,
-                    Precio: widget.precio,
-                    Nombre: widget.nombre,
-                    usuario: widget.uid,
-                    Cantidad: can+1,
-                    docId: docID);
+                  img: widget.img,
+                  precio: widget.precio,
+                  nombre: widget.nombre,
+                  usuario: widget.uid,
+                  cantidad: can,
+                  docId: docID,
+                );
               }
               context.read<MenuProvider>().checkEmpty(uid: widget.uid);
               context.read<MenuProvider>().calcSubTotal(uid: widget.uid);
@@ -126,7 +116,7 @@ class _add_buttonState extends State<add_button> {
               decoration: BoxDecoration(
                   color: Palette.primary,
                   borderRadius: BorderRadius.circular(10)),
-              child: Icon(
+              child: const Icon(
                 Icons.add,
                 color: Colors.white,
               ),

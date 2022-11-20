@@ -85,20 +85,20 @@ class Database {
   }
 
   static Future<void> updateItem(
-      {required String Img,
-      required String Nombre,
-      required String Precio,
+      {required String img,
+      required String nombre,
+      required String precio,
       required String usuario,
-      required int Cantidad,
+      required int cantidad,
       required String docId}) async {
     DocumentReference documentReferencer =
         _mainUserCollection.doc(usuario).collection("Cart").doc(docId);
 
     Map<String, dynamic> data = <String, dynamic>{
-      "Nombre": Nombre,
-      "Precio": Precio,
-      "Img": Img,
-      "Cantidad": Cantidad
+      "Nombre": nombre,
+      "Precio": precio,
+      "Img": img,
+      "Cantidad": cantidad
     };
 
     await documentReferencer

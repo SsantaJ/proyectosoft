@@ -3,11 +3,12 @@ class CustomUser {
   String uid;
   String? email;
   String? userName;
+  String? Adress;
 
   CustomUser({
     required this.uid,
     this.email,
     this.userName,
+    this.Adress,
   });
 }
-

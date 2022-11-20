@@ -89,15 +89,15 @@ class Order extends StatelessWidget {
                                 return cart_card(
                                     screenheight: screenheight,
                                     screenwidth: screenwidth,
-                                    Nombre: name,
-                                    Precio: price,
-                                    Can: can,
+                                    nombre: name,
+                                    precio: price,
+                                    can: can,
                                     docID: docID,
                                     user: context
                                         .watch<UserProvider>()
                                         .customUser
                                         .uid,
-                                    Img: url);
+                                    img: url);
                               }),
                               separatorBuilder: ((context, index) =>
                                   const SizedBox(
