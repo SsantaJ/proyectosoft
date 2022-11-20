@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/Cupertino.dart';
+import 'package:provider/provider.dart';
 import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
+
+import '../Provider/MenuProvider.dart';
 
 class cart_card extends StatefulWidget {
   const cart_card({
@@ -63,21 +66,37 @@ class _cart_cardState extends State<cart_card> {
               ),
               const Spacer(),
               CustomText(
-                text: "\$${widget.precio} cantidad: ${widget.can}",
+                text: "Cantidad: " + widget.can.toString(),
+                color: Palette.seccomponent,
+                fontSize: 12,
+                fontFamily: "Poppins",
+              ),
+              Spacer(),
+              CustomText(
+                text: "Cantidad: " + widget.can.toString(),
+                color: Palette.seccomponent,
+                fontSize: 12,
+                fontFamily: "Poppins",
+              ),
+              Spacer(),
+              CustomText(
+                text: "\$" + widget.precio,
                 color: Colors.green,
                 fontSize: 12,
                 fontFamily: "Poppins",
               ),
-              const Spacer()
+              Spacer()
             ],
           ),
           const Spacer(),
           GestureDetector(
             onTap: () {
               Database.deleteItem(docId: widget.docID, usuario: widget.user);
+              context.read<MenuProvider>().checkEmpty(uid: widget.user);
+              context.read<MenuProvider>().calcSubTotal(uid: widget.user);
               final snackbar = SnackBar(
                   content: CustomText(
-                      text: "${widget.nombre} eliminado del carrito",
+                      text: widget.nombre + " eliminado del carrito",
                       fontFamily: "Poppins",
                       fontSize: 12,
                       color: Palette.complement),
@@ -87,9 +106,16 @@ class _cart_cardState extends State<cart_card> {
                 ..removeCurrentSnackBar()
                 ..showSnackBar(snackbar);
             },
-            child: const Icon(
-              cart_card.trash,
-              color: Palette.seccomponent,
+            child: Container(
+              width: 33,
+              height: 33,
+              decoration: BoxDecoration(
+                  color: Palette.seccomponent,
+                  borderRadius: BorderRadius.circular(10)),
+              child: Icon(
+                cart_card.trash,
+                color: Palette.complement,
+              ),
             ),
           )
         ],

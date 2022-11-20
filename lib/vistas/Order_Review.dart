@@ -1,7 +1,13 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:proyectosoft/Provider/MenuProvider.dart';
 import 'package:proyectosoft/util/Palette.dart';
+import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/widgets/review_card.dart';
 
+import '../Provider/UserProvider.dart';
+import '../db/database.dart';
 import '../widgets/custom_back_arrow.dart';
 import '../widgets/custom_botontxt.dart';
 import '../widgets/custom_text.dart';
@@ -44,32 +50,84 @@ class Order_Review extends StatelessWidget {
                   fontFamily: "Poppins",
                 ),
               ]),
-              const Divider(color: Palette.transparent,),
-              const CustomText(
-                  text: "Método de pago",
-                  fontFamily: "Poppins",
-                  fontSize: 12,
-                  color: Palette.seccomponent),
-              const Divider(color: Palette.transparent),
-              review_card(screenheight: screenheight, screenwidth: screenwidth),
-              const Divider(color: Palette.transparent),
-              review_card(screenheight: screenheight, screenwidth: screenwidth),
-              const Divider(color: Palette.transparent),
-              review_card(screenheight: screenheight, screenwidth: screenwidth),
-              const Spacer(flex: 3),
+              const Divider(
+                color: Palette.transparent,
+              ),
+              Visibility(
+                visible: context.watch<MenuProvider>().pay == "Con tarjeta",
+                replacement: CustomText(
+                    text: "Efectivo con: " + context.watch<MenuProvider>().pay,
+                    fontFamily: "Poppins",
+                    fontSize: 12,
+                    color: Palette.seccomponent),
+                child: CustomText(
+                    text: context.watch<MenuProvider>().pay,
+                    fontFamily: "Poppins",
+                    fontSize: 12,
+                    color: Palette.seccomponent),
+              ),
+              SizedBox(
+                height: screenheight * 0.58,
+                width: screenwidth * 0.86,
+                child: StreamBuilder<QuerySnapshot>(
+                    stream: Database.readCart(
+                        usuario: context.watch<UserProvider>().customUser.uid),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return const Text(
+                            'Hubo un error en la carga. Por favor intenta nuevamente en un rato');
+                      } else if (snapshot.hasData || snapshot.data != null) {
+                        return ListView.separated(
+                            itemBuilder: ((context, index) {
+                              var itemInfo = snapshot.data!.docs[index].data()!
+                                  as Map<String, dynamic>;
+                              String docID = snapshot.data!.docs[index].id;
+                              String name = itemInfo['Nombre'];
+                              int price = int.parse(itemInfo['Precio']);
+                              int can = itemInfo['Cantidad'];
+                              String url = itemInfo['Img'];
+                              return review_card(
+                                  screenheight: screenheight,
+                                  screenwidth: screenwidth,
+                                  nombre: name,
+                                  precio: price.toString(),
+                                  can: can,
+                                  uid: context
+                                      .watch<UserProvider>()
+                                      .customUser
+                                      .uid,
+                                  url: url);
+                            }),
+                            separatorBuilder: ((context, index) =>
+                                const SizedBox(
+                                  height: 16,
+                                )),
+                            itemCount: snapshot.data!.docs.length);
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Palette.complement,
+                          ),
+                        ),
+                      );
+                    }),
+              ),
+              Spacer(),
               Row(
                 children: [
                   Padding(padding: EdgeInsets.only(left: screenwidth * 0.05)),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const CustomText(
-                          text: "Sub-Total: \$299.47",
+                      CustomText(
+                          text: "Sub-Total: \$" +
+                              context.watch<MenuProvider>().subtotal.toString(),
                           fontFamily: "Poppins",
                           fontSize: 12,
                           color: Palette.seccomponent),
                       const CustomText(
-                          text: "Domcilio: \$5",
+                          text: "Domcilio: \$5000",
                           fontFamily: "Poppins",
                           fontSize: 12,
                           color: Palette.seccomponent),
@@ -77,13 +135,16 @@ class Order_Review extends StatelessWidget {
                         width: screenwidth * 0.9,
                         height: 2,
                         child: Container(
-                          color: const Color(0XFF34495E),
+                          color: Palette.seccomponent,
                         ),
                       ),
                       Row(
                         children: [
-                          const CustomText(
-                              text: "Total: \$304.97",
+                          CustomText(
+                              text: "Total: \$" +
+                                  (context.watch<MenuProvider>().subtotal +
+                                          5000)
+                                      .toString(),
                               fontFamily: "Poppins",
                               fontSize: 14,
                               color: Palette.seccomponent),
@@ -102,11 +163,24 @@ class Order_Review extends StatelessWidget {
                               color: Palette.seccomponent)
                         ],
                       ),
-                      const CustomText(
-                          text: "Cambio: \$15",
-                          fontFamily: "Poppins",
-                          fontSize: 14,
-                          color: Palette.seccomponent),
+                      if (context.watch<MenuProvider>().pay == "Con tarjeta")
+                        CustomText(
+                            text: "Cambio: \$0",
+                            fontFamily: "Poppins",
+                            fontSize: 14,
+                            color: Palette.seccomponent),
+                      if (context.watch<MenuProvider>().pay != "Con tarjeta")
+                        CustomText(
+                            text: "Cambio: \$" +
+                                (int.parse(context.watch<MenuProvider>().pay) -
+                                        (context
+                                                .watch<MenuProvider>()
+                                                .subtotal +
+                                            5000))
+                                    .toString(),
+                            fontFamily: "Poppins",
+                            fontSize: 14,
+                            color: Palette.seccomponent)
                     ],
                   )
                 ],
@@ -114,11 +188,23 @@ class Order_Review extends StatelessWidget {
               const Spacer(),
               Custombotontxt(
                   funcion: () {
+                    Database.deleteCart(usuario: context.read<UserProvider>().customUser.uid);
+                    final snackbar = SnackBar(
+                  content: CustomText(
+                      text: "Pedido Exitoso",
+                      fontFamily: "Poppins",
+                      fontSize: 12,
+                      color: Palette.complement),
+                  backgroundColor: Palette.primary);
+
+              ScaffoldMessenger.of(context)
+                ..removeCurrentSnackBar()
+                ..showSnackBar(snackbar);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return const Order_Review();
+                          return const HomePage();
                         },
                       ),
                     );

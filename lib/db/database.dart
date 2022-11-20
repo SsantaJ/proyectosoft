@@ -64,18 +64,18 @@ class Database {
   }
 
   static Future<void> addItem(
-      {required String img,
-      required String nombre,
-      required String precio,
+      {required String Img,
+      required String Nombre,
+      required String Precio,
       required String usuario}) async {
     DocumentReference documentReferencer =
         _mainUserCollection.doc(usuario).collection("Cart").doc();
 
     Map<String, dynamic> data = <String, dynamic>{
-      "nombre": nombre,
-      "precio": precio,
-      "img": img,
-      "cantidad": 1,
+      "Nombre": Nombre,
+      "Precio": Precio,
+      "Img": Img,
+      "Cantidad": 1,
     };
 
     await documentReferencer
@@ -95,10 +95,10 @@ class Database {
         _mainUserCollection.doc(usuario).collection("Cart").doc(docId);
 
     Map<String, dynamic> data = <String, dynamic>{
-      "nombre": nombre,
-      "precio": precio,
-      "img": img,
-      "cantidad": cantidad
+      "Nombre": nombre,
+      "Precio": precio,
+      "Img": img,
+      "Cantidad": cantidad
     };
 
     await documentReferencer
@@ -116,5 +116,19 @@ class Database {
         .delete()
         .whenComplete(() => print('Cart item deleted from the database'))
         .catchError((e) => print(e));
+  }
+
+  static Future<void> deleteCart({required String usuario}) async {
+    QuerySnapshot<Map<String, dynamic>> query = await FirebaseFirestore.instance
+        .collection("User")
+        .doc(usuario)
+        .collection("Cart")
+        .get();
+    for (var item in query.docs) {
+      item.reference
+          .delete()
+          .whenComplete(() => print('Cart deleted from the database'))
+          .catchError((e) => print(e));
+    }
   }
 }

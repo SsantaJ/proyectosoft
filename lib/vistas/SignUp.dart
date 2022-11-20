@@ -20,7 +20,6 @@ class SignUP extends StatelessWidget {
   final TextEditingController _userController = TextEditingController();
 
   final TextEditingController _adressController = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     double screenwidth = MediaQuery.of(context).size.width;
@@ -46,14 +45,15 @@ class SignUP extends StatelessWidget {
             height: (screenheight * 0.05),
           ),
           Container(
-              decoration: const BoxDecoration(),
-              alignment: const Alignment(-0.85, -0.1),
-              child: const CustomText(
-                text: "Registrate",
-                color: Palette.complement,
-                fontSize: 20,
-                fontFamily: "Poppins",
-              )),
+            decoration: const BoxDecoration(),
+            alignment: const Alignment(-0.85, -0.1),
+            child: const CustomText(
+              text: "Registrate",
+              color: Palette.complement,
+              fontSize: 20,
+              fontFamily: "Poppins",
+            ),
+          ),
           SizedBox(
             height: (screenheight * 0.02),
           ),
@@ -115,22 +115,31 @@ class SignUP extends StatelessWidget {
           ),
           Custombotontxt(
               funcion: () {
-                CustomAuth.registerWithEmailAndPassword(
-                  email: _emailController.text,
-                  pass: _passwordController.text,
-                  userName: _userController.text,
-                  adress: _adressController.text,
-                  context: context,
-                ).then(
-                  (value) => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) {
-                        return HomePage();
-                      },
-                    ),
-                  ),
-                );
+                if (_passwordController.text.length >= 6) {
+                  CustomAuth.registerWithEmailAndPassword(
+                    email: _emailController.text,
+                    pass: _passwordController.text,
+                    userName: _userController.text,
+                    adress: _adressController.text,
+                    context: context,
+                  ).then((value) => Navigator.push(context, MaterialPageRoute(
+                        builder: (context) {
+                          return HomePage();
+                        },
+                      )));
+                } else {
+                  FocusManager.instance.primaryFocus?.unfocus();
+                  final snackbar = SnackBar(
+                      content: CustomText(
+                          text: "La contraseña debe de tener mínimo 6 digitos",
+                          fontFamily: "Poppins",
+                          fontSize: 12,
+                          color: Palette.complement),
+                      backgroundColor: Palette.seccomponent);
+                  ScaffoldMessenger.of(context)
+                    ..removeCurrentSnackBar()
+                    ..showSnackBar(snackbar);
+                }
               },
               color: Palette.complement,
               text: "Registrarse",

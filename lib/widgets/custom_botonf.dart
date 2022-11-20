@@ -52,7 +52,7 @@ class _Custombotonfstate extends State<Custombotonf> {
                 width: widget.grosor,
               ),
             ),
-            alignment: const Alignment(-0.8, 1),
+            alignment: const Alignment(-0.7, 1),
             /*Align(
             alignment: const Alignment(-1, 1),
             child: Image.asset(
@@ -65,15 +65,15 @@ class _Custombotonfstate extends State<Custombotonf> {
             child: Column(
               children: [
                 SizedBox(
-                  height: screenheight * 0.01,
+                  height: screenheight * 0.013,
                 ),
-                SizedBox(
+                /* SizedBox(
                   width: screenwidth * 0.02,
-                ),
+                ), */
                 CustomText(
                     text: widget.text,
                     fontFamily: "Poppins",
-                    fontSize: 15,
+                    fontSize: 12,
                     color: widget.color2),
               ],
             ),

@@ -1,6 +1,10 @@
 import 'dart:async';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'package:proyectosoft/Provider/MenuProvider.dart';
 import 'package:proyectosoft/db/database.dart';
 import 'package:proyectosoft/util/Palette.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
@@ -13,12 +17,11 @@ class add_button extends StatefulWidget {
       required this.nombre,
       required this.precio,
       required this.uid,
-      required this.docId,
       required this.img})
       : super(key: key);
 
   final double screenheight, screenwidth;
-  final String nombre, precio, img, uid, docId;
+  final String nombre, precio, img, uid;
   @override
   State<add_button> createState() => _add_buttonState();
 }
@@ -27,6 +30,7 @@ class _add_buttonState extends State<add_button> {
   @override
   Widget build(BuildContext context) {
     int can = 0;
+    String docID = "";
     bool Added = false;
     return Container(
       height: widget.screenheight * 0.11,
@@ -74,9 +78,9 @@ class _add_buttonState extends State<add_button> {
             onTap: () {
               if (!Added) {
                 Database.addItem(
-                    img: widget.img,
-                    precio: widget.precio,
-                    nombre: widget.nombre,
+                    Img: widget.img,
+                    Precio: widget.precio,
+                    Nombre: widget.nombre,
                     usuario: widget.uid);
                 Added = true;
                 can = 1;
@@ -84,13 +88,16 @@ class _add_buttonState extends State<add_button> {
               if (Added) {
                 can++;
                 Database.updateItem(
-                    img: widget.img,
-                    precio: widget.precio,
-                    nombre: widget.nombre,
-                    usuario: widget.uid,
-                    cantidad: can,
-                    docId: widget.docId);
+                  img: widget.img,
+                  precio: widget.precio,
+                  nombre: widget.nombre,
+                  usuario: widget.uid,
+                  cantidad: can,
+                  docId: docID,
+                );
               }
+              context.read<MenuProvider>().checkEmpty(uid: widget.uid);
+              context.read<MenuProvider>().calcSubTotal(uid: widget.uid);
               final snackbar = SnackBar(
                   content: CustomText(
                       text: widget.nombre + " añanido al carrito",
