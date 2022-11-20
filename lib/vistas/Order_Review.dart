@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:proyectosoft/Provider/MenuProvider.dart';
 import 'package:proyectosoft/util/Palette.dart';
+import 'package:proyectosoft/vistas/Home.dart';
 import 'package:proyectosoft/widgets/review_card.dart';
 
 import '../Provider/UserProvider.dart';
@@ -49,66 +50,70 @@ class Order_Review extends StatelessWidget {
                   fontFamily: "Poppins",
                 ),
               ]),
-              const Divider(color: Palette.transparent,),
-              Visibility(visible: context.watch<MenuProvider>().pay == "Con tarjeta", replacement: CustomText(
-                  text: "Efectivo con: "+context.watch<MenuProvider>().pay,
-                  fontFamily: "Poppins",
-                  fontSize: 12,
-                  color: Palette.seccomponent),
-                  child: CustomText(
-                  text: context.watch<MenuProvider>().pay,
-                  fontFamily: "Poppins",
-                  fontSize: 12,
-                  color: Palette.seccomponent),),
+              const Divider(
+                color: Palette.transparent,
+              ),
+              Visibility(
+                visible: context.watch<MenuProvider>().pay == "Con tarjeta",
+                replacement: CustomText(
+                    text: "Efectivo con: " + context.watch<MenuProvider>().pay,
+                    fontFamily: "Poppins",
+                    fontSize: 12,
+                    color: Palette.seccomponent),
+                child: CustomText(
+                    text: context.watch<MenuProvider>().pay,
+                    fontFamily: "Poppins",
+                    fontSize: 12,
+                    color: Palette.seccomponent),
+              ),
               SizedBox(
-                  height: screenheight * 0.58,
-                  width: screenwidth * 0.86,
-                  child: StreamBuilder<QuerySnapshot>(
-                      stream: Database.readCart(
-                          usuario:
-                              context.watch<UserProvider>().customUser.uid),
-                      builder: (context, snapshot) {
-                        if (snapshot.hasError) {
-                          return const Text(
-                              'Hubo un error en la carga. Por favor intenta nuevamente en un rato');
-                        } else if (snapshot.hasData || snapshot.data != null) {
-                          return ListView.separated(
-                              itemBuilder: ((context, index) {
-                                var itemInfo = snapshot.data!.docs[index]
-                                    .data()! as Map<String, dynamic>;
-                                String docID = snapshot.data!.docs[index].id;
-                                String name = itemInfo['Nombre'];
-                                int price = int.parse(itemInfo['Precio']);
-                                int can = itemInfo['Cantidad'];
-                                String url = itemInfo['Img'];
-                                return review_card(
-                                    screenheight: screenheight,
-                                    screenwidth: screenwidth,
-                                    nombre: name,
-                                    precio: price.toString(),
-                                    can: can,
-                                    uid: context
-                                        .watch<UserProvider>()
-                                        .customUser
-                                        .uid,
-                                    url: url);
-                              }),
-                              separatorBuilder: ((context, index) =>
-                                  const SizedBox(
-                                    height: 16,
-                                  )),
-                              itemCount: snapshot.data!.docs.length);
-                        }
-                        return const Center(
-                          child: CircularProgressIndicator(
-                            valueColor: AlwaysStoppedAnimation<Color>(
-                              Palette.complement,
-                            ),
+                height: screenheight * 0.58,
+                width: screenwidth * 0.86,
+                child: StreamBuilder<QuerySnapshot>(
+                    stream: Database.readCart(
+                        usuario: context.watch<UserProvider>().customUser.uid),
+                    builder: (context, snapshot) {
+                      if (snapshot.hasError) {
+                        return const Text(
+                            'Hubo un error en la carga. Por favor intenta nuevamente en un rato');
+                      } else if (snapshot.hasData || snapshot.data != null) {
+                        return ListView.separated(
+                            itemBuilder: ((context, index) {
+                              var itemInfo = snapshot.data!.docs[index].data()!
+                                  as Map<String, dynamic>;
+                              String docID = snapshot.data!.docs[index].id;
+                              String name = itemInfo['Nombre'];
+                              int price = int.parse(itemInfo['Precio']);
+                              int can = itemInfo['Cantidad'];
+                              String url = itemInfo['Img'];
+                              return review_card(
+                                  screenheight: screenheight,
+                                  screenwidth: screenwidth,
+                                  nombre: name,
+                                  precio: price.toString(),
+                                  can: can,
+                                  uid: context
+                                      .watch<UserProvider>()
+                                      .customUser
+                                      .uid,
+                                  url: url);
+                            }),
+                            separatorBuilder: ((context, index) =>
+                                const SizedBox(
+                                  height: 16,
+                                )),
+                            itemCount: snapshot.data!.docs.length);
+                      }
+                      return const Center(
+                        child: CircularProgressIndicator(
+                          valueColor: AlwaysStoppedAnimation<Color>(
+                            Palette.complement,
                           ),
-                        );
-                      }),
-                ),
-                Spacer(),
+                        ),
+                      );
+                    }),
+              ),
+              Spacer(),
               Row(
                 children: [
                   Padding(padding: EdgeInsets.only(left: screenwidth * 0.05)),
@@ -116,7 +121,8 @@ class Order_Review extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CustomText(
-                          text: "Sub-Total: \$"+context.watch<MenuProvider>().subtotal.toString(),
+                          text: "Sub-Total: \$" +
+                              context.watch<MenuProvider>().subtotal.toString(),
                           fontFamily: "Poppins",
                           fontSize: 12,
                           color: Palette.seccomponent),
@@ -135,7 +141,10 @@ class Order_Review extends StatelessWidget {
                       Row(
                         children: [
                           CustomText(
-                              text: "Total: \$"+(context.watch<MenuProvider>().subtotal+5000).toString(),
+                              text: "Total: \$" +
+                                  (context.watch<MenuProvider>().subtotal +
+                                          5000)
+                                      .toString(),
                               fontFamily: "Poppins",
                               fontSize: 14,
                               color: Palette.seccomponent),
@@ -154,18 +163,24 @@ class Order_Review extends StatelessWidget {
                               color: Palette.seccomponent)
                         ],
                       ),
-                      if(context.watch<MenuProvider>().pay == "Con tarjeta")
-                      CustomText(
-                          text: "Cambio: \$0",
-                          fontFamily: "Poppins",
-                          fontSize: 14,
-                          color: Palette.seccomponent),
-                      if(context.watch<MenuProvider>().pay != "Con tarjeta")
-                      CustomText(
-                          text: "Cambio: \$"+(int.parse(context.watch<MenuProvider>().pay)-(context.watch<MenuProvider>().subtotal+5000)).toString(),
-                          fontFamily: "Poppins",
-                          fontSize: 14,
-                          color: Palette.seccomponent)
+                      if (context.watch<MenuProvider>().pay == "Con tarjeta")
+                        CustomText(
+                            text: "Cambio: \$0",
+                            fontFamily: "Poppins",
+                            fontSize: 14,
+                            color: Palette.seccomponent),
+                      if (context.watch<MenuProvider>().pay != "Con tarjeta")
+                        CustomText(
+                            text: "Cambio: \$" +
+                                (int.parse(context.watch<MenuProvider>().pay) -
+                                        (context
+                                                .watch<MenuProvider>()
+                                                .subtotal +
+                                            5000))
+                                    .toString(),
+                            fontFamily: "Poppins",
+                            fontSize: 14,
+                            color: Palette.seccomponent)
                     ],
                   )
                 ],
@@ -173,11 +188,23 @@ class Order_Review extends StatelessWidget {
               const Spacer(),
               Custombotontxt(
                   funcion: () {
+                    Database.deleteCart(usuario: context.read<UserProvider>().customUser.uid);
+                    final snackbar = SnackBar(
+                  content: CustomText(
+                      text: "Pedido Exitoso",
+                      fontFamily: "Poppins",
+                      fontSize: 12,
+                      color: Palette.complement),
+                  backgroundColor: Palette.primary);
+
+              ScaffoldMessenger.of(context)
+                ..removeCurrentSnackBar()
+                ..showSnackBar(snackbar);
                     Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) {
-                          return const Order_Review();
+                          return const HomePage();
                         },
                       ),
                     );

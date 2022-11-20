@@ -57,15 +57,19 @@ class Database {
     return bebidasItemCollection.snapshots();
   }
 
-
   static Stream<QuerySnapshot> readCart({required String usuario}) {
     CollectionReference cartItemCollection =
-       _mainUserCollection.doc(usuario).collection("Cart");
+        _mainUserCollection.doc(usuario).collection("Cart");
     return cartItemCollection.snapshots();
   }
 
-  static Future<void> addItem({required String Img, required String Nombre, required String Precio, required String usuario}) async {
-    DocumentReference documentReferencer = _mainUserCollection.doc(usuario).collection("Cart").doc();
+  static Future<void> addItem(
+      {required String Img,
+      required String Nombre,
+      required String Precio,
+      required String usuario}) async {
+    DocumentReference documentReferencer =
+        _mainUserCollection.doc(usuario).collection("Cart").doc();
 
     Map<String, dynamic> data = <String, dynamic>{
       "Nombre": Nombre,
@@ -80,7 +84,12 @@ class Database {
         .catchError((e) => log(e));
   }
 
-  static Future<void> updateItem({required String Img, required String Nombre, required String Precio, required String usuario, required int Cantidad,
+  static Future<void> updateItem(
+      {required String Img,
+      required String Nombre,
+      required String Precio,
+      required String usuario,
+      required int Cantidad,
       required String docId}) async {
     DocumentReference documentReferencer =
         _mainUserCollection.doc(usuario).collection("Cart").doc(docId);
@@ -96,15 +105,30 @@ class Database {
         .update(data)
         .whenComplete(() => log("Cart item updated in the database"))
         .catchError((e) => log(e));
-      }
+  }
 
-  static Future<void> deleteItem({required String docId, required String usuario}) async {
+  static Future<void> deleteItem(
+      {required String docId, required String usuario}) async {
     DocumentReference documentReferencer =
-       _mainUserCollection.doc(usuario).collection("Cart").doc(docId);
+        _mainUserCollection.doc(usuario).collection("Cart").doc(docId);
 
     await documentReferencer
         .delete()
         .whenComplete(() => print('Cart item deleted from the database'))
         .catchError((e) => print(e));
+  }
+
+  static Future<void> deleteCart({required String usuario}) async {
+    QuerySnapshot<Map<String, dynamic>> query = await FirebaseFirestore.instance
+        .collection("User")
+        .doc(usuario)
+        .collection("Cart")
+        .get();
+    for (var item in query.docs) {
+      item.reference
+          .delete()
+          .whenComplete(() => print('Cart deleted from the database'))
+          .catchError((e) => print(e));
+    }
   }
 }
