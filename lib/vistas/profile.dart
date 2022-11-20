@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:proyectosoft/Provider/UserProvider.dart';
 import 'package:proyectosoft/util/Palette.dart';
+import 'package:proyectosoft/vistas/ChangeData.dart';
+import 'package:proyectosoft/widgets/custom_botontxt.dart';
 import 'package:proyectosoft/widgets/custom_text.dart';
 import 'package:proyectosoft/widgets/perfil_text.dart';
 
@@ -83,6 +85,27 @@ class profile extends StatelessWidget {
                 info: "",
                 tick: 0.0000001,
               ),
+              SizedBox(
+                height: screenheight * 0.1,
+              ),
+              Custombotontxt(
+                  funcion: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) {
+                          return const ChangeData();
+                        },
+                      ),
+                    );
+                  },
+                  color: Palette.secondary,
+                  text: "Editar perfil",
+                  color2: Palette.primary,
+                  x: screenwidth * 0.8,
+                  y: screenheight * 0.05,
+                  border: 30,
+                  tamtxt: 18)
             ],
           ),
         ),

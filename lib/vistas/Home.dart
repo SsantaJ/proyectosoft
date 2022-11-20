@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
@@ -34,7 +35,7 @@ class _HomePageState extends State<HomePage> {
         data: NavigationBarThemeData(
             indicatorColor: Colors.transparent,
             labelTextStyle: MaterialStateProperty.all(
-                TextStyle(color: Palette.secondary, fontSize: 12))),
+                const TextStyle(color: Palette.secondary, fontSize: 12))),
         child: NavigationBar(
           destinations: const [
             NavigationDestination(
@@ -76,6 +77,7 @@ class Home extends StatelessWidget {
   Home({Key? key}) : super(key: key);
 
   final ignorar = TextEditingController();
+  Future<QuerySnapshot>? postDocumentList;
 
   @override
   Widget build(BuildContext context) {
@@ -96,14 +98,126 @@ class Home extends StatelessWidget {
               SizedBox(
                 height: (screenheight * 0.1),
               ),
-              CustomTextField(
+              SizedBox(
+                width: screenwidth * 0.85,
+                height: screenheight * 0.065,
+                child: DecoratedBox(
+                  decoration: BoxDecoration(
+                      color: const Color(0XFFEFE5B3),
+                      borderRadius: BorderRadius.circular(30)),
+                  child: TextField(
+                    controller: ignorar,
+                    obscureText: false,
+                    decoration: const InputDecoration(
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular((30))),
+                        borderSide: BorderSide(color: Colors.black, width: 0.1),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular((30))),
+                        borderSide: BorderSide(
+                          color: Palette.secondary,
+                          width: 2,
+                        ),
+                      ),
+                      iconColor: Colors.white,
+                      labelText: "Busca tu plato",
+                      labelStyle: TextStyle(
+                        color: Color.fromARGB(92, 61, 61, 61),
+                      ),
+                    ),
+                    onChanged: (val) {
+                      String name = val;
+                      StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection("Platos")
+                            .snapshots(),
+                        builder: (context, snapshots) {
+                          return (snapshots.connectionState ==
+                                  ConnectionState.waiting)
+                              ? const Center(
+                                  child: CircularProgressIndicator(),
+                                )
+                              : ListView.builder(
+                                  itemCount: snapshots.data!.docs.length,
+                                  itemBuilder: ((context, index) {
+                                    var data = snapshots.data!.docs[index]
+                                        .data() as Map<String, dynamic>;
+                                    if (name.isEmpty) {
+                                      return ListTile(
+                                        title: Text(
+                                          data['Nombre'],
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        subtitle: Text(
+                                          data['Precio'],
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                        leading: CircleAvatar(
+                                          backgroundImage:
+                                              NetworkImage(data['Img']),
+                                        ),
+                                      );
+                                    }
+                                    if (data['Nombre']
+                                        .toString()
+                                        .toLowerCase()
+                                        .startsWith(name.toLowerCase())) {
+                                      return ListTile(
+                                        title: Text(
+                                          data['Nombre'],
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                              color: Colors.black,
+                                              fontSize: 17,
+                                              fontWeight: FontWeight.bold),
+                                        ),
+                                        subtitle: Text(
+                                          data['Precio'],
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                        ),
+                                        leading: CircleAvatar(
+                                          backgroundImage:
+                                              NetworkImage(data['img']),
+                                        ),
+                                      );
+                                      return Container();
+                                    }
+                                    throw Exception;
+                                  }),
+                                );
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ),
+              /* CustomTextField(
                   obs: false,
                   text: "Busca tu plato",
                   x: screenwidth * 0.85,
                   y: screenheight * 0.065,
                   color: Colors.white,
-                  colorbg: Color(0XFFEFE5B3),
-                  controlador: ignorar),
+                  colorbg: const Color(0XFFEFE5B3),
+                  controlador: ignorar), */
               SizedBox(
                 height: screenheight * 0.02,
               ),
@@ -120,14 +234,14 @@ class Home extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return const menu();
+                                  return menu();
                                 },
                               ),
                             );
                           },
                           ax: 0,
                           ay: 0,
-                          color: Color(0XFFEFE5B3),
+                          color: const Color(0XFFEFE5B3),
                           img: "assets/imgs/coffee.png",
                           color2: Palette.transparent,
                           x: screenwidth * 0.21,
@@ -154,7 +268,7 @@ class Home extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return const menu();
+                                  return menu();
                                 },
                               ),
                             );
@@ -187,14 +301,14 @@ class Home extends StatelessWidget {
                               context,
                               MaterialPageRoute(
                                 builder: (context) {
-                                  return const menu();
+                                  return menu();
                                 },
                               ),
                             );
                           },
                           ax: 0,
                           ay: 0,
-                          color: Color(0XFFEFE5B3),
+                          color: const Color(0XFFEFE5B3),
                           img: "assets/imgs/piece.png",
                           color2: Palette.transparent,
                           x: screenwidth * 0.21,
@@ -236,11 +350,12 @@ class Home extends StatelessWidget {
                   Custombotonf(
                       text: "Hamburguesas",
                       funcion: () {
+                        context.read<MenuProvider>().filloption("Hamburguesas");
                         Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return const menu();
+                              return menu();
                             },
                           ),
                         );
@@ -263,7 +378,7 @@ class Home extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return const menu();
+                              return menu();
                             },
                           ),
                         );
@@ -294,7 +409,7 @@ class Home extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return const menu();
+                              return menu();
                             },
                           ),
                         );
@@ -317,7 +432,7 @@ class Home extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) {
-                              return const menu();
+                              return menu();
                             },
                           ),
                         );

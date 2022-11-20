@@ -8,7 +8,6 @@ class UserProvider with ChangeNotifier {
     uid: '',
     email: '',
     userName: '',
-    Adress: '',
   ); //Nuestro objeto a llenar, se encuentra en la carpeta model, es nuestro objeto User (le puse Custom antes porque FirebaseAuth tiene ya una clase User)
 
   CustomUser get customUser => _customUser; //getter simple
@@ -29,7 +28,6 @@ class UserProvider with ChangeNotifier {
       _customUser.email = user.email;
       _customUser.uid = user.uid;
       _customUser.userName = user.userName ?? '';
-      _customUser.Adress = user.adress;
       //en este caso llenamos los datos del user
     });
 
@@ -42,7 +40,6 @@ class UserProvider with ChangeNotifier {
     _customUser.email = user.email;
     _customUser.uid = user.uid;
     _customUser.userName = user.userName ?? '';
-    _customUser.Adress = user.Adress;
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       notifyListeners();
@@ -54,7 +51,6 @@ class UserProvider with ChangeNotifier {
     _customUser.email = '';
     _customUser.uid = '';
     _customUser.userName = '';
-    _customUser.Adress = '';
     notifyListeners();
   }
 }

@@ -99,7 +99,7 @@ class SignUP extends StatelessWidget {
               color: Colors.white,
               colorbg: Colors.white,
               controlador: ignorar),
-          SizedBox(
+          /* SizedBox(
             height: (screenheight * 0.02),
           ),
           CustomTextField(
@@ -109,7 +109,7 @@ class SignUP extends StatelessWidget {
               y: screenheight * 0.065,
               color: Colors.white,
               colorbg: Colors.white,
-              controlador: _adressController),
+              controlador: _adressController), */
           SizedBox(
             height: (screenheight * 0.03),
           ),
